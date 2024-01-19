@@ -5,6 +5,8 @@ export default defineConfig({
   description: 'for software apprenticeships',
   srcDir: 'src',
   themeConfig: {
+    logo: '/logo.png',
+
     nav: [
       {
         text: 'Languages',

@@ -4,15 +4,18 @@ layout: home
 
 hero:
   name: 'Corndel'
-  text: 'Software developer'
-  tagline: Level 4
+  text: 'Technical documentation'
+  tagline: 'For digital apprenticeships'
+  image:
+    src: /logo.png
+    alt: Corndel
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Action 1
+      link: /
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Action 2
+      link: /
 
 features:
   - title: Feature A
