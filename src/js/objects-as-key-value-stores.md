@@ -22,7 +22,9 @@ const book = {
 }
 ```
 
-We can see that a JavaScript object is made up properties - pairs of keys and values.
+We can see that a JavaScript object is made up of properties - pairs of keys and values.
+
+The value of an object property can be pretty much anything. In our example book, we've got a string, a number, and a boolean.
 
 ## Accessing object properties
 
@@ -103,6 +105,8 @@ const book = {
 }
 
 console.log(book['title']) // The Handmaid's Tale
+
+book['isAvailable'] = false
 ```
 
 Note the quotes around the key, which makes the key a string.

@@ -31,8 +31,8 @@ export const javascript = [
       { text: 'Iteration' },
 
       { text: 'Objects as key value stores', link: '/js/objects-as-key-value-stores.md' },
-      { text: 'Object methods' },
-      { text: 'Advanced object manipulation' }
+      { text: 'Lists of Objects', link: '/js/lists-of-objects.md' },
+      { text: 'Object Nesting', link: '/js/object-nesting.md' },
     ]
   },
 
