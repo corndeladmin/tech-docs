@@ -1,5 +1,7 @@
 # Lists of objects
 
+## Storing objects in a list
+
 Frequently, we'll want to store a list of objects. The ease of use of objects and the utility of lists mean that we'll often combine the two.
 
 E.g. A library will store a list of books, employees, and users.
@@ -134,8 +136,8 @@ Here are a couple more examples of filtering data.
 
 ```js
 const unavailableBooks = books.filter(book => !book.isAvailable)
-
-const booksByMargaretAtwood = books.filter(book => book.author === 'Margaret Atwood')
+const booksByMargaretAtwood = 
+  books.filter(book => book.author === 'Margaret Atwood')
 ```
 
 ## Sorting data
@@ -146,11 +148,15 @@ This method takes a _comparison function_ as an argument.
 
 This function should take two arguments and return a number.
 
+The number returned by the function determines the order of the two arguments.
+
 | return value | sort order |
 | - | - |
 | > 0 | sort a after b |
 | < 0 | sort a before b |
 | === 0 | keep original order |
+
+Here is how we might sort the books by year, from oldest to newest.
 
 ```js
 const books = [
@@ -191,7 +197,15 @@ const books = [
   },
 ]
 
-const sortedByYear = books.sort((book1, book2) => book1.year - book2.year)
+function compareBooksByYear(book1, book2) {
+  return book1.year - book2.year
+}
+
+const sortedByYearAscending = books.sort(compareBooksByYear)
+
+// We can also write this out using arrow notation.
+const sortedByYearAscending2 = 
+  books.sort((book1, book2) => book1.year - book2.year)
 ```
 
 TODO: Sort by title
