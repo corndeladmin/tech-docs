@@ -129,3 +129,47 @@ const property = 'title'
 
 console.log(book[property]) // The Handmaid's Tale
 ```
+
+## Object shorthand
+
+There is a nice shorthand for creating objects. We often use this when we've already defined some variables that we want to use as properties.
+
+```js
+const title = 'The Handmaid\'s Tale'
+const author = 'Margaret Atwood'
+
+const book = {
+  title,
+  author,
+  year: 1985,
+  isbn: '9780099740919',
+  isAvailable: true,
+}
+```
+
+## Object destructuring
+
+There is a similarly nice shorthand for extracting properties from an object.
+
+Say we want to read the title and author of a book, and assign them to variables.
+
+```js
+const book = {
+  title: 'The Handmaid\'s Tale',
+  author: 'Margaret Atwood',
+  year: 1985,
+  isbn: '9780099740919',
+  isAvailable: true,
+}
+
+const { title, author } = book
+
+console.log(title) // The Handmaid's Tale
+console.log(author) // Margaret Atwood
+```
+
+We see this used very often when importing modules:
+
+```js
+import { readFile } from 'fs'
+```
