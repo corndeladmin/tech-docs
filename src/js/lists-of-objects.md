@@ -46,8 +46,64 @@ const books = [
 
 ```
 
-## Filtering lists of objects
+We can see that we have several objects, each representing a book. 
+
+We can access the properties of each book in the same way as we would for a single object.
+
+```js
+const books = [
+  {
+    title: 'The Handmaid\'s Tale',
+    author: 'Margaret Atwood',
+    year: 1985,
+    isbn: '9780099740919',
+    isAvailable: true,
+  },
+  /* ... other books ... */
+  {
+    title: 'The Design of Everyday Things',
+    author: 'Don Norman',
+    year: 1988,
+    isbn: '9780465050659',
+    isAvailable: true,
+  },
+]
+
+console.log(books[0].title) // The Handmaid's Tale
+```
+
+
+## Filtering and sorting
+
+TODO: Filter by availability
+
+TODO: Filter by author
+
+TODO: Sort by year
+
+TODO: Sort by title
 
 ## Transforming data
 
+Chaining Map 
+
+TODO: Map titles
+
+TODO: Map titles, then translate to pig latin
+
+## Aggregating data
+
+Reduce
+
+TODO: Count all books
+
+TODO: Minimum year
+
+### Chaining transformations
+
+Chaining filter, map, and reduce
+
+TODO: Count available books
+
+TODO: Count books by author
 

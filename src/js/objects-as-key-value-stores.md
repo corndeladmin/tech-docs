@@ -85,6 +85,8 @@ const book = {
 }
 
 book.borrower = 'Andy'
+
+console.log(book.borrower) // Andy
 ```
 
 We've just added a new property `borrower` to the `book` object, and set its value to `Andy`.
@@ -122,7 +124,7 @@ const book = {
   isAvailable: true,
 }
 
-const property = 'title'
+const property = 'title' // Note that this string matches the title key in the book object
 
 console.log(book[property]) // The Handmaid's Tale
 ```
