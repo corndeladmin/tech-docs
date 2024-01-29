@@ -21,6 +21,7 @@ const books = [
     year: 2003,
     isbn: '9780385721677',
     isAvailable: true,
+  },
   {
     title: 'Brave New World',
     author: 'Aldous Huxley',
@@ -59,7 +60,7 @@ const books = [
     isbn: '9780099740919',
     isAvailable: true,
   },
-  /* ... other books ... */
+/* ... other books ... */
   {
     title: 'The Design of Everyday Things',
     author: 'Don Norman',
@@ -73,13 +74,125 @@ console.log(books[0].title) // The Handmaid's Tale
 ```
 
 
-## Filtering and sorting
+## Filtering data
 
-TODO: Filter by availability
+### Filtering by availability
 
-TODO: Filter by author
+Let's say we want to find all the books that are available.
 
-TODO: Sort by year
+We can use the `filter` method to do this.
+
+The `filter` method takes a function as an argument. This function should return a boolean value.
+
+We often use arrow notation to define this function.
+
+```js
+const books = [
+  {
+    title: 'The Handmaid\'s Tale',
+    author: 'Margaret Atwood',
+    year: 1985,
+    isbn: '9780099740919',
+    isAvailable: true,
+  },
+  {
+    title: 'Oryx and Crake',
+    author: 'Margaret Atwood',
+    year: 2003,
+    isbn: '9780385721677',
+    isAvailable: true,
+  },
+  {
+    title: 'Brave New World',
+    author: 'Aldous Huxley',
+    year: 1932,
+    isbn: '9780060929879',
+    isAvailable: false,
+  },
+  {
+    title: 'The Geometry of Type',
+    author: 'Stephen Coles',
+    year: 2013,
+    isbn: '9780500241424',
+    isAvailable: true,
+  },
+  {
+    title: 'The Design of Everyday Things',
+    author: 'Don Norman',
+    year: 1988,
+    isbn: '9780465050659',
+    isAvailable: true,
+  },
+]
+
+const availableBooks = books.filter(book => book.isAvailable)
+```
+
+We've used arrow notation to define a function that takes a book as an argument and returns its availablility `book.isAvailable`.
+
+Here are a couple more examples of filtering data.
+
+```js
+const unavailableBooks = books.filter(book => !book.isAvailable)
+
+const booksByMargaretAtwood = books.filter(book => book.author === 'Margaret Atwood')
+```
+
+## Sorting data
+
+We can use the `sort` array method to sort the list of books.
+
+This method takes a _comparison function_ as an argument.
+
+This function should take two arguments and return a number.
+
+| return value | sort order |
+| - | - |
+| > 0 | sort a after b |
+| < 0 | sort a before b |
+| === 0 | keep original order |
+
+```js
+const books = [
+  {
+    title: 'The Handmaid\'s Tale',
+    author: 'Margaret Atwood',
+    year: 1985,
+    isbn: '9780099740919',
+    isAvailable: true,
+  },
+  {
+    title: 'Oryx and Crake',
+    author: 'Margaret Atwood',
+    year: 2003,
+    isbn: '9780385721677',
+    isAvailable: true,
+  },
+  {
+    title: 'Brave New World',
+    author: 'Aldous Huxley',
+    year: 1932,
+    isbn: '9780060929879',
+    isAvailable: false,
+  },
+  {
+    title: 'The Geometry of Type',
+    author: 'Stephen Coles',
+    year: 2013,
+    isbn: '9780500241424',
+    isAvailable: true,
+  },
+  {
+    title: 'The Design of Everyday Things',
+    author: 'Don Norman',
+    year: 1988,
+    isbn: '9780465050659',
+    isAvailable: true,
+  },
+]
+
+const sortedByYear = books.sort((book1, book2) => book1.year - book2.year)
+```
 
 TODO: Sort by title
 

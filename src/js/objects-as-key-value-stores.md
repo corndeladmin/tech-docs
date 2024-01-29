@@ -124,7 +124,8 @@ const book = {
   isAvailable: true,
 }
 
-const property = 'title' // Note that this string matches the title key in the book object
+// Note that this string matches the title key in the book object
+const property = 'title' 
 
 console.log(book[property]) // The Handmaid's Tale
 ```
