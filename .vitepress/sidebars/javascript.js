@@ -30,8 +30,9 @@ export const javascript = [
       { text: 'For loops' },
       { text: 'Iteration' },
 
-      { text: 'Objects as key value stores' },
-      { text: 'Object methods' }
+      { text: 'Objects as key value stores', link: '/js/objects-as-key-value-stores.md' },
+      { text: 'Object methods' },
+      { text: 'Advanced object manipulation' }
     ]
   },
 
