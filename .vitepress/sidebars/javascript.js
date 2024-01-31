@@ -26,13 +26,13 @@ export const javascript = [
       { text: 'Array methods', link: '/js/array-methods' },
       { text: 'String methods', link: '/js/string-methods' },
 
-      { text: 'While loops' },
-      { text: 'For loops' },
-      { text: 'Iteration' },
+      { text: 'Loops', link: '/js/loops' },
+      { text: 'Control flow', link: '/js/control-flow' },
+      { text: 'Iteration', link: '/js/iteration' },
 
-      { text: 'Objects as key value stores', link: '/js/objects-as-key-value-stores.md' },
-      { text: 'Lists of Objects', link: '/js/lists-of-objects.md' },
-      { text: 'Object Nesting', link: '/js/object-nesting.md' },
+      { text: 'Objects as key value stores', link: '/js/objects-as-key-value-stores' },
+      { text: 'Lists of Objects', link: '/js/lists-of-objects' },
+      { text: 'Object Nesting', link: '/js/object-nesting' },
     ]
   },
 
