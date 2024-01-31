@@ -13,24 +13,42 @@ export default defineConfig({
         text: 'Guides',
         items: [
           {
-            text: 'Bash',
-            link: '/bash/'
+            text: 'Core',
+            items: [
+              {
+                text: 'Command line',
+                link: '/command-line/'
+              },
+              {
+                text: 'HTML & CSS',
+                link: '/html-css/'
+              },
+              {
+                text: 'SQL',
+                link: '/sql/'
+              }
+            ]
           },
           {
-            text: 'Javascript',
-            link: '/js/'
-          },
-          {
-            text: 'Python',
-            link: '/python/'
-          },
-          {
-            text: 'SQL',
-            link: '/sql/'
-          },
-          {
-            text: 'HTML & CSS',
-            link: '/html-css/'
+            text: 'Languages',
+            items: [
+              {
+                text: 'Javascript',
+                link: '/js/'
+              },
+              {
+                text: 'Python',
+                link: '/python/'
+              },
+              {
+                text: 'C#',
+                link: '/csharp/'
+              },
+              {
+                text: 'Java',
+                link: '/java/'
+              }
+            ]
           }
         ]
       },
