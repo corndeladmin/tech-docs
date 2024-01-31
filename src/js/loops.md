@@ -18,41 +18,56 @@ Let's say we're working on a program that handles a messaging service.
 
 Here is an example of a while loop that prints out messages to the console from an inbox until there are no more messages left.
 
-```js
-// Don't worry about understanding this inbox object fully!
-const inbox = {
-  messages: [
-      { from: 'John', content: 'Hi there, nice to meet you!' },
-      { from: 'Marie', content: 'Let\'s talk about your car\'s extended warranty.' },
-      { from: 'Adam', content: 'Drinks tonight?' },
-      { from: 'Eve', content: 'I just bought the tickets!' },
-  ],
+::: code-group
 
-  readNextMessage() { return this.messages.shift() },
-  hasMessages() { return this.messages.length > 0 },
-}
+```js
+const messages = [
+  'Zoja: Hi there, nice to meet you!',
+  'Svetlana: Let\'s talk about your car\'s extended warranty.',
+  'Rufus: Drinks tonight?',
+  'Malak: I just bought the tickets!',
+]
 
 // Print out all messages in the inbox
-while (inbox.hasMessages()) {
-  const message = inbox.readNextMessage()
-  console.log(`New message from ${message.from}: ${message.content}`)
+while (messages.length > 0) {
+  console.log(messages.shift())
 }
 ```
 
-::: details Output
+```txt [output]
+Zoja: Hi there, nice to meet you!
+Svetlana: Let's talk about your car's extended warranty.
+Rufus: Drinks tonight?
+Malak: I just bought the tickets!
 ```
-New message from John: Hi there, nice to meet you!
-New message from Marie: Let's talk about your car's extended warranty.
-New message from Adam: Drinks tonight?
-New message from Eve: I just bought the tickets!
-```
+
 :::
+
+Note that this loop removes the messages from the inbox as it prints them out. We can iterate through the messages without removing them like so:
+
+```js
+const messages = [
+  'Zoja: Hi there, nice to meet you!',
+  'Svetlana: Let\'s talk about your car\'s extended warranty.',
+  'Rufus: Drinks tonight?',
+  'Malak: I just bought the tickets!',
+]
+
+// Print out all messages in the inbox
+let i = 0
+while (i < messages.length) {
+  console.log(messages[i])
+  i++
+}
+```
+
+This pattern of incrementing a variable is very common, so there's another type of loop that makes this easier to write. These are called `for` loops.
 
 ## For loops
 
 ### Syntax
 
-For loops are used to execute a block of code a specified number of times.
+For loops are often used to execute a block of code a specified number of times.
 
 They usually look like the below:
 
@@ -62,4 +77,77 @@ for (let i = 0; i < 100; i++) {
 }
 ```
 
-## For ... of loops
+Let's break down the syntax a bit:
+
+- `let i = 0` - This is the initialization. We're declaring a variable `i` and setting it to `0`.
+- `i < 100` - This is the condition. The loop will continue to run as long as this condition is true.
+- `i++` - This is the final expression. It will be executed after each iteration of the loop. In this case, we're incrementing `i` by 1.
+
+### Example
+
+Let's iterate through our messages again, but this time using a for loop.
+
+::: code-group
+
+```js
+const messages = [
+  'Zoja: Hi there, nice to meet you!',
+  'Svetlana: Let\'s talk about your car\'s extended warranty.',
+  'Rufus: Drinks tonight?',
+  'Malak: I just bought the tickets!',
+]
+
+// Print out all messages in the inbox
+for (let i = 0; i < messages.length; i++) {
+  console.log(messages[i])
+}
+```
+
+```txt [output]
+Zoja: Hi there, nice to meet you!
+Svetlana: Let's talk about your car's extended warranty.
+Rufus: Drinks tonight?
+Malak: I just bought the tickets!
+```
+
+:::
+
+In contrast to the while loop, this loop does not remove the messages from the inbox.
+
+## Using `for ... of` syntax
+
+### Syntax
+
+This is a nice shorthand for iterating over a list.
+
+```js
+for (const item of list) {
+  // code block to be executed
+}
+```
+
+We can use this to iterate over our messages like so:
+
+::: code-group
+
+```js
+const messages = [
+  'Zoja: Hi there, nice to meet you!',
+  'Svetlana: Let\'s talk about your car\'s extended warranty.',
+  'Rufus: Drinks tonight?',
+  'Malak: I just bought the tickets!',
+]
+
+for (const message of messages) {
+  console.log(message)
+}
+```
+
+```txt [output]
+Zoja: Hi there, nice to meet you!
+Svetlana: Let's talk about your car's extended warranty.
+Rufus: Drinks tonight?
+Malak: I just bought the tickets!
+```
+
+:::
