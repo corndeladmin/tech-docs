@@ -10,8 +10,12 @@ export default defineConfig({
 
     nav: [
       {
-        text: 'Languages',
+        text: 'Guides',
         items: [
+          {
+            text: 'Bash',
+            link: '/bash/'
+          },
           {
             text: 'Javascript',
             link: '/js/'
@@ -46,6 +50,7 @@ export default defineConfig({
     ],
 
     sidebar: {
+      '/bash/': sidebars.bash,
       '/js/': sidebars.javascript
     },
 
