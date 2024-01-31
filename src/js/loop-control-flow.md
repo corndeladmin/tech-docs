@@ -80,7 +80,7 @@ This is useful if we want to stop iterating through a list once we've found what
 
 Perhaps we're looking for a message from a particular person, and we want to stop iterating through the list once we've found it.
 
-Let's say we're looking for a message from Rufus.
+Let's say we're looking for the first message from Rufus.
 
 ::: code-group
 
@@ -106,3 +106,5 @@ Rufus: Drinks tonight?
 ```
 
 :::
+
+This saves from having to iterate through the rest of the messages once we've found the one we're looking for.

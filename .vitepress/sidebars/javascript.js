@@ -28,7 +28,7 @@ export const javascript = [
 
       { text: 'Basic loops', link: '/js/basic-loops' },
       { text: 'Loop control flow', link: '/js/loop-control-flow' },
-      { text: 'Loops and iteration', link: '/js/loops-and-iteration' },
+      { text: 'Applied iteration', link: '/js/applied-iteration' },
 
       { text: 'Objects as key value stores', link: '/js/objects-as-key-value-stores' },
       { text: 'Lists of Objects', link: '/js/lists-of-objects' },
