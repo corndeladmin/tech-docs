@@ -26,9 +26,9 @@ export const javascript = [
       { text: 'Array methods', link: '/js/array-methods' },
       { text: 'String methods', link: '/js/string-methods' },
 
-      { text: 'Loops', link: '/js/loops' },
-      { text: 'Control flow', link: '/js/control-flow' },
-      { text: 'Iteration', link: '/js/iteration' },
+      { text: 'Basic loops', link: '/js/basic-loops' },
+      { text: 'Loop control flow', link: '/js/loop-control-flow' },
+      { text: 'Loops and iteration', link: '/js/loops-and-iteration' },
 
       { text: 'Objects as key value stores', link: '/js/objects-as-key-value-stores' },
       { text: 'Lists of Objects', link: '/js/lists-of-objects' },

@@ -1,4 +1,4 @@
-# Loops
+# Basic loops
 
 ## While loops
 
@@ -112,13 +112,13 @@ Malak: I just bought the tickets!
 
 :::
 
-In contrast to the while loop, this loop does not remove the messages from the inbox.
+We can see the similarity between the `for` loop and the while loop. The `for` loop is a bit more concise, and it's easier to see the initialization, condition, and final expression all in one place.
 
 ## Using `for ... of` syntax
 
 ### Syntax
 
-This is a nice shorthand for iterating over a list.
+We'll regularly iterate through lists and other similar structures. There's a nicer syntax to do this called `for ... of`.
 
 ```js
 for (const item of list) {
