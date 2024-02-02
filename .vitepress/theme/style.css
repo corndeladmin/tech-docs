@@ -31,3 +31,11 @@
     --vp-home-hero-image-filter: blur(68px);
   }
 }
+
+/* Customisations */
+
+.vp-doc table {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
