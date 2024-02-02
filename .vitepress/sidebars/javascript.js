@@ -1,6 +1,11 @@
 export const javascript = [
   {
-    text: 'Introduction'
+    text: 'Introduction',
+    link: '/js/introduction'
+  },
+  {
+    text: 'Installation',
+    link: '/js/installation'
   },
   {
     text: 'Pre-reading',
@@ -59,12 +64,12 @@ export const javascript = [
     text: 'OOP',
     // collapsed: true,
     items: [
-      { text: 'Classes and instances' },
-      { text: 'Methods' },
-      { text: 'Getters and setters' },
-      { text: 'Private properties' },
-      { text: 'Static properties' },
-      { text: 'Inheritance' },
+      { text: 'Classes and instances', link: '/js/classes-and-instances' },
+      { text: 'Instance Methods', link: '/js/instance-methods' },
+      { text: 'Private properties', link: '/js/private-properties.md' },
+      { text: 'Getters and setters', link: '/js/getters-and-setters.md' },
+      { text: 'Static properties', link: '/js/static-properties.md' },
+      { text: 'Inheritance', link: '/js/inheritance.md' },
       { text: 'Overriding and customisation' }
     ]
   },
