@@ -40,9 +40,6 @@ The installation method varies a bit depending on your operating system.
    install Node.js. The installer includes Node.js and npm (Node Package
    Manager).
 
-1. **Verify Installation**: Open Command Prompt and type `node -v` and `npm -v`
-   to verify the installation of Node.js and npm, respectively.
-
 ### macOS
 
 1. **Download the Installer**: Visit the Node.js website and download the macOS
@@ -51,25 +48,19 @@ The installation method varies a bit depending on your operating system.
 1. **Run the Installer**: Open the package and follow the instructions to
    install Node.js and npm.
 
-1. **Verify Installation**: Open the Terminal and run `node -v` and `npm -v` to
-   check the installation of Node.js and npm.
-
 ### Linux
 
 For Linux, the process can vary slightly depending on the distribution, but
 here's a general approach:
 
-1. **Using a Package Manager**: For most Linux distros, you can install Node.js
-   via a package manager. For example, on Ubuntu, you can use:
+**Using a Package Manager**: For most Linux distros, you can install Node.js via
+a package manager. For example, on Ubuntu, you can use:
 
-   ```bash
-   sudo apt update
-   sudo apt install nodejs
-   sudo apt install npm
-   ```
-
-1. **Verify Installation**: Run `node -v` and `npm -v` in the terminal to
-   confirm the installation.
+```bash
+sudo apt update
+sudo apt install nodejs
+sudo apt install npm
+```
 
 ::: info
 
@@ -82,9 +73,9 @@ of different Node.js versions.
 
 ## Verify the installation
 
-As mentioned, you can run `node -v` in the terminal to print the version number
-for Node.js. You should see the version number printed in the console. If you
-do, that's great! You've successfully installed Node.
+You can run `node -v` in the terminal to print the version number for Node.js.
+You should see the version number printed in the console. If you do, that's
+great! You've successfully installed Node.
 
-Run `npm -v` to print the version number for `npm`. If you see it, the npm is
+Run `npm -v` to print the version number for `npm`. If you see it, then npm is
 installed successfully too.
