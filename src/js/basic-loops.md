@@ -1,10 +1,9 @@
 # Basic loops
 
-## While loops
+## while loops
 
-### Syntax
-
-While loops are used to execute a block of code as long as a condition is true.
+`while` loops are used to execute a block of code as long as a condition is
+true.
 
 ```js
 while (condition) {
@@ -12,29 +11,101 @@ while (condition) {
 }
 ```
 
-### Example
+**Condition**: This is a boolean expression (i.e., something that evaluates to
+true or false). It is checked each time before repeating the code block.
+
+**Code block**: The set of instructions that will be executed repeatedly as long
+as the condition holds true.
+
+## Examples
+
+### Printing numbers
+
+This very simple `while` loop just prints some numbers.
+
+::: tip
+
+Make sure to click **output** to see what this prints to the console. Copy and
+paste the code, change a few things and run it locally to experiment.
+
+:::
+
+::: code-group
+
+```js
+let i = 1
+
+while (i < 6) {
+  console.log(i)
+  i++ // increase i by 1 at the end of each loop
+}
+
+console.log('Done!')
+```
+
+```[output]
+1
+2
+3
+4
+5
+Done!
+```
+
+:::
+
+The `i++` is equivalent to `i = i + 1` in javascript. It is very important as it
+guarantees the condition `i < 6` eventually fails.
+
+### Adding up
+
+Suppose we want to add all the odd numbers less than `100`.
+
+::: code-group
+
+```js
+let n = 1
+let total = 0 // we'll collect our answer here
+
+while (n < 100) {
+  total += n
+  n += 2 // so n stays odd
+}
+
+console.log(total)
+```
+
+```[output]
+2500
+```
+
+:::
+
+## Looping through an array
 
 Let's say we're working on a program that handles a messaging service.
 
-Here is an example of a while loop that prints out messages to the console from an inbox until there are no more messages left.
+Here is a loop which prints all the messages from an inbox to the console:
 
 ::: code-group
 
 ```js
-const messages = [
+const inbox = [
   'Zoja: Hi there, nice to meet you!',
-  'Svetlana: Let\'s talk about your car\'s extended warranty.',
+  "Svetlana: Let's talk about your car's extended warranty.",
   'Rufus: Drinks tonight?',
-  'Malak: I just bought the tickets!',
+  'Malak: I just bought the tickets!'
 ]
 
-// Print out all messages in the inbox
-while (messages.length > 0) {
-  console.log(messages.shift())
+let i = 0 // the initial index
+
+while (i < inbox.length) {
+  console.log(inbox[i]) // print the message
+  i++ // increase the index by 1
 }
 ```
 
-```txt [output]
+```[output]
 Zoja: Hi there, nice to meet you!
 Svetlana: Let's talk about your car's extended warranty.
 Rufus: Drinks tonight?
@@ -43,111 +114,94 @@ Malak: I just bought the tickets!
 
 :::
 
-Note that this loop removes the messages from the inbox as it prints them out. We can iterate through the messages without removing them like so:
+Because `i` is being increased by `1` each time the loop executes, the condition
+`i < messages.length` will eventually become false (once all messages have been
+printed).
 
-```js
-const messages = [
-  'Zoja: Hi there, nice to meet you!',
-  'Svetlana: Let\'s talk about your car\'s extended warranty.',
-  'Rufus: Drinks tonight?',
-  'Malak: I just bought the tickets!',
-]
+## Solving problems with loops
 
-// Print out all messages in the inbox
-let i = 0
-while (i < messages.length) {
-  console.log(messages[i])
-  i++
-}
-```
+Loops can be used to solve problems where we need to build up the solution
+gradually.
 
-This pattern of incrementing a variable is very common, so there's another type of loop that makes this easier to write. These are called `for` loops.
-
-## For loops
-
-### Syntax
-
-For loops are often used to execute a block of code a specified number of times.
-
-They usually look like the below:
-
-```js
-for (let i = 0; i < 100; i++) {
-  // code block to be executed
-}
-```
-
-Let's break down the syntax a bit:
-
-- `let i = 0` - This is the initialization. We're declaring a variable `i` and setting it to `0`.
-- `i < 100` - This is the condition. The loop will continue to run as long as this condition is true.
-- `i++` - This is the final expression. It will be executed after each iteration of the loop. In this case, we're incrementing `i` by 1.
-
-### Example
-
-Let's iterate through our messages again, but this time using a for loop.
+For example, how many total characters are used in the inbox? Let's find out.
 
 ::: code-group
 
 ```js
-const messages = [
+const inbox = [
   'Zoja: Hi there, nice to meet you!',
-  'Svetlana: Let\'s talk about your car\'s extended warranty.',
+  "Svetlana: Let's talk about your car's extended warranty.",
   'Rufus: Drinks tonight?',
-  'Malak: I just bought the tickets!',
+  'Malak: I just bought the tickets!'
 ]
 
-// Print out all messages in the inbox
-for (let i = 0; i < messages.length; i++) {
-  console.log(messages[i])
+let total = 0
+let i = 0 // start at index 0
+
+while (i < inbox.length) {
+  const message = inbox[i] // get the i^th message
+  total += message.length // add its length to the total
+  i++ // increment index
 }
+
+console.log(`${total} characters used!`)
 ```
 
-```txt [output]
-Zoja: Hi there, nice to meet you!
-Svetlana: Let's talk about your car's extended warranty.
-Rufus: Drinks tonight?
-Malak: I just bought the tickets!
+```[output]
+144 characters used!
 ```
 
 :::
 
-We can see the similarity between the `for` loop and the while loop. The `for` loop is a bit more concise, and it's easier to see the initialization, condition, and final expression all in one place.
+## `for` loops
 
-## Using `for ... of` syntax
-
-### Syntax
-
-We'll regularly iterate through lists and other similar structures. There's a nicer syntax to do this called `for ... of`.
-
-```js
-for (const item of list) {
-  // code block to be executed
-}
-```
-
-We can use this to iterate over our messages like so:
+There's a slightly more convenient syntax in javascript.
 
 ::: code-group
 
 ```js
-const messages = [
-  'Zoja: Hi there, nice to meet you!',
-  'Svetlana: Let\'s talk about your car\'s extended warranty.',
-  'Rufus: Drinks tonight?',
-  'Malak: I just bought the tickets!',
-]
-
-for (const message of messages) {
-  console.log(message)
+for (let i = 1; i < 6; i++) {
+  console.log(i)
 }
+
+console.log('Done!')
 ```
 
-```txt [output]
-Zoja: Hi there, nice to meet you!
-Svetlana: Let's talk about your car's extended warranty.
-Rufus: Drinks tonight?
-Malak: I just bought the tickets!
+```[output]
+1
+2
+3
+4
+5
+Done!
+```
+
+:::
+
+In this example,
+
+- `let i = 1` is executed before the loop starts
+- `i <= 10` is the condition
+- `i++` is executed at the end of each iteration
+
+The `while` loop is the most versatile, the `for` loop is concise and preferred
+for simple loops. For example, to repeat the example above which adds the odd
+numbers less than `100`, we could do
+
+::: code-group
+
+```js
+let total = 0
+
+for (let n = 1; n < 100; n += 2) {
+  total += n
+}
+
+console.log(total)
+```
+
+```[output]
+2500
 ```
 
 :::

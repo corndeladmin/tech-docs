@@ -1,6 +1,11 @@
 export const javascript = [
   {
-    text: 'Introduction'
+    text: 'Introduction',
+    link: '/js/introduction'
+  },
+  {
+    text: 'Installation',
+    link: '/js/installation'
   },
   {
     text: 'Pre-reading',
@@ -30,9 +35,13 @@ export const javascript = [
       { text: 'Loop control flow', link: '/js/loop-control-flow' },
       { text: 'Applied iteration', link: '/js/applied-iteration' },
 
-      { text: 'Objects as key value stores', link: '/js/objects-as-key-value-stores' },
-      { text: 'Lists of Objects', link: '/js/lists-of-objects' },
-      { text: 'Object Nesting', link: '/js/object-nesting' },
+      {
+        text: 'Objects as key value stores',
+        link: '/js/objects-as-key-value-stores'
+      },
+      { text: 'Lists of objects', link: '/js/lists-of-objects' },
+      { text: 'Object nesting', link: '/js/object-nesting' },
+      { text: 'Array reduce', link: '/js/array-reduce.md' }
     ]
   },
 
@@ -55,12 +64,12 @@ export const javascript = [
     text: 'OOP',
     // collapsed: true,
     items: [
-      { text: 'Classes and instances' },
-      { text: 'Methods' },
-      { text: 'Getters and setters' },
-      { text: 'Private properties' },
-      { text: 'Static properties' },
-      { text: 'Inheritance' },
+      { text: 'Classes and instances', link: '/js/classes-and-instances' },
+      { text: 'Instance Methods', link: '/js/instance-methods' },
+      { text: 'Private properties', link: '/js/private-properties.md' },
+      { text: 'Getters and setters', link: '/js/getters-and-setters.md' },
+      { text: 'Static properties', link: '/js/static-properties.md' },
+      { text: 'Inheritance', link: '/js/inheritance.md' },
       { text: 'Overriding and customisation' }
     ]
   },
