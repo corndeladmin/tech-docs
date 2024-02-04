@@ -70,7 +70,7 @@ export const javascript = [
       { text: 'Getters and setters', link: '/js/getters-and-setters.md' },
       { text: 'Static properties', link: '/js/static-properties.md' },
       { text: 'Inheritance', link: '/js/inheritance.md' },
-      { text: 'Overriding and customisation' }
+      { text: 'Method overriding', link: '/js/method-overriding.md' }
     ]
   },
 

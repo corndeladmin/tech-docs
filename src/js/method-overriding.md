@@ -24,3 +24,37 @@ class SmartDevice {
   }
 }
 ```
+
+## Child class
+
+The `SmartCamera` inherits from the `SmartDevice` class.
+
+::: code-group
+
+```js
+class SmartCamera extends SmartDevice {
+  constructor(name, location) {
+    super(name) // call the SmartDevice constuctor
+    this.location = location
+    this.batteryLife = 100
+  }
+}
+
+const doorCam = new SmartCamera('Snoopy', 'Front Door')
+doorCam.connect()
+console.log(doorCam)
+```
+
+```console [output]
+Snoopy is now connected.
+
+SmartCamera {
+  name: 'Snoopy',
+  isConnected: true,
+  location: 'Front Door',
+  batteryLife: 100
+}
+
+```
+
+:::
