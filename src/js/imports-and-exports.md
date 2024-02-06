@@ -80,7 +80,7 @@ We'll just put a bit of starter code in each one to begin with:
 ```js [Diary.js]
 class Diary {
   static add(txt, mood) {
-    console.log(`Your mode score is ${mood}.`)
+    console.log(`Your mood score is ${mood}.`)
     console.log(txt)
   }
 }
@@ -161,7 +161,7 @@ Workout.add('Yoga', 30)
 ```
 
 ```console [output]
-Your mode score is 8.
+Your mood score is 8.
 I learned how to use Node.js today!
 
 You ate Aubergine curry.
@@ -229,7 +229,7 @@ import { units, toPercentage } from '../utils.js'
 class Diary {
   static add(txt, mood) {
     const moodPercent = toPercentage(mood, 10)
-    console.log(`Your mode score is ${moodPercent}${units.mood}.`)
+    console.log(`Your mood score is ${moodPercent}${units.mood}.`)
     console.log(txt)
   }
 }
