@@ -46,21 +46,6 @@ export const javascript = [
   },
 
   {
-    text: 'Frameworks',
-    // collapsed: true,
-    items: [
-      { text: 'Creating a node project' },
-      { text: 'Importing and exporting' },
-      { text: 'Managing dependencies' },
-      { text: 'Command line basics' },
-      { text: 'Making a CLI' },
-      { text: 'CLI user experience' },
-      { text: 'Catching errors' },
-      { text: 'Throwing errors' }
-    ]
-  },
-
-  {
     text: 'OOP',
     // collapsed: true,
     items: [
@@ -84,6 +69,19 @@ export const javascript = [
         text: 'Test Driven Development (TDD)',
         link: '/js/test-driven-development'
       }
+    ]
+  },
+
+  {
+    text: 'Frameworks',
+    // collapsed: true,
+    items: [
+      { text: 'Creating a Node project', link: '/js/node-projects' },
+      { text: 'Imports and exports', link: '/js/imports-and-exports' },
+      { text: 'Making a CLI', link: '/js/making-a-cli' },
+      { text: 'CLI user experience' },
+      { text: 'Catching errors' },
+      { text: 'Throwing errors' }
     ]
   },
 
