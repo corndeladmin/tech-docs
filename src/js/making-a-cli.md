@@ -6,17 +6,21 @@ the editor and modify the contents of `app.js`.
 
 ```js
 // app.js
-import Diary from './classes/Diary.js'
+import DiaryEntry from './classes/DiaryEntry.js'
 import Meal from './classes/Meal.js'
 import Workout from './classes/Workout.js'
 
-Diary.add('I learned how to use Node.js today!', 8) // [!code --]
-Meal.add('Aubergine curry', 1250) // [!code --]
-Workout.add('Yoga', 30) // [!code --]
+const entry = new DiaryEntry('I learned how to use Node.js today!', 8) // [!code --]
+const meal = new Meal('Aubergine curry', 1250) // [!code --]
+const workout = new Workout('Yoga', 30) // [!code --]
 
-Diary.add("I'm learning to make a CLI!", 8.5) // [!code ++]
-Meal.add('Cheese sandwich', 900) // [!code ++]
-Workout.add('Dodgeball', 15) // [!code ++]
+const entry = new DiaryEntry("I'm learning to make a CLI!", 8.5) // [!code ++]
+const meal = new Meal('Cheese sandwich', 900) // [!code ++]
+const workout = new Workout('Dodgeball', 15) // [!code ++]
+
+entry.print()
+meal.print()
+workout.print()
 ```
 
 That is not a great user experience! Let's make a command line interface (CLI)
@@ -59,7 +63,7 @@ package.
 // app.js
 import { program } from 'commander'
 
-import Diary from './classes/Diary.js'
+import DiaryEntry from './classes/DiaryEntry.js'
 import Meal from './classes/Meal.js'
 import Workout from './classes/Workout.js'
 
@@ -90,17 +94,18 @@ commands from the user.
 // app.js
 import { program } from 'commander'
 
-import Diary from './classes/Diary.js'
+import DiaryEntry from './classes/DiaryEntry.js'
 import Meal from './classes/Meal.js'
 import Workout from './classes/Workout.js'
 
 program.version('0.1.0').description('A CLI health tracker')
-// [!code focus:9]
+// [!code focus:10]
 program
   .command('meal <name> <calories>')
   .description('Log a new meal')
   .action((name, calories) => {
-    Meal.add(name, parseInt(calories))
+    const meal = new Meal(name, parseInt(calories))
+    meal.print()
   })
 
 program.parse(process.argv) // [!code highlight]

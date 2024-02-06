@@ -44,7 +44,7 @@ style. We're recommending ES6 as CommonJS will eventually be deprecated.
 
 Let's suppose we're organising our code into three classes:
 
-- `Diary` to monitor our wellbeing
+- `DiaryEntry` to monitor our wellbeing
 - `Meal` to track our meals
 - `Workout` to log our exercise
 
@@ -56,13 +56,13 @@ We will create a directory for these classes. Open a terminal your
 ```bash
 mkdir classes
 cd classes
-touch Diary.js Meal.js Workout.js
+touch DiaryEntry.js Meal.js Workout.js
 ```
 
 ```console{2-5} [output]
 health-tracker/
 ├── classes
-│   ├── Diary.js
+│   ├── DiaryEntry.js
 │   ├── Meal.js
 │   └── Workout.js
 ├── .gitignore
@@ -77,22 +77,32 @@ We'll just put a bit of starter code in each one to begin with:
 
 ::: code-group
 
-```js [Diary.js]
-class Diary {
-  static add(txt, mood) {
-    console.log(`Your mood score is ${mood}.`)
-    console.log(txt)
+```js [DiaryEntry.js]
+class DiaryEntry {
+  constructor(txt, mood) {
+    this.txt = txt
+    this.mood = mood
+  }
+
+  print() {
+    console.log(this.txt)
+    console.log(`Your mood score is ${this.mood}.`)
   }
 }
 
-export default Diary // [!code highlight]
+export default DiaryEntry // [!code highlight]
 ```
 
 ```js [Meal.js]
 class Meal {
-  static add(name, calories) {
-    console.log(`You ate ${name}.`)
-    console.log(`${calories} kCal.`)
+  constructor(name, calories) {
+    this.name = name
+    this.calories = calories
+  }
+
+  print() {
+    console.log(`You ate ${this.name}.`)
+    console.log(`${this.calories} kCal.`)
   }
 }
 
@@ -101,8 +111,13 @@ export default Meal // [!code highlight]
 
 ```js [Workout.js]
 class Workout {
-  static add(activity, time) {
-    console.log(`You did ${activity} for ${time} minutes.`)
+  constructor(activity, time) {
+    this.activity = activity
+    this.time = time
+  }
+
+  print() {
+    console.log(`You did ${this.activity} for ${this.time} minutes.`)
   }
 }
 
@@ -117,9 +132,9 @@ Note the use of `export default` at the bottom of each file.
 
 A crucial part of making our code maintainable is working in different files and
 importing code to where we need it. We saw above the use of
-`export default Diary` in `classes/Diary.js`. This line makes the `Diary` class
+`export default Meal` in `classes/Meal.js`. This line makes the `Meal` class
 available for use in other files. But this doesn't happen automatically - we
-have to import the `Diary` class where we want to use it.
+have to import the `Meal` class where we want to use it.
 
 Let's create a file called `app.js` in the root of the `health-tracker` project.
 This is the file where we'll interact with our classes.
@@ -134,7 +149,7 @@ touch app.js
 health-tracker/
 ├── app.js // [!code highlight]
 ├── classes
-│   ├── Diary.js
+│   ├── DiaryEntry.js
 │   ├── Meal.js
 │   └── Workout.js
 ├── .gitignore
@@ -150,14 +165,18 @@ In `app.js`, we'll import the three classes:
 ::: code-group
 
 ```js
-import Diary from './classes/Diary.js'
+import DiaryEntry from './classes/DiaryEntry.js'
 import Meal from './classes/Meal.js'
 import Workout from './classes/Workout.js'
 
 // Now we can use our classes in app.js!
-Diary.add('I learned how to use Node.js today!', 8)
-Meal.add('Aubergine curry', 1250)
-Workout.add('Yoga', 30)
+const entry = new DiaryEntry('I learned how to use Node.js today!', 8)
+const meal = new Meal('Aubergine curry', 1250)
+const workout = new Workout('Yoga', 30)
+
+entry.print()
+meal.print()
+workout.print()
 ```
 
 ```console [output]
@@ -192,7 +211,7 @@ touch utils.js
 health-tracker/
 ├── app.js
 ├── classes
-│   ├── Diary.js
+│   ├── DiaryEntry.js
 │   ├── Meal.js
 │   └── Workout.js
 ├── .gitignore
@@ -223,27 +242,37 @@ export const units = {
 }
 ```
 
-```js{1} [Diary.js]
+```js{1} [DiaryEntry.js]
 import { units, toPercentage } from '../utils.js'
 
-class Diary {
-  static add(txt, mood) {
-    const moodPercent = toPercentage(mood, 10)
+class DiaryEntry {
+  constructor(txt, mood) {
+    this.txt = txt
+    this.mood = mood
+  }
+
+  print() {
+    const moodPercent = toPercentage(this.mood, 10)
+    console.log(this.txt)
     console.log(`Your mood score is ${moodPercent}${units.mood}.`)
-    console.log(txt)
   }
 }
 
-export default Diary
+export default DiaryEntry
 ```
 
 ```js{1} [Meal.js]
 import { units } from '../utils.js'
 
 class Meal {
-  static add(name, calories) {
-    console.log(`You ate ${name}.`)
-    console.log(`${calories} ${units.energy}.`)
+  constructor(name, calories) {
+    this.name = name
+    this.calories = calories
+  }
+
+  print() {
+    console.log(`You ate ${this.name}.`)
+    console.log(`${this.calories} ${units.energy}.`)
   }
 }
 
@@ -254,8 +283,13 @@ export default Meal
 import { units } from '../utils.js'
 
 class Workout {
-  static add(activity, time) {
-    console.log(`You did ${activity} for ${time} ${units.time}.`)
+  constructor(activity, time) {
+    this.activity = activity
+    this.time = time
+  }
+
+  print() {
+    console.log(`You did ${this.activity} for ${this.time} ${units.time}.`)
   }
 }
 
