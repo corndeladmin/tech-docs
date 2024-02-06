@@ -56,12 +56,26 @@ export default defineConfig({
         text: 'Frameworks',
         items: [
           {
-            text: 'React',
-            link: '/react/'
+            text: 'Javascript',
+            items: [
+              {
+                text: 'React',
+                link: '/react/'
+              },
+              {
+                text: 'Express',
+                link: '/express/'
+              }
+            ]
           },
           {
-            text: 'Express',
-            link: '/express/'
+            text: 'C#',
+            items: [
+              {
+                text: '.Net',
+                link: '/dotnet/'
+              }
+            ]
           }
         ]
       }
