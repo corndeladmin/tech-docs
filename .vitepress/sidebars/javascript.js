@@ -79,7 +79,6 @@ export const javascript = [
       { text: 'Creating a Node project', link: '/js/node-projects' },
       { text: 'Imports and exports', link: '/js/imports-and-exports' },
       { text: 'Making a CLI', link: '/js/making-a-cli' },
-      { text: 'CLI user experience' },
       { text: 'Catching errors' },
       { text: 'Throwing errors' }
     ]
@@ -89,10 +88,7 @@ export const javascript = [
     text: 'Asynchronous code',
     // collapsed: true,
     items: [
-      { text: 'Callbacks' },
-      { text: 'Promises' },
-      { text: 'async/await' },
-
+      { text: 'Async/Await', link: '/js/async-await' },
       {
         text: 'Reading and writing files',
         link: '/js/reading-and-writing-files.md'
