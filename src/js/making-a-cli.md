@@ -16,7 +16,7 @@ Workout.add('Yoga', 30) // [!code --]
 
 Diary.add("I'm learning to make a CLI!", 8.5) // [!code ++]
 Meal.add('Cheese sandwich', 900) // [!code ++]
-Workout.add('Dogeball', 15) // [!code ++]
+Workout.add('Dodgeball', 15) // [!code ++]
 ```
 
 That is not a great user experience! Let's make a command line interface (CLI)

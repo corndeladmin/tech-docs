@@ -5,7 +5,7 @@ and there to perform various actions on a computer. Often, however, we will be
 building **projects**, where several files need to work together to create an
 app. This is where Node and npm can work together to help us out.
 
-## Intialising with `npm init`
+## Initialising with `npm init`
 
 Let's suppose we're building a health tracker application, allowing users to log
 and view various health related data. We'll add a command line interface so that
