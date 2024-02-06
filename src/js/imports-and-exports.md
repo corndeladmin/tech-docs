@@ -228,7 +228,7 @@ use them in our classes.
 
 ::: code-group
 
-```js{2,7} [utils.js]
+```js [utils.js]
 // named function export
 export function toPercentage(numerator, denominator) {
   return ((numerator / denominator) * 100).toFixed(2)
