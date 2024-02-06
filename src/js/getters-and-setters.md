@@ -3,7 +3,7 @@
 We saw in [private properties](./private-properties) that public methods can
 allow users to work with private properties in a controlled way.
 
-Javascript has an interesting piece of syntax which some people prefer. We'll
+JavaScript has an interesting piece of syntax which some people prefer. We'll
 discuss it in the guide.
 
 ## Refactoring the smart light
