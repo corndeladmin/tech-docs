@@ -131,7 +131,7 @@ Light is now on.
 
 ## Calling other methods
 
-The last thing we need to know about methods is that they can call eachother
+The last thing we need to know about methods is that they can call each other
 using the `this` key word.
 
 ::: code-group

@@ -81,7 +81,7 @@ Aldous Huxley
 ## Using loops
 
 We can use our knowledge of loops to solve problems on arrays of objects. For
-example, suppose we need to count how many bookes were published in the 20th
+example, suppose we need to count how many books were published in the 20th
 century.
 
 ::: code-group
@@ -124,7 +124,7 @@ We often use arrow notation to define this function.
 
 ```js
 const availableBooks = books.filter(book => book.isAvailable)
-console.log(availeableBooks)
+console.log(availableBooks)
 ```
 
 ```console{7,14,21} [output]
@@ -156,7 +156,7 @@ console.log(availeableBooks)
 :::
 
 We've used arrow notation to define a function that takes a book as an argument
-and returns its availablility `book.isAvailable`.
+and returns its availability `book.isAvailable`.
 
 Here are a couple more examples of filtering data.
 
@@ -198,7 +198,7 @@ console.log(unavailableBooks)
 const booksByMargaretAtwood = books.filter(
   book => book.author === 'Margaret Atwood'
 )
-console.log(bookeByMargaretAtwood)
+console.log(booksByMargaretAtwood)
 ```
 
 ```console{4,11} [output]

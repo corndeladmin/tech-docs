@@ -68,7 +68,7 @@ const resolutions = [
   'Learn to fly a helicopter',
   'Repaint the house',
   'Camp out in Alaska',
-  'Build a treehouse',
+  'Build a tree house',
   'Live off the grid',
   'Found a new country',
   'Build a rocket'

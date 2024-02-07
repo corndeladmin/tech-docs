@@ -34,7 +34,7 @@ The `SmartCamera` inherits from the `SmartDevice` class.
 ```js
 class SmartCamera extends SmartDevice {
   constructor(name, location) {
-    super(name) // call the SmartDevice constuctor
+    super(name) // call the SmartDevice constructor
     this.location = location
     this.batteryLife = 100
   }

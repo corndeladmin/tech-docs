@@ -167,6 +167,6 @@ describe('SmartThermostat', function () {
 
 We have extracted the "Arrange" part to a `beforeEach()` hook, meaning we don't
 need to do this manually in every `it()`. This might not always be an
-appropraite way of organising the test file, but in certain circumstances it can
+appropriate way of organising the test file, but in certain circumstances it can
 prevent repetition. Mocha has many more hooks which you should explore in the
 [documentation](https://mochajs.org/).

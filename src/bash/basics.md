@@ -198,7 +198,7 @@ We can use `cd ../..` to move two directories up, and so on.
 ## Relative paths
 
 All the the commands used so far can be combined with `..` to perform actions
-anywhere in the filesystem from the working directing without needing to `cd`.
+anywhere in the file system from the working directing without needing to `cd`.
 For example, we can work in the `usr` and `Downloads` directories from the
 `Documents` directory:
 

@@ -5,7 +5,7 @@
 ## What is JSON
 
 JSON stands for Javascript Object Notation and is a key/value format for saving
-data on the file system and transfering data between services
+data on the file system and transferring data between services
 
 ```json
 // config.json
