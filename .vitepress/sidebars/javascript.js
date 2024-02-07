@@ -73,14 +73,13 @@ export const javascript = [
   },
 
   {
-    text: 'Frameworks',
+    text: 'Framework',
     // collapsed: true,
     items: [
       { text: 'Creating a Node project', link: '/js/node-projects' },
       { text: 'Imports and exports', link: '/js/imports-and-exports' },
       { text: 'Making a CLI', link: '/js/making-a-cli' },
-      { text: 'Catching errors' },
-      { text: 'Throwing errors' }
+      { text: 'Handling errors', link: '/js/handling-errors' }
     ]
   },
 
