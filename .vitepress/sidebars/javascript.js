@@ -1,7 +1,7 @@
 export const javascript = [
   {
     text: 'Introduction',
-    link: '/js/introduction'
+    link: '/js/'
   },
   {
     text: 'Installation',
