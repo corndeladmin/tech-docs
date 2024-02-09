@@ -79,7 +79,8 @@ export const javascript = [
       { text: 'Creating a Node project', link: '/js/node-projects' },
       { text: 'Imports and exports', link: '/js/imports-and-exports' },
       { text: 'Making a CLI', link: '/js/making-a-cli' },
-      { text: 'Handling errors', link: '/js/handling-errors' }
+      { text: 'Handling errors', link: '/js/handling-errors' },
+      { text: 'Environment variables', link: '/js/environment-variables' }
     ]
   },
 
