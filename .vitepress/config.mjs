@@ -8,6 +8,10 @@ export default defineConfig({
   themeConfig: {
     logo: '/logo.png',
 
+    editLink: {
+      pattern: 'https://github.com/corndeladmin/tech-docs/tree/main/src/:path'
+    },
+
     nav: [
       {
         text: 'Guides',
