@@ -2,12 +2,11 @@
 
 ## What is SQL?
 
-SQL, at its heart, is a powerful language designed for managing and manipulating
-relational databases. From its inception in the early 1970s at IBM, SQL has
-evolved into a standard that underpins the vast majority of today's database
-systems, including MySQL, PostgreSQL, SQL Server, and Oracle. It enables you to
-extract, analyse, and process data, turning raw figures into actionable
-insights.
+SQL is a powerful language designed for managing and manipulating relational
+databases. From its inception in the early 1970s at IBM, SQL has evolved into a
+standard that underpins the vast majority of today's database systems, including
+MySQL, PostgreSQL, SQL Server, and Oracle. It enables you to extract, analyse,
+and process data, turning raw figures into actionable insights.
 
 ## Tables
 
