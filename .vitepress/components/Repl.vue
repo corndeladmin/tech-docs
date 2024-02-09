@@ -4,16 +4,29 @@ import { basicSetup } from 'codemirror'
 import { EditorView } from '@codemirror/view'
 import { EditorState } from '@codemirror/state'
 import { sql } from '@codemirror/lang-sql'
+import Judge from '../judge'
 
 const el = ref(null)
 
 const editor = reactive({
-  view: null
+  view: null,
+  lang: null,
+  stdout: null
 })
+
+async function handleRun() {
+  const judge = new Judge(editor.lang)
+  const code = editor.view.state.doc.toString()
+  editor.stdout = await judge.createSubmission(code)
+}
+
+function handleClear() {
+  editor.stdout = null
+}
 
 onMounted(async () => {
   const doc = el.value.querySelector('code').textContent.trim()
-  const lang = el.value.querySelector('.lang').textContent.trim()
+  editor.lang = el.value.querySelector('.lang').textContent.trim()
   el.value.innerHTML = ''
 
   const state = EditorState.create({
@@ -31,6 +44,13 @@ onMounted(async () => {
 <template>
   <div id="editor" class="editor" ref="el">
     <slot></slot>
+  </div>
+  <div class="btns">
+    <button class="btn btn_clear" @click="handleClear">Clear</button>
+    <button class="btn btn_run" @click="handleRun">Run</button>
+  </div>
+  <div v-if="editor.stdout" class="stdout">
+    <pre>{{ editor.stdout }}</pre>
   </div>
 </template>
 
@@ -88,36 +108,49 @@ onMounted(async () => {
   background-color: var(--vp-code-line-highlight-color);
 }
 
-/*
---vp-code-line-height: 1.7;
---vp-code-font-size: 0.875em;
---vp-code-color: var(--vp-c-brand-1);
---vp-code-link-color: var(--vp-c-brand-1);
---vp-code-link-hover-color: var(--vp-c-brand-2);
---vp-code-bg: var(--vp-c-default-soft);
---vp-code-block-color: var(--vp-c-text-2);
---vp-code-block-bg: var(--vp-c-bg-alt);
---vp-code-block-divider-color: var(--vp-c-gutter);
---vp-code-lang-color: var(--vp-c-text-3);
---vp-code-line-highlight-color: var(--vp-c-default-soft);
---vp-code-line-number-color: var(--vp-c-text-3);
---vp-code-line-diff-add-color: var(--vp-c-success-soft);
---vp-code-line-diff-add-symbol-color: var(--vp-c-success-1);
---vp-code-line-diff-remove-color: var(--vp-c-danger-soft);
---vp-code-line-diff-remove-symbol-color: var(--vp-c-danger-1);
---vp-code-line-warning-color: var(--vp-c-warning-soft);
---vp-code-line-error-color: var(--vp-c-danger-soft);
---vp-code-copy-code-border-color: var(--vp-c-divider);
---vp-code-copy-code-bg: var(--vp-c-bg-soft);
---vp-code-copy-code-hover-border-color: var(--vp-c-divider);
---vp-code-copy-code-hover-bg: var(--vp-c-bg);
---vp-code-copy-code-active-text: var(--vp-c-text-2);
---vp-code-copy-copied-text-content: 'Copied';
---vp-code-tab-divider: var(--vp-code-block-divider-color);
---vp-code-tab-text-color: var(--vp-c-text-2);
---vp-code-tab-bg: var(--vp-code-block-bg);
---vp-code-tab-hover-text-color: var(--vp-c-text-1);
---vp-code-tab-active-text-color: var(--vp-c-text-1);
---vp-code-tab-active-bar-color: var(--vp-c-brand-1);
-*/
+.btns {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: end;
+}
+
+.btn {
+  border-radius: 20px;
+  padding: 0 20px;
+  line-height: 38px;
+  font-size: 14px;
+  display: inline-block;
+  border: 1px solid transparent;
+  text-align: center;
+  font-weight: 600;
+}
+
+.btn_run {
+  background-color: var(--vp-button-brand-bg);
+  border-color: var(--vp-button-brand-border);
+  color: var(--vp-button-brand-text);
+}
+
+.btn_run:hover {
+  background-color: var(--vp-button-brand-hover-bg);
+}
+
+.btn_run:active {
+  background-color: var(--vp-button-brand-active-bg);
+}
+
+.btn_clear {
+  background-color: var(--vp-button-alt-bg);
+  border-color: var(--vp-button-alt-border);
+  color: var(--vp-button-alt-text);
+}
+
+.btn_clear:hover {
+  background-color: var(--vp-button-alt-hover-bg);
+}
+
+.btn_clear:active {
+  background-color: var(--vp-button-alt-active-bg);
+}
 </style>

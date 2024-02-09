@@ -5,6 +5,7 @@ class Judge {
     csharp: 51,
     java: 62,
     javascript: 63,
+    js: 63,
     python: 70,
     sql: 82
   }
@@ -52,3 +53,5 @@ class Judge {
     return data
   }
 }
+
+export default Judge
