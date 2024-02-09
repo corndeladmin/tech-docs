@@ -51,6 +51,7 @@ onMounted(async () => {
 .cm-editor {
   background-color: var(--vp-code-block-bg);
   border-radius: 8px;
+  font-size: 14px;
 }
 
 .cm-editor .cm-content {
@@ -60,17 +61,31 @@ onMounted(async () => {
 
 .cm-editor .cm-gutters {
   background-color: var(--vp-code-block-bg);
+  line-height: var(--vp-code-line-height);
   border-right-color: var(--vp-code-block-divider-color);
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
 }
 
+.cm-editor .cm-foldGutter {
+  line-height: var(--vp-code-line-height);
+}
+
 .cm-editor .cm-line {
   line-height: var(--vp-code-line-height);
+  color: var(--vp-c-text-1);
+}
+
+.cm-line span {
   color: var(--shiki-light, inherit);
 }
-.dark .cm-editor .cm-line {
+.dark .cm-line span {
   color: var(--shiki-dark, inherit);
+}
+
+.cm-editor .ͼb {
+  --shiki-light: #d73a49;
+  --shiki-dark: #f97583;
 }
 
 .cm-editor .cm-activeLine {
