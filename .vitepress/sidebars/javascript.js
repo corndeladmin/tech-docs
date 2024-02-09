@@ -1,7 +1,7 @@
 export const javascript = [
   {
     text: 'Introduction',
-    link: '/js/introduction'
+    link: '/js/'
   },
   {
     text: 'Installation',
@@ -46,21 +46,6 @@ export const javascript = [
   },
 
   {
-    text: 'Frameworks',
-    // collapsed: true,
-    items: [
-      { text: 'Creating a node project' },
-      { text: 'Importing and exporting' },
-      { text: 'Managing dependencies' },
-      { text: 'Command line basics' },
-      { text: 'Making a CLI' },
-      { text: 'CLI user experience' },
-      { text: 'Catching errors' },
-      { text: 'Throwing errors' }
-    ]
-  },
-
-  {
     text: 'OOP',
     // collapsed: true,
     items: [
@@ -88,13 +73,21 @@ export const javascript = [
   },
 
   {
+    text: 'Framework',
+    // collapsed: true,
+    items: [
+      { text: 'Creating a Node project', link: '/js/node-projects' },
+      { text: 'Imports and exports', link: '/js/imports-and-exports' },
+      { text: 'Making a CLI', link: '/js/making-a-cli' },
+      { text: 'Handling errors', link: '/js/handling-errors' }
+    ]
+  },
+
+  {
     text: 'Asynchronous code',
     // collapsed: true,
     items: [
-      { text: 'Callbacks' },
-      { text: 'Promises' },
-      { text: 'async/await' },
-
+      { text: 'Async/Await', link: '/js/async-await' },
       {
         text: 'Reading and writing files',
         link: '/js/reading-and-writing-files.md'
