@@ -11,15 +11,19 @@ export const javascript = [
     text: 'Pre-reading',
     // collapsed: true,
     items: [
-      { text: 'Variables' },
-      { text: 'Operators and expressions' },
-      { text: 'Data types' },
+      { text: 'Variables', link: '/js/variables' },
+      {
+        text: 'Operators and expressions',
+        link: '/js/operators-and-expressions'
+      },
+      { text: 'Data types', link: '/js/data-types' },
 
-      { text: 'Logical operators' },
-      { text: 'Conditional statements' },
+      { text: 'Logical operators', link: '/js/logical-operators' },
+      { text: 'Comparison operators', link: '/js/comparison-operators' },
+      { text: 'Conditional statements', link: '/js/conditional-statements' },
 
-      { text: 'Functions' },
-      { text: 'Parameters' }
+      { text: 'Functions', link: '/js/functions' },
+      { text: 'Parameters', link: '/js/parameters' }
     ]
   },
 
