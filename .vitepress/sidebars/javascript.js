@@ -63,7 +63,7 @@ export const javascript = [
     text: 'Testing',
     // collapsed: true,
     items: [
-      { text: 'Unit testting with Mocha', link: '/js/testing-with-mocha' },
+      { text: 'Unit testing with Mocha', link: '/js/testing-with-mocha' },
       { text: 'Arrange, act, assert', link: '/js/arrange-act-assert.md' },
       {
         text: 'Test Driven Development (TDD)',

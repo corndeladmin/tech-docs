@@ -52,7 +52,7 @@ found 0 vulnerabilities
 
 Notice that we did not use the `-D` flag when installing commander. This is
 because we want the users to get the code in the commander package, as it is
-required to make the CLI actually work!
+required to make the CLI actually work.
 
 ## Setting up your CLI
 
