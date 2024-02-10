@@ -8,8 +8,8 @@ export const javascript = [
     link: '/js/installation'
   },
   {
-    text: 'Pre-reading',
-    // collapsed: true,
+    text: 'Foundations',
+    collapsed: true,
     items: [
       { text: 'Variables', link: '/js/variables' },
       {
@@ -28,8 +28,8 @@ export const javascript = [
   },
 
   {
-    text: 'Fundamentals',
-    // collapsed: true,
+    text: 'Data and iteration',
+    collapsed: true,
     items: [
       { text: 'Working with arrays', link: '/js/working-with-arrays' },
       { text: 'Array methods', link: '/js/array-methods' },
@@ -50,8 +50,8 @@ export const javascript = [
   },
 
   {
-    text: 'OOP',
-    // collapsed: true,
+    text: 'Object oriented programming',
+    collapsed: true,
     items: [
       { text: 'Classes and instances', link: '/js/classes-and-instances' },
       { text: 'Instance Methods', link: '/js/instance-methods' },
@@ -65,7 +65,7 @@ export const javascript = [
 
   {
     text: 'Testing',
-    // collapsed: true,
+    collapsed: true,
     items: [
       { text: 'Unit testing with Mocha', link: '/js/testing-with-mocha' },
       { text: 'Arrange, act, assert', link: '/js/arrange-act-assert.md' },
@@ -77,8 +77,8 @@ export const javascript = [
   },
 
   {
-    text: 'Framework',
-    // collapsed: true,
+    text: 'Building projects',
+    collapsed: true,
     items: [
       { text: 'Creating a Node project', link: '/js/node-projects' },
       { text: 'Imports and exports', link: '/js/imports-and-exports' },
@@ -90,7 +90,7 @@ export const javascript = [
 
   {
     text: 'Asynchronous code',
-    // collapsed: true,
+    collapsed: true,
     items: [
       { text: 'Async/Await', link: '/js/async-await' },
       {
