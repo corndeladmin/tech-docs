@@ -1,9 +1,12 @@
 <script setup>
 import { ref, onMounted, reactive, nextTick } from 'vue'
+
 import { basicSetup } from 'codemirror'
 import { EditorView } from '@codemirror/view'
 import { EditorState } from '@codemirror/state'
+
 import { sql } from '@codemirror/lang-sql'
+import { javascript } from '@codemirror/lang-javascript'
 
 const el = ref(null)
 
@@ -18,7 +21,7 @@ onMounted(async () => {
 
   const state = EditorState.create({
     doc,
-    extensions: [basicSetup, sql()]
+    extensions: [basicSetup, javascript({ jsx: true })]
   })
 
   editor.view = new EditorView({
@@ -35,6 +38,7 @@ onMounted(async () => {
 </template>
 
 <style>
+/* Editor */
 .editor {
   margin-top: 16px;
   margin-bottom: 16px;
@@ -47,10 +51,22 @@ onMounted(async () => {
 }
 
 .cm-editor .cm-content {
+  font-family: var(--vp-font-family-mono);
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
+/* Lines */
+.cm-editor .cm-line {
+  line-height: var(--vp-code-line-height);
+  color: var(--vp-c-text-1);
+}
+
+.cm-editor .cm-activeLine {
+  background-color: var(--vp-code-line-highlight-color);
+}
+
+/* Gutters */
 .cm-editor .cm-gutters {
   background-color: var(--vp-code-block-bg);
   line-height: var(--vp-code-line-height);
@@ -63,61 +79,47 @@ onMounted(async () => {
   line-height: var(--vp-code-line-height);
 }
 
-.cm-editor .cm-line {
-  line-height: var(--vp-code-line-height);
-  color: var(--vp-c-text-1);
-}
-
-.cm-line span {
-  color: var(--shiki-light, inherit);
-}
-.dark .cm-line span {
-  color: var(--shiki-dark, inherit);
-}
-
-.cm-editor .ͼb {
-  --shiki-light: #d73a49;
-  --shiki-dark: #f97583;
-}
-
-.cm-editor .cm-activeLine {
-  background-color: var(--vp-code-line-highlight-color);
-}
-
 .cm-editor .cm-activeLineGutter {
   background-color: var(--vp-code-line-highlight-color);
 }
 
-/*
---vp-code-line-height: 1.7;
---vp-code-font-size: 0.875em;
---vp-code-color: var(--vp-c-brand-1);
---vp-code-link-color: var(--vp-c-brand-1);
---vp-code-link-hover-color: var(--vp-c-brand-2);
---vp-code-bg: var(--vp-c-default-soft);
---vp-code-block-color: var(--vp-c-text-2);
---vp-code-block-bg: var(--vp-c-bg-alt);
---vp-code-block-divider-color: var(--vp-c-gutter);
---vp-code-lang-color: var(--vp-c-text-3);
---vp-code-line-highlight-color: var(--vp-c-default-soft);
---vp-code-line-number-color: var(--vp-c-text-3);
---vp-code-line-diff-add-color: var(--vp-c-success-soft);
---vp-code-line-diff-add-symbol-color: var(--vp-c-success-1);
---vp-code-line-diff-remove-color: var(--vp-c-danger-soft);
---vp-code-line-diff-remove-symbol-color: var(--vp-c-danger-1);
---vp-code-line-warning-color: var(--vp-c-warning-soft);
---vp-code-line-error-color: var(--vp-c-danger-soft);
---vp-code-copy-code-border-color: var(--vp-c-divider);
---vp-code-copy-code-bg: var(--vp-c-bg-soft);
---vp-code-copy-code-hover-border-color: var(--vp-c-divider);
---vp-code-copy-code-hover-bg: var(--vp-c-bg);
---vp-code-copy-code-active-text: var(--vp-c-text-2);
---vp-code-copy-copied-text-content: 'Copied';
---vp-code-tab-divider: var(--vp-code-block-divider-color);
---vp-code-tab-text-color: var(--vp-c-text-2);
---vp-code-tab-bg: var(--vp-code-block-bg);
---vp-code-tab-hover-text-color: var(--vp-c-text-1);
---vp-code-tab-active-text-color: var(--vp-c-text-1);
---vp-code-tab-active-bar-color: var(--vp-c-brand-1);
-*/
+/* Syntax */
+
+.cm-editor .cm-line span {
+  color: var(--shiki-light, inherit);
+}
+.dark .cm-editor .cm-line span {
+  color: var(--shiki-dark, inherit);
+}
+
+/* keywords */
+.ͼp {
+  --shiki-light: #d73a49;
+  --shiki-dark: #f97583;
+}
+
+/* functions */
+.ͼs,
+.ͼq {
+  --shiki-light: #6f42c1;
+  --shiki-dark: #b392f0;
+}
+
+/* param */
+.ͼs + .ͼr {
+  --shiki-light: #e36209;
+  --shiki-dark: #ffab70;
+}
+
+/* var */
+.ͼr {
+  --shiki-light: #005cc5;
+  --shiki-dark: #79b8ff;
+}
+
+/* plain string */
+.ͼ17 {
+  --shiki-light: #032f62;
+  --shiki-dark: #9ecbff;
+}
 </style>
