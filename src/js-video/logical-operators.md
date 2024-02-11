@@ -1,8 +1,6 @@
 # Logical operators
 
-Logical operators are the backbone of decision-making in programming.
-
-This guide will explore the AND (&&), OR (||), and NOT (!) operators.
+<Vimeo id="911842869" />
 
 ## Overview
 
@@ -16,8 +14,7 @@ The operators avialable in Javascript are shown in the table below.
 
 ## Using the operators
 
-Here are a few examples showing how these operators might be used in computer
-programs:
+Here are some examples of using the operators:
 
 ::: code-group
 
