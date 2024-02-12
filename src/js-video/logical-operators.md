@@ -1,3 +1,8 @@
+---
+expected:
+  - 'false'
+---
+
 # Logical operators
 
 <Vimeo id="911842869" />
@@ -34,3 +39,21 @@ true
 ```
 
 :::
+
+## Try it
+
+In the `.log()` below, write the javascript equivalent of
+
+> Not (`x` and (`y` or `z`))
+
+<Exercise>
+
+```js
+const x = true
+const y = false
+const z = true
+
+console.log() // <-- put your calculation here
+```
+
+</Exercise>

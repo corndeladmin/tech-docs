@@ -1,3 +1,8 @@
+---
+expected:
+  - 'Donnie Darko'
+---
+
 # Variables
 
 <Vimeo id="911842928" />
@@ -119,3 +124,17 @@ User 2: BookishBen99
 ```
 
 :::
+
+## Try it
+
+1. Create a variable called `movie` and assign it to the string
+   `'Donnie Darko'`.
+1. Log `movie` to the console.
+
+<Exercise>
+
+```js
+// code here
+```
+
+</Exercise>

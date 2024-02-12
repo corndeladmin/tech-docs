@@ -1,3 +1,15 @@
+---
+cases:
+  - 'console.log(typeof a)'
+  - 'console.log(typeof b)'
+  - 'console.log(typeof c)'
+
+expected:
+  - 'string'
+  - 'number'
+  - 'boolean'
+---
+
 # Data types
 
 <Vimeo id="911842881" />
@@ -88,3 +100,16 @@ console.log(totalPrice) // oops!
 ```
 
 :::
+
+## Try it
+
+Create three variables, `a`, `b` and `c`. Assign to them any string, number and
+boolean (in that order). Don't log anything to the console.
+
+<Exercise>
+
+```js
+// code here
+```
+
+</Exercise>

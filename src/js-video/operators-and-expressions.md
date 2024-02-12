@@ -1,3 +1,8 @@
+---
+expected:
+  - 3
+---
+
 # Operators and expressions
 
 <Vimeo id="911842914" />
@@ -77,3 +82,20 @@ console.log(availableBooks)
 ```
 
 :::
+
+## Try it
+
+Calculate the remainder when `a` to the power of `b` is divided by `c`. Log your
+answer to the console.
+
+<Exercise>
+
+```js
+const a = 12
+const b = 7
+const c = 5
+
+console.log() // <-- put your calculation here
+```
+
+</Exercise>

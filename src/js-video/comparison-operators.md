@@ -1,3 +1,8 @@
+---
+expected:
+  - 'false'
+---
+
 # Comparison operators
 
 <Vimeo id="911842849" />
@@ -80,3 +85,18 @@ false
 ```
 
 :::
+
+## Try it
+
+In the `.log()`, check whether `num1` is smaller than `num2`.
+
+<Exercise>
+
+```js
+const num1 = 770 * 221
+const num2 = 105 * 1431
+
+console.log() // <-- put your comparison here
+```
+
+</Exercise>
