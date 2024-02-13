@@ -33,5 +33,27 @@
       ":::"
     ],
     "description": "Add a code-group with code and output"
+  },
+
+  "Database code group": {
+    "scope": "markdown",
+    "prefix": "databases",
+    "body": [
+      "::: code-group",
+      "",
+      "```sql [SQLite]",
+      "$1",
+      "```",
+      "",
+      "```sql [Postgres]",
+      "$2",
+      "```",
+      "",
+      "```sql [MySQL]",
+      "$3",
+      "```",
+      "",
+      ":::"
+    ]
   }
 }
