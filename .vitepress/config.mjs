@@ -87,7 +87,8 @@ export default defineConfig({
 
     sidebar: {
       '/bash/': sidebars.bash,
-      '/js/': sidebars.javascript
+      '/js/': sidebars.javascript,
+      '/sql/': sidebars.sql
     },
 
     socialLinks: [

@@ -4,6 +4,7 @@ import DefaultTheme from 'vitepress/theme'
 import './style.css'
 
 import Vimeo from '../components/Vimeo.vue'
+import CodeMirror from '../components/CodeMirror.vue'
 
 /** @type {import('vitepress').Theme} */
 export default {
@@ -15,5 +16,6 @@ export default {
   },
   enhanceApp({ app, router, siteData }) {
     app.component('Vimeo', Vimeo)
+    app.component('CodeMirror', CodeMirror)
   }
 }

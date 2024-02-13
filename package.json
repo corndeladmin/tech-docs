@@ -13,6 +13,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "markdown-it-mermaid-plugin": "^0.1.0",
+    "mermaid": "^10.8.0",
     "vitepress": "^1.0.0-rc.38"
+  },
+  "dependencies": {
+    "@codemirror/lang-javascript": "^6.2.1",
+    "@codemirror/lang-sql": "^6.5.5",
+    "@codemirror/state": "^6.4.0",
+    "@codemirror/view": "^6.23.1",
+    "codemirror": "^6.0.1"
   }
 }
