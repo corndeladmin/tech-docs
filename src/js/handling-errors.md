@@ -1,113 +1,188 @@
 # Handling errors
 
-Things go wrong in computer programs. This is especially true when you start
-interacting with users. If we don't anticipate and deal with errors, they can
-crash our programs and leave the users mystified with what it going on.
+Deciding what to do when things go wrong is important. This is especially true
+when we have users and other apps depending on our code. Errors can cause our
+program to crash. Sometimes that is a good thing, because it would be unsafe for
+the program to continue, but often our program can recover from an error. We
+just need to tell it how.
 
-## Throwing errors
+::: info
 
-We can use `throw new Error()` to signal that something has gone wrong. When we
-throw an error, it means other developers are forced to handle it and not assume
-everything worked as intended. It's a way of trying to anticipate the different
-ways your software might go wrong, and communicating useful information when it
-does.
-
-For example, our `Meal` class expects a positive number for the `calories`
-property. We can check, and throw an error if this isn't the case.
-
-```js{0}
-// models/Meal.js
-import { units } from '../utils.js'
-
-class Meal {
-  constructor(name, calories) {
-    if (calories < 0) { // [!code ++]
-      throw new Error('Calories must be positive.') // [!code ++]
-    } // [!code ++]
-
-    this.name = name
-    this.calories = calories
-  }
-}
-
-export default Meal
-```
-
-## Unhandled errors
-
-Now, if we try to use our CLI improperly (e.g. passing `-500` as an argument to
-`calories`), we get an _unhandled error_ and the program crashes.
-
-::: code-group
-
-```bash
-node cli meal add "Ice Cream" -- -500
-```
-
-```console [output]
-file://~/Repos/health-tracker/models/Meal.js:6
-      throw new Error('Calories must be positive.')
-            ^
-
-Error: Calories must be a positive.
-    at new Meal (file://~/Repos/health-tracker/models/Meal.js:6:13)
-    at Command.<anonymous> (file://~/Repos/health-tracker/cli/meal.js:10:18)
-    at Command.listener [as _actionHandler] (~/Repos/health-tracker/node_modules/commander/lib/command.js:523:17)
-    at ~/Repos/health-tracker/node_modules/commander/lib/command.js:1375:65
-    at Command._chainOrCall (~/Repos/health-tracker/node_modules/commander/lib/command.js:1272:12)
-    at Command._parseCommand (~/Repos/health-tracker/node_modules/commander/lib/command.js:1375:27)
-    at ~/Repos/health-tracker/node_modules/commander/lib/command.js:1161:27
-    at Command._chainOrCall (~/Repos/health-tracker/node_modules/commander/lib/command.js:1272:12)
-    at Command._dispatchSubcommand (~/Repos/health-tracker/node_modules/commander/lib/command.js:1157:25)
-    at Command._parseCommand (~/Repos/health-tracker/node_modules/commander/lib/command.js:1343:19)
-```
+In programming, the words _error_ and _exception_ are often used
+interchangeably. _Exception_ is probably the more accurate term in this context,
+as it refers to an issue which disrupts the flow of our program, whereas _error_
+is a broader term. We'll be using _error_ in this guide.
 
 :::
-
-While this is better than allowing a negative number of calories, it is a bit
-mystifying for the user. The next step it to correctly handle this error.
 
 ## Try and catch
 
-Javascript has a special syntax for tentatively running a block of code, and
-allowing us to respond appropriately to any thrown errors. We do this using the
-keywords `try` and `catch`.
+If there is a block of code we think might go wrong for some reason, we can use
+Javascript's `try` block syntax to attempt to execute the code block and, if
+something goes wrong, the `catch` block will run instead of crashing the
+program.
 
-```js{0}
-// cli/meal.js
-import { Command } from 'commander'
-import Meal from '../models/Meal.js'
+Suppose we have some users
 
-const meal = new Command('meal')
-
-meal
-  .command('add <name> <calories>')
-  .description('Log a new meal')
-  .action((name, calories) => {
-    try { // [!code ++]
-      const meal = new Meal(name, parseInt(calories))
-      console.log(meal)
-    } catch (error) { // [!code ++]
-      console.log('Aw, snap! There seems to have been an error:') // [!code ++]
-      console.error(error.message) // [!code ++]
-    }
-  })
-
-export default meal
+```js
+const users = [
+  {
+    username: 'usain12',
+    email: { address: 'usain@gmail.com', verified: true }
+  },
+  {
+    username: 'maria_xox'
+  },
+  {
+    username: 'yaz0',
+    email: { address: 'yaz0@hotmail.co.uk', verified: false }
+  }
+]
 ```
+
+and we want to report their email addresses
 
 ::: code-group
 
-```bash
-node cli meal add "Ice Cream" -- -500
+```js
+for (let user of users) {
+  console.log(user.email.address)
+}
 ```
 
 ```console [output]
-Aw, snap! There seems to have been an error:
-Calories must be positive.
+usain@gmail.com
+
+file://~/Repos/health-tracker/grades.js:16
+  console.log(user.email.address)
+                         ^
+
+TypeError: Cannot read properties of undefined (reading 'address')
+    at file://~/Repos/health-tracker/grades.js:16:26
+    at ModuleJob.run (node:internal/modules/esm/module_job:192:25)
+    at async DefaultModuleLoader.import (node:internal/modules/esm/loader:228:24)
+    at async loadESM (node:internal/process/esm_loader:40:7)
+    at async handleMainPromise (node:internal/modules/run_main:66:12)
+
+Node.js v20.5.1
 ```
 
 :::
 
-We have handled the error gracefully: the program no longer crashes, and the
-user gets a helpful message.
+Checking the output, we see that this innocent looking code actually crashes the
+program and brings our app to a halt. The problem is clear: user `maria_xox`
+doesn't have an email, so we're trying to read `.address` of `undefined`.
+
+```console
+TypeError: Cannot read properties of undefined (reading 'address')
+```
+
+Instead of crashing the program, let's handle this error with `try` and `catch`
+
+::: code-group
+
+```js
+for (let user of users) {
+  try {
+    console.log(user.email.address)
+  } catch (err) {
+    console.error(err.message)
+  }
+}
+```
+
+```console [output]
+usain@gmail.com
+
+Error for maria_xox: Cannot read properties of undefined (reading 'address')
+
+yaz0@hotmail.co.uk
+```
+
+:::
+
+This is much better. The program completes without crashing, and it prints a
+message to the user in case something goes wrong.
+
+## Throwing errors
+
+You can create your own errors, too. Let's say we have a user class.
+
+```js
+class User {
+  static usernames = []
+
+  #username
+
+  constructor(username) {
+    this.setUsername(username)
+  }
+
+  setUsername(newName) {
+    this.#username = newName
+    User.usernames.push(newName)
+  }
+}
+```
+
+The problem is, multiple users can have the same username
+
+::: code-group
+
+```js
+const u1 = new User('usain11')
+const u2 = new User('maria_xox')
+const u3 = new User('usain11')
+
+console.log(User.usernames)
+```
+
+```console [output]
+[ 'usain11', 'maria_xox', 'usain11' ]
+```
+
+:::
+
+Let's fix this by throwing an error at the right time.
+
+::: code-group
+
+```js{11-13}
+class User {
+  static usernames = []
+
+  #username
+
+  constructor(username) {
+    this.setUsername(username)
+  }
+
+  setUsername(newName) {
+    if (User.usernames.includes(newName)) {
+      throw new Error(`Username ${newName} is already taken.`)
+    }
+
+    this.#username = newName
+    User.usernames.push(newName)
+  }
+}
+
+const u1 = new User('usain11')
+const u2 = new User('maria_xox')
+const u3 = new User('usain11')
+
+console.log(User.usernames)
+```
+
+```console [output]
+throw new Error(`Username ${newName} is already taken.`)
+          ^
+
+Error: Username usain11 is already taken.
+```
+
+:::
+
+Now it is up to the developer utilising this class to decide how to handle this
+error. Ideally they should show a nice message to the user and politely request
+that they choose a different username.

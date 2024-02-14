@@ -52,18 +52,20 @@ With that warning in mind, lets add `.env` to our `.gitignore` file:
 
 ```.gitignore
 node_modules
-.env // [!code ++]
+.env
 ```
 
 That means git will not commit this file and it won't end up on Github!
 
 ## Adding environment variables
 
-Inside the `.env` file, we can define some variables.
+Inside the `.env` file, we can define some variables. A common use case might be
+storing the information we need to connect to a database:
 
 ```.env
-APP_USER=superadmin
-APP_PASSWORD=i8bfWDjhdV-zz3uyL2TaL
+DB_USER=superadmin
+DB_HOST=localhost
+DB_PASSWORD=i8bfWDjhdV-zz3uyL2TaL
 ```
 
 As you can see, the variables are written as key-value pairs. The next thing we
@@ -83,18 +85,30 @@ Here's what this looks like:
 ```js
 // load dotenv at top of file
 import 'dotenv/config'
-console.log(process.env.APP_USER)
-console.log(process.env.APP_PASSWORD)
+
+// variables are now available on process.env
+const dbConfig = {
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD
+}
+
+console.table(dbConfig)
 ```
 
 ```console [output]
-superadmin
-i8bfWDjhdV-zz3uyL2TaL
+┌──────────┬─────────────────────────┐
+│ (index)  │         Values          │
+├──────────┼─────────────────────────┤
+│   host   │       'localhost'       │
+│   user   │      'superadmin'       │
+│ password │ 'i8bfWDjhdV-zz3uyL2TaL' │
+└──────────┴─────────────────────────┘
 ```
 
 :::
 
 Now that we can access environment variables in our code, we can have a clean
 separation between configuration and logic. We can also store and use sensitive
-information like database passwords securely without committing them to version
+information like database passwords securely without commiting them to version
 control.

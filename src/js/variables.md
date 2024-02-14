@@ -1,22 +1,11 @@
+---
+expected:
+  - 'Donnie Darko'
+---
+
 # Variables
 
-## What are variables?
-
-If you've ever used a spreadsheet before, you have used variables. In a
-spreadsheet, you put a variable into a cell and refer to it by its coordinates,
-e.g. `B17` might contain the number `172` and `D3` might contain the string
-`"Persepolis"`.
-
-In javascript, the idea is similar, but instead of coordinates, we use names to
-refer to values, and instead of typing the value in a box, we use the assignment
-operator `=` to assign a name to a value.
-
-Let's see how this works.
-
-## Declaring variables
-
-In javascript, we primarily use two keywords to declare a variable: `let` and
-`const`.
+<Vimeo id="911842928" />
 
 ## Using `let`
 
@@ -35,8 +24,7 @@ Persepolis
 
 :::
 
-Because the program executes one line at a time, from top to bottom, if we
-reverse the order of the lines, we get an error:
+The order of the lines matters.
 
 ::: code-group
 
@@ -51,7 +39,9 @@ ReferenceError: Cannot access 'bookTitle' before initialization
 
 :::
 
-We can, however, redefine the variable.
+## Redefining variables
+
+With `let`, we can redefine the variable.
 
 ::: code-group
 
@@ -69,9 +59,6 @@ The Kite Runner
 ```
 
 :::
-
-Notice that we only use `let` when first declaring the variable. When redefining
-it, we don't write `let` again.
 
 ## Using `const`
 
@@ -110,9 +97,7 @@ TypeError: Assignment to constant variable.
 
 ## Referencing between variables
 
-One important difference between javascript and spreadsheets, is that when you
-update a value in one place, other reference to the value don't necessarily
-change. This is best explained with an example.
+A variable which points at another variable does not update its value.
 
 ::: code-group
 
@@ -139,3 +124,17 @@ User 2: BookishBen99
 ```
 
 :::
+
+## Try it
+
+1. Create a variable called `movie` and assign it to the string
+   `'Donnie Darko'`.
+1. Log `movie` to the console.
+
+<Exercise>
+
+```js
+// code here
+```
+
+</Exercise>

@@ -1,16 +1,10 @@
 # Conditional statements
 
-Conditional statements enable your application to execute different code blocks
-based on certain conditions. This capability is vital for handling a variety of
-scenarios, such as checking user eligibility, managing book loans, and more.
-We'll explore the `if`, `else if`, `else`, and the ternary operator in
-JavaScript.
+<Vimeo id="911842826" />
 
 ## The `if` statement
 
-Let's check to see if our member has an active membership. The code block inside
-the curly `{}` brackets will only run if the condition in `()` parentheses is
-`true`, otherwise it gets skipped.
+The `if` statements runs code based on a condition.
 
 ::: code-group
 
@@ -53,9 +47,7 @@ Membership is inactive. Please renew.
 
 ## The `else if` statement
 
-The `else if` statement allows us to perform additional checks. The first
-condition which returns `true` determines which code block runs. If an `else`
-block is provided then that will run if all other checks are `false`.
+The `else if` statement allows us to perform additional checks.
 
 ::: code-group
 
@@ -79,11 +71,9 @@ User is an adult.
 
 ## The ternary operator
 
-The ternary operator provides a shorthand way of writing simple if-else
-statements. It has three operands, separated by a question mark `?` and a colon
+The ternary operator provides a shorthand way of writing conditional
+expressions. It has three operands, separated by a question mark `?` and a colon
 `:`.
-
-Here's the general syntax:
 
 ```js
 condition ? (runs if condition true) : (runs if condition false)

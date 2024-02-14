@@ -1,9 +1,18 @@
+---
+cases:
+  - 'console.log(typeof a)'
+  - 'console.log(typeof b)'
+  - 'console.log(typeof c)'
+
+expected:
+  - 'string'
+  - 'number'
+  - 'boolean'
+---
+
 # Data types
 
-Understanding data types is crucial for managing information like book titles,
-user data, and numerical information about books and inventory. This guide will
-cover the primitive types in JavaScript, how to convert between types, and the
-implications of using mathematical operations on values of different types.
+<Vimeo id="911842881" />
 
 ## Types in javascript
 
@@ -65,8 +74,7 @@ Beloved was written by Toni Morrison
 
 ## Changing type
 
-In some cases, it is possible to change from one type to another, which can be
-very useful when dealing with data from different sources.
+In some cases, it is possible to change from one type to another.
 
 ```js
 let bookCount = String(100) // Converts number to string
@@ -75,8 +83,7 @@ let price = Number('19.99') // Converts string to number
 
 ## Type coercion
 
-We need to be careful when operating on values of different types. Javascript
-will try to figure out what you mean and often get it wrong!
+We need to be careful when operating on values of different types.
 
 ::: code-group
 
@@ -93,3 +100,16 @@ console.log(totalPrice) // oops!
 ```
 
 :::
+
+## Try it
+
+Create three variables, `a`, `b` and `c`. Assign to them any string, number and
+boolean (in that order). Don't log anything to the console.
+
+<Exercise>
+
+```js
+// code here
+```
+
+</Exercise>

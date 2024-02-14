@@ -88,7 +88,6 @@ export default defineConfig({
     sidebar: {
       '/bash/': sidebars.bash,
       '/js/': sidebars.javascript,
-      '/js-video/': sidebars.javascriptVideo,
       '/sql/': sidebars.sql
     },
 

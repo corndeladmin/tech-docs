@@ -20,7 +20,10 @@ export const javascript = [
 
       { text: 'Logical operators', link: '/js/logical-operators' },
       { text: 'Comparison operators', link: '/js/comparison-operators' },
-      { text: 'Conditional statements', link: '/js/conditional-statements' },
+      {
+        text: 'Conditional statements',
+        link: '/js/conditional-statements'
+      },
 
       { text: 'Functions', link: '/js/functions' },
       { text: 'Parameters', link: '/js/parameters' }
@@ -31,21 +34,48 @@ export const javascript = [
     text: 'Data and iteration',
     collapsed: true,
     items: [
-      { text: 'Working with arrays', link: '/js/working-with-arrays' },
-      { text: 'Array methods', link: '/js/array-methods' },
-      { text: 'String methods', link: '/js/string-methods' },
-
-      { text: 'Basic loops', link: '/js/basic-loops' },
-      { text: 'Loop control flow', link: '/js/loop-control-flow' },
-      { text: 'Applied iteration', link: '/js/applied-iteration' },
+      {
+        text: 'Arrays',
+        collapsed: true,
+        items: [
+          { text: 'Basics', link: '/js/arrays' },
+          { text: 'Slice', link: '/js/array-slice' },
+          { text: 'Push', link: '/js/array-push-pop' },
+          { text: 'Map', link: '/js/array-map' },
+          { text: 'Filter', link: '/js/array-filter' },
+          { text: 'Reduce', link: '/js/array-reduce.md' }
+        ]
+      },
+      {
+        text: 'Strings',
+        collapsed: true,
+        items: [
+          { text: 'Formatting', link: '/js/string-formatting' },
+          { text: 'Split and join', link: '/js/string-split-join' }
+        ]
+      },
+      {
+        text: 'Loops',
+        collapsed: true,
+        items: [
+          { text: 'While loops', link: '/js/while-loops' },
+          { text: 'For loops', link: '/js/for-loops' },
+          { text: 'For of loops', link: '/js/for-of-loops' },
+          { text: 'Control flow', link: '/js/loop-control-flow' },
+          { text: 'Nested loops', link: '/js/nested-loops' }
+        ]
+      },
 
       {
-        text: 'Objects as key value stores',
-        link: '/js/objects-as-key-value-stores'
-      },
-      { text: 'Lists of objects', link: '/js/lists-of-objects' },
-      { text: 'Object nesting', link: '/js/object-nesting' },
-      { text: 'Array reduce', link: '/js/array-reduce.md' }
+        text: 'Objects',
+        collapsed: true,
+        items: [
+          { text: 'Objects', link: '/js/objects' },
+          { text: 'Object tricks', link: '/js/object-tricks' },
+          { text: 'Lists of objects', link: '/js/lists-of-objects' },
+          { text: 'Object nesting', link: '/js/object-nesting' }
+        ]
+      }
     ]
   },
 
@@ -53,7 +83,10 @@ export const javascript = [
     text: 'Object oriented programming',
     collapsed: true,
     items: [
-      { text: 'Classes and instances', link: '/js/classes-and-instances' },
+      {
+        text: 'Classes and instances',
+        link: '/js/classes-and-instances'
+      },
       { text: 'Instance Methods', link: '/js/instance-methods' },
       { text: 'Private properties', link: '/js/private-properties.md' },
       { text: 'Getters and setters', link: '/js/getters-and-setters.md' },
