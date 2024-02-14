@@ -1,9 +1,11 @@
+---
+expected:
+  - 3
+---
+
 # Operators and expressions
 
-Operators allow us to perform operations on variables and values, while
-expressions are combinations of variables, values, and operators that evaluate
-to a single value. Let's understand how to use these concepts to handle
-operations like calculating total book collections, average ratings, and more.
+<Vimeo id="911842914" />
 
 ## Arithmetic operators
 
@@ -25,8 +27,6 @@ mathematical calculations.
 An expression in javascript is a collection of operators and variables that
 evaluates down to a single value.
 
-For example
-
 ::: code-group
 
 ```js
@@ -43,12 +43,9 @@ console.log(totalValue)
 
 :::
 
-## New from old
+## Modifying a variable
 
 When updating a variable, we can use its old value to calculate its new value.
-
-For example, if we want to add `10` to the number of available books, we could
-do this:
 
 ::: code-group
 
@@ -65,8 +62,7 @@ console.log(availableBooks)
 
 :::
 
-In the specific case of adding and subtracting numbers, we can do this a bit
-more quickly with `+=` and `-=`.
+We can do this a bit more quickly with `+=` and `-=`.
 
 ::: code-group
 
@@ -86,3 +82,20 @@ console.log(availableBooks)
 ```
 
 :::
+
+## Try it
+
+Calculate the remainder when `a` to the power of `b` is divided by `c`. Log your
+answer to the console.
+
+<Exercise>
+
+```js
+const a = 12
+const b = 7
+const c = 5
+
+console.log() // <-- put your calculation here
+```
+
+</Exercise>

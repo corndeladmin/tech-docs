@@ -1,10 +1,11 @@
+---
+expected:
+  - 'false'
+---
+
 # Comparison operators
 
-Comparison operators allow us to compare two values in JavaScript, resulting in
-a Boolean value (`true` or `false`). These operators are pivotal in making
-decisions, such as determining if a user meets the age requirement for an
-account, comparing book prices, or checking if the inventory meets a certain
-threshold.
+<Vimeo id="911842849" />
 
 ## Operators explained
 
@@ -19,13 +20,7 @@ Here are the most common comparison operators in javascript:
 | `a === b` | Is `a` strictly equal to `b`? (same value and type) |
 | `a == b`  | Is `a` loosely equal to `b` ?                       |
 
-Here, _loosely equal to_ means that they would be equal after type coercion.
-
-::: info
-
-There are lots of quirky behaviours which arise when you use `==` instead of
-`===`. For example, the string `"10"` and number `10` are considered the same by
-`==` but different by `===`.
+::: tip
 
 As a general rule, prefer `===` unless you know you need `==`.
 
@@ -33,7 +28,7 @@ As a general rule, prefer `===` unless you know you need `==`.
 
 ## Examples
 
-Suppose we want to check if a user is old enough to check out a particular book.
+### Using inequalities
 
 ::: code-group
 
@@ -49,7 +44,7 @@ true
 
 :::
 
-Perhaps we need to check the condition of some books.
+### Using equality operators
 
 ::: code-group
 
@@ -69,7 +64,7 @@ true
 
 ## Strict and loose equality
 
-As we mentioned above, `==` and `===` have different behaviour.
+As we mentioned, `==` and `===` have different behaviour.
 
 ::: code-group
 
@@ -90,3 +85,18 @@ false
 ```
 
 :::
+
+## Try it
+
+In the `.log()`, check whether `num1` is smaller than `num2`.
+
+<Exercise>
+
+```js
+const num1 = 770 * 221
+const num2 = 105 * 1431
+
+console.log() // <-- put your comparison here
+```
+
+</Exercise>

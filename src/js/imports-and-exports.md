@@ -1,4 +1,4 @@
-# Imports and exports
+# Modularisation
 
 As we continue building our Health Tracker CLI, it's crucial we keep our code
 organized and maintainable. One of the best ways to achieve this is by using ES6
@@ -10,11 +10,11 @@ through the basics of importing and exporting modules in ES6.
 In order to use ES6 imports, we need to modify our `package.json`. Add a new
 line like this:
 
-```json{4}
+```json
 {
   "name": "health-tracker",
   "version": "1.0.0",
-  "type": "module",
+  "type": "module", // [!code ++]
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -35,36 +35,69 @@ and exports.
 
 ::: info
 
-The other style of modularisation is called CommonJS and is older than the ES6
-style. We're recommending ES6 as CommonJS will eventually be deprecated.
+The other style of importing is called CommonJS and is older than the ES6 style.
+We're recommending ES6 as CommonJS will eventually be deprecated.
+
+:::
+
+## Named and default exports
+
+We can use the `export` keyword to make `const`, `function` and `class`
+available in other files in our project.
+
+We import named exports with `{}`, but we don't need `{}` to import default
+exports.
+
+::: code-group
+
+```js [a.js]
+export const x = 7
+export const y = 12
+
+const msg = 'Hello from a.js!'
+export default msg
+```
+
+```js [b.js]
+import { x, y } from './a.js'
+import msg from './a.js'
+
+console.log(x + y)
+console.log(msg)
+```
+
+```console [output]
+19
+Hello from a.js!
+```
 
 :::
 
 ## Structuring the project
 
-Let's suppose we're organising our code into three classes:
+Let's suppose we're organising our code into classes:
 
 - `DiaryEntry` to monitor our wellbeing
 - `Meal` to track our meals
 - `Workout` to log our exercise
 
-We will create a directory for these classes. Open a terminal your
-`health-tracker` directory and run the following:
+What we are doing is **modelling** the domain of our app with classes. As such,
+we usually put these types of classes in to a folder called `models`.
 
 ::: code-group
 
 ```bash
-mkdir classes
-cd classes
+mkdir models
+cd models
 touch DiaryEntry.js Meal.js Workout.js
 ```
 
 ```console{2-5} [output]
 health-tracker/
-├── classes
-│   ├── DiaryEntry.js
-│   ├── Meal.js
-│   └── Workout.js
+├── models // [!code ++]
+│   ├── DiaryEntry.js // [!code ++]
+│   ├── Meal.js // [!code ++]
+│   └── Workout.js // [!code ++]
 ├── .gitignore
 ├── node_modules/
 ├── package.json
@@ -72,6 +105,8 @@ health-tracker/
 ```
 
 :::
+
+## Exporting the classes
 
 We'll just put a bit of starter code in each one to begin with:
 
@@ -82,11 +117,6 @@ class DiaryEntry {
   constructor(txt, mood) {
     this.txt = txt
     this.mood = mood
-  }
-
-  print() {
-    console.log(this.txt)
-    console.log(`Your mood score is ${this.mood}.`)
   }
 }
 
@@ -99,11 +129,6 @@ class Meal {
     this.name = name
     this.calories = calories
   }
-
-  print() {
-    console.log(`You ate ${this.name}.`)
-    console.log(`${this.calories} kCal.`)
-  }
 }
 
 export default Meal // [!code highlight]
@@ -115,10 +140,6 @@ class Workout {
     this.activity = activity
     this.time = time
   }
-
-  print() {
-    console.log(`You did ${this.activity} for ${this.time} minutes.`)
-  }
 }
 
 export default Workout // [!code highlight]
@@ -126,18 +147,13 @@ export default Workout // [!code highlight]
 
 :::
 
-Note the use of `export default` at the bottom of each file.
+Note the use of `export default` at the bottom of each file. This allows us to
+export the class and use it in a different file.
 
-## Default exports
-
-A crucial part of making our code maintainable is working in different files and
-importing code to where we need it. We saw above the use of
-`export default Meal` in `classes/Meal.js`. This line makes the `Meal` class
-available for use in other files. But this doesn't happen automatically - we
-have to import the `Meal` class where we want to use it.
+## Importing the classes
 
 Let's create a file called `app.js` in the root of the `health-tracker` project.
-This is the file where we'll interact with our classes.
+We will import our classes here and play around with them.
 
 ::: code-group
 
@@ -147,8 +163,8 @@ touch app.js
 
 ```console [output]
 health-tracker/
-├── app.js // [!code highlight]
-├── classes
+├── app.js // [!code ++]
+├── models
 │   ├── DiaryEntry.js
 │   ├── Meal.js
 │   └── Workout.js
@@ -164,148 +180,25 @@ In `app.js`, we'll import the three classes:
 
 ::: code-group
 
-```js
+```js{1-3}
 import DiaryEntry from './classes/DiaryEntry.js'
 import Meal from './classes/Meal.js'
 import Workout from './classes/Workout.js'
 
 // Now we can use our classes in app.js!
-const entry = new DiaryEntry('I learned how to use Node.js today!', 8)
+const entry = new DiaryEntry('I am learning Node!', 8.9)
 const meal = new Meal('Aubergine curry', 1250)
 const workout = new Workout('Yoga', 30)
 
-entry.print()
-meal.print()
-workout.print()
+console.log(entry)
+console.log(meal)
+console.log(workout)
 ```
 
 ```console [output]
-Your mood score is 8.
-I learned how to use Node.js today!
-
-You ate Aubergine curry.
-1250 kCal.
-
-You did Yoga for 30 minutes.
+DiaryEntry { txt: 'I learned how to use Node.js today!', mood: 8 }
+Meal { name: 'Aubergine curry', calories: 1250 }
+Workout { activity: 'Yoga', time: 30 }
 ```
 
 :::
-
-## Named exports
-
-With `export default` we are generally exporting one thing. With named exports,
-however, we can export multiple things from one file. The general pattern is
-just to put the `export` keyword on the front of the thing you're exporting.
-Note that this changes the way we import it, as we'll see in the below example.
-
-Let's create a file `utils.js` which will contain useful stuff across our
-project.
-
-::: code-group
-
-```bash
-touch utils.js
-```
-
-```console [output]
-health-tracker/
-├── app.js
-├── classes
-│   ├── DiaryEntry.js
-│   ├── Meal.js
-│   └── Workout.js
-├── .gitignore
-├── node_modules/
-├── package.json
-├── utils.js // [!code highlight]
-└── package-lock.json
-```
-
-:::
-
-We'll `export` and `const` and a `function` from this file, then `import` and
-use them in our classes.
-
-::: code-group
-
-```js [utils.js]
-// named function export
-export function toPercentage(numerator, denominator) {
-  return ((numerator / denominator) * 100).toFixed(2)
-}
-
-// named constant export
-export const units = {
-  energy: 'kCal',
-  time: 'minutes',
-  mood: '%'
-}
-```
-
-```js{1} [DiaryEntry.js]
-import { units, toPercentage } from '../utils.js'
-
-class DiaryEntry {
-  constructor(txt, mood) {
-    this.txt = txt
-    this.mood = mood
-  }
-
-  print() {
-    const moodPercent = toPercentage(this.mood, 10)
-    console.log(this.txt)
-    console.log(`Your mood score is ${moodPercent}${units.mood}.`)
-  }
-}
-
-export default DiaryEntry
-```
-
-```js{1} [Meal.js]
-import { units } from '../utils.js'
-
-class Meal {
-  constructor(name, calories) {
-    this.name = name
-    this.calories = calories
-  }
-
-  print() {
-    console.log(`You ate ${this.name}.`)
-    console.log(`${this.calories} ${units.energy}.`)
-  }
-}
-
-export default Meal
-```
-
-```js{1} [Workout.js]
-import { units } from '../utils.js'
-
-class Workout {
-  constructor(activity, time) {
-    this.activity = activity
-    this.time = time
-  }
-
-  print() {
-    console.log(`You did ${this.activity} for ${this.time} ${units.time}.`)
-  }
-}
-
-export default Workout
-```
-
-:::
-
-Notice how we use curly brackets when importing named exports.
-
-::: tip
-
-When importing a default export, brackets aren't necessary, but when importing
-named exports, we use `{}`, even if just importing a single named export.
-
-:::
-
-Whilst there are a few more tips and tricks for importing and exporting, we've
-now got everything we need to modularise our code.
