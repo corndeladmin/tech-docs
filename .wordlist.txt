@@ -335,3 +335,8 @@ xz
 yaz
 Zoja
 zz
+Subqueries
+Subquery
+subqueries
+subquery
+DATETIME
