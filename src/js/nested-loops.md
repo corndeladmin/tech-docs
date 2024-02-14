@@ -5,7 +5,7 @@ We are sometimes required to perform a loop within another loop.
 ## Solving array problems
 
 We can use `for of` to perform a loop within another loop. This function counts
-occurences of a letter in our array of comments.
+each occurence of a letter in our array of comments.
 
 ::: code-group
 

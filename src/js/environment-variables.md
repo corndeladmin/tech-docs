@@ -110,5 +110,5 @@ console.table(dbConfig)
 
 Now that we can access environment variables in our code, we can have a clean
 separation between configuration and logic. We can also store and use sensitive
-information like database passwords securely without commiting them to version
+information like database passwords securely without committing them to version
 control.

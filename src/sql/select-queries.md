@@ -29,7 +29,7 @@ me every column from the table_.
 
 ::: tip
 
-The linebreak after `SELECT *` is optional. We often put linebreaks in SQL for
+The line break after `SELECT *` is optional. We often put line breaks in SQL for
 readability, but they're not necessary. The same is true for uppercase key
 words.
 

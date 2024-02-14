@@ -4,7 +4,7 @@
 
 ## Defining a function
 
-Here is the basic syntac for defining a function.
+Here is the basic syntax for defining a function.
 
 ```js
 function anyNameYouWant() {

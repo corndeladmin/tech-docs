@@ -54,7 +54,7 @@ WHERE userId = 9 AND bleetId = 12;
 
 ## Creating the join table
 
-To create the join table, we define the colums and set up the foreign key
+To create the join table, we define the columns and set up the foreign key
 references.
 
 ::: code-group
@@ -132,7 +132,7 @@ JOIN bleets ON bleets.id = user_likes.bleetId
 WHERE user_likes.userId = 3
 ```
 
-Whereas the `user_likes` table is limited to just the `bleetId`, by joing the
+Whereas the `user_likes` table is limited to just the `bleetId`, by joining the
 `bleets` data to the `user_likes` data, we are able to return the actual content
 of each bleet the user likes:
 

@@ -9,7 +9,7 @@ expected:
 
 ## Overview
 
-The operators avialable in Javascript are shown in the table below.
+The operators available in Javascript are shown in the table below.
 
 | Name |             Usage             | Evaluates to                                                             |
 | :--: | :---------------------------: | ------------------------------------------------------------------------ |

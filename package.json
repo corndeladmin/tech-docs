@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "docs:preview": "vitepress preview",
+    "spag": "pyspelling",
+    "spag:report": "pyspelling > .spag-report.txt",
+    "spag:sort": "sort -u .wordlist.txt -o .wordlist.txt"
   },
   "keywords": [],
   "author": "",

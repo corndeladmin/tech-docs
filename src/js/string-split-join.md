@@ -47,7 +47,7 @@ console.log(titleLetters)
 
 ## Join
 
-The opposite of splitting is joining. We specify a string to sandwhich between
+The opposite of splitting is joining. We specify a string to sandwich between
 the items in an array, and the array is joined into a single string.
 
 ::: code-group

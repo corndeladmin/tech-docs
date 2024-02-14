@@ -36,7 +36,7 @@ Workout { activity: 'Dodgeball', time: 15 }
 That is not a great user experience. Let's make a **command line interface**
 (CLI) for them.
 
-## Installing Commader
+## Installing Commander
 
 We're going to be using [Commander](https://github.com/tj/commander.js) to
 create our CLI. It is a very common package which makes CLI development much

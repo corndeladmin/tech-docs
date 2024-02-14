@@ -85,7 +85,7 @@ decimals.
 
 ::: tip
 
-Note that traling `0`s are included, which makes it good for formatting
+Note that trailing `0`s are included, which makes it good for formatting
 currency.
 
 :::

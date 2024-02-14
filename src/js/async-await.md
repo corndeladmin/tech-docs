@@ -1,13 +1,12 @@
 # `async` / `await`
 
 Javascript allows us to do _asynchronous programming_. This basically means we
-can ask our programme to wait for some other system (perhaps another programme
-or another computer) to respond before it goes on executing the rest of the
-code.
+can ask our program to wait for some other system (perhaps another program or
+another computer) to respond before it goes on executing the rest of the code.
 
-It may seem backwards that we're asking our programme to _slow down_ because
+It may seem backwards that we're asking our program to _slow down_ because
 usually faster is better, but what if we need to get data from a database in
-order to process it? Well our programme had better not go ahead and start trying
+order to process it? Well our program had better not go ahead and start trying
 to process before the database has finished giving us the data!
 
 ## Understanding the problem
@@ -43,7 +42,7 @@ Get comfortable.
 Meditation complete.
 ```
 
-and then, afer about 2 seconds
+and then, after about 2 seconds
 
 ```console
 1. Breathe in...
@@ -95,7 +94,7 @@ A much better solution to this problem is provided by a class of objects in
 javascript called `Promise`. When we create a promise, we can call a special
 function called `resolve()`. By using the `await` keyword, we request that
 Javascript waits for `resolve()` to be called before executing the rest of the
-programme.
+program.
 
 Let's refactor our code by creating a `pause(n)` function which returns a
 promise, and only calls resolve after `n` seconds.
@@ -110,7 +109,7 @@ export function pause(n) {
 
 As we said, this `pause` function returns a promise whose `resolve()` gets
 called after `n` seconds. Any line of code that `await`s this promise will halt
-Javascripts execution until the `resolve()` is called.
+Javascript's execution until the `resolve()` is called.
 
 ## Awaiting a promise
 

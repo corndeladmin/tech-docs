@@ -57,7 +57,7 @@ As we mentioned, all rows included by the `WHERE` clause will be updates.
 
 If we don't include a `WHERE` clause then every row will be updated. It is a
 good idea to write the `WHERE` first, and use `SELECT` to make sure you're
-targetting the correct rows, and only then write and execute the update
+targeting the correct rows, and only then write and execute the update
 statement.
 
 :::

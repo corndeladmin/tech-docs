@@ -14,7 +14,7 @@ function addNumbers(x, y) {
 
 ## Using parameters
 
-When calling a function, we provide arguments for the paramters.
+When calling a function, we provide arguments for the parameters.
 
 ::: code-group
 

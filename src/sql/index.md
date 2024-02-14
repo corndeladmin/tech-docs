@@ -54,7 +54,7 @@ examples:
 
 ## Learning SQL
 
-We'll begin by learning how to query data from an existsing database. Later,
+We'll begin by learning how to query data from an existing database. Later,
 we'll take a look at managing the database - creating new tables, modifying
 tables, and so on.
 

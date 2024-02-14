@@ -1,6 +1,6 @@
 # Selecting with conditions
 
-Often, we don't want to get every single row in the database. This is expecially
+Often, we don't want to get every single row in the database. This is especially
 true if the database contains millions of rows of data. We want to restrict our
 query to rows with particular constraints.
 
