@@ -135,6 +135,7 @@ getters
 Getters
 gitignore
 gmail
+gonner
 Grande
 handleMainPromise
 hasOverdueBooks
@@ -228,6 +229,7 @@ powershell
 premiumMember
 previousLoans
 queryBooks
+quickReads
 rangeRequested
 readFile
 readingTime
@@ -271,6 +273,7 @@ studyLight
 subcommand
 subdirectories
 subfolders
+subgenre
 sudo
 superadmin
 superclass
@@ -332,3 +335,8 @@ xz
 yaz
 Zoja
 zz
+Subqueries
+Subquery
+subqueries
+subquery
+DATETIME
