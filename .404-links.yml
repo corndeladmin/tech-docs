@@ -1,0 +1,5 @@
+# https://github.com/marketplace/actions/404-links
+
+folder: src/ # The folder that required to be parsed
+httpsOnly: true # If you want enforce only HTTPS links
+pullRequestReview: true # If you want a nice review in your pull requests

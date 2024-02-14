@@ -1,4 +1,5 @@
 name: Spellcheck Action
+
 on:
   pull_request:
     branches:
