@@ -1,8 +1,5 @@
 name: Spellcheck Action
-on:
-  pull_request:
-    branches:
-      - main
+on: [push, pull_request]
 
 jobs:
   build:
