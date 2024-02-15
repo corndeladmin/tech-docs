@@ -78,6 +78,7 @@ cxh
 Darko
 dataset
 datasets
+DATETIME
 dbConfig
 decodedBodySize
 DefaultModuleLoader
@@ -93,6 +94,7 @@ displayPrice
 distros
 docx
 Dodgeball
+DonaldDuck
 doorCam
 dotenv
 driay
@@ -113,6 +115,7 @@ excitedResolutions
 executeUserEntryPoint
 factoryReset
 Fi
+fileURLToPath
 finalConnectionTimingInfo
 finalNetworkRequestStartTime
 finalNetworkResponseStartTime
@@ -164,6 +167,7 @@ js
 json
 JSON
 kitchenLight
+knex
 knittingResolutions
 lastAuthor
 lastName
@@ -185,6 +189,9 @@ MarkZeeberg
 Márquez
 MarsRoyalty
 MartianOprah
+mealController
+middleware
+Middleware
 minimumAge
 minimumYear
 minYear
@@ -202,6 +209,7 @@ newColor
 newName
 NextSingle
 nodejs
+nodemon
 npm
 nSquash
 num
@@ -219,6 +227,7 @@ Pachinko
 pageCount
 pageNumbers
 pageturner
+params
 parseFloat
 parseInt
 piString
@@ -239,6 +248,7 @@ redirectEndTime
 redirectStartTime
 ReferenceError
 Repos
+req
 requestIncludesCredentials
 resetHost
 returnFirstBookTitle
@@ -274,6 +284,10 @@ subcommand
 subdirectories
 subfolders
 subgenre
+subqueries
+Subqueries
+subquery
+Subquery
 sudo
 superadmin
 superclass
@@ -311,6 +325,7 @@ upperCaseQuote
 uri
 urlList
 usain
+useNullAsDefault
 userAge
 userEarliestBookYear
 userId
@@ -335,8 +350,3 @@ xz
 yaz
 Zoja
 zz
-Subqueries
-Subquery
-subqueries
-subquery
-DATETIME
