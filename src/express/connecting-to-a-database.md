@@ -79,8 +79,8 @@ For example,
 
 ```js
 app.get('/api/users', async (req, res) => {
-  const query = `SELECT * FROM users LIMIT 5`
-  const results = await db.raw(query, [limit])
+  const query = `SELECT * FROM users`
+  const results = await db.raw(query)
   res.json(results)
 })
 ```

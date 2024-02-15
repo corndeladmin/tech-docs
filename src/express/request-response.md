@@ -71,9 +71,9 @@ We can get the body as a javascript object from `req.body` on the server.
 
 ```js
 app.post('/api/users', async (req, res) => {
-  const { username, verified = 0 } = req.body
-  const query = `INSERT INTO users (username, verified) VALUES ((?),(?))`
-  await db.raw(query, [username, verified])
+  const { username } = req.body
+  const query = `INSERT INTO users (username, verified) VALUES (?)`
+  await db.raw(query, [username])
   res.status(201).json({ msg: 'User created.' })
 })
 ```
