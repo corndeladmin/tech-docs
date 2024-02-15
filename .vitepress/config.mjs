@@ -87,6 +87,7 @@ export default defineConfig({
 
     sidebar: {
       '/bash/': sidebars.bash,
+      '/express/': sidebars.express,
       '/js/': sidebars.javascript,
       '/sql/': sidebars.sql
     },
