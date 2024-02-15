@@ -1,9 +1,6 @@
 # Modularisation
 
-As we continue building our Health Tracker CLI, it's crucial we keep our code
-organized and maintainable. One of the best ways to achieve this is by using ES6
-modules to separate our code into reusable pieces. This guide will walk you
-through the basics of importing and exporting modules in ES6.
+<Vimeo id="913033408" />
 
 ## Configuring the project
 
@@ -29,9 +26,6 @@ line like this:
   }
 }
 ```
-
-This tells Node that we're using ES6 modules, so it knows how to handle imports
-and exports.
 
 ::: info
 
@@ -81,8 +75,7 @@ Let's suppose we're organising our code into classes:
 - `Meal` to track our meals
 - `Workout` to log our exercise
 
-What we are doing is **modelling** the domain of our app with classes. As such,
-we usually put these types of classes in to a folder called `models`.
+We usually put these types of classes in to a folder called `models`.
 
 ::: code-group
 
@@ -196,7 +189,7 @@ console.log(workout)
 ```
 
 ```console [output]
-DiaryEntry { txt: 'I learned how to use Node.js today!', mood: 8 }
+DiaryEntry { txt: 'I am learning Node!', mood: 8.9 }
 Meal { name: 'Aubergine curry', calories: 1250 }
 Workout { activity: 'Yoga', time: 30 }
 ```
