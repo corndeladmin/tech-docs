@@ -137,6 +137,10 @@ export const javascript = [
       {
         text: 'Fetching data',
         link: '/js/fetching-data.md'
+      },
+      {
+        text: 'Connecting to a database',
+        link: '/js/connecting-to-a-database'
       }
     ]
   }

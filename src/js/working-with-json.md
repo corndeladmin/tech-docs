@@ -20,15 +20,27 @@ data on the file system and transferring data between services
 
 To work with JSON as a javascript object, we use `JSON.parse()`
 
+::: code-group
+
 ```js
 // read data
-const uri = new URL('./config.json', import.meta.url)
-const data = await fs.readFile(uri)
+const path = new URL('./config.json', import.meta.url)
+const data = await fs.readFile(path)
 
 // parse into js object
 const obj = JSON.parse(data)
 console.log(obj)
 ```
+
+```console [output]
+{
+  location: 'us-west',
+  days: 7,
+  levels: ['error', 'warn']
+}
+```
+
+:::
 
 ## Writing JSON
 
@@ -36,5 +48,5 @@ To write a javascript object to a json file, we use `JSON.stringify()`
 
 ```js
 // stringify and write an object to a .json file
-await fs.writeFile(uri, JSON.stringify(obj))
+await fs.writeFile(path, JSON.stringify(obj))
 ```
