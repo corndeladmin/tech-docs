@@ -6,31 +6,30 @@ We will set up our database with the following schema:
 
 ::: code-group
 
-```sql [users]
-CREATE TABLE IF NOT EXISTS users (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    username TEXT NOT NULL UNIQUE,
-    verified BOOLEAN DEFAULT 0
-);
-```
-
-```sql [bleets]
-CREATE TABLE IF NOT EXISTS bleets (
+```sql [diary]
+CREATE TABLE IF NOT EXISTS diary (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     content TEXT NOT NULL,
-    createdAt TEXT DEFAULT (datetime('now')),
-    userId INTEGER NOT NULL,
-    FOREIGN KEY (userId) REFERENCES USER(id)
+    score INTEGER,
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP
 );
 ```
 
-```sql [likes]
-CREATE TABLE IF NOT EXISTS user_bleet_likes (
-    userId INTEGER NOT NULL,
-    bleetId INTEGER NOT NULL,
-    PRIMARY KEY (userId, bleetId),
-    FOREIGN KEY (userId) REFERENCES USER(id),
-    FOREIGN KEY (bleetId) REFERENCES BLEET(id)
+```sql [meals]
+CREATE TABLE IF NOT EXISTS meals (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name INTEGER NOT NULL,
+    calories INTEGER,
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+```sql [workouts]
+CREATE TABLE IF NOT EXISTS workouts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    activity TEXT NOT NULL,
+    duration INTEGER,
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP
 );
 ```
 
@@ -78,9 +77,7 @@ Now we can run SQL queries on our database with `db.raw()`.
 For example,
 
 ```js
-app.get('/api/users', async (req, res) => {
-  const query = `SELECT * FROM users LIMIT 5`
-  const results = await db.raw(query, [limit])
-  res.json(results)
-})
+const query = `SELECT * FROM workouts`
+const results = await db.raw(query)
+return results
 ```
