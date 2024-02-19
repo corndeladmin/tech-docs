@@ -4,7 +4,7 @@
 
 ## Understanding the problem
 
-Whlist Javascript reads the lines in order, it will skip ahead if possible and
+Whilst Javascript reads the lines in order, it will skip ahead if possible and
 execute each line it reads as soon as it can.
 
 ```js

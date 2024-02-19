@@ -208,6 +208,8 @@ networkPrefix
 newColor
 newName
 NextSingle
+nFixed
+nLearned
 nodejs
 nodemon
 npm
