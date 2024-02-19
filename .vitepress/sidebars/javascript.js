@@ -137,7 +137,13 @@ export const javascript = [
       {
         text: 'Fetching data',
         link: '/js/fetching-data.md'
-      },
+      }
+    ]
+  },
+  {
+    text: 'Working with databases',
+    collapsed: true,
+    items: [
       {
         text: 'Connecting to a database',
         link: '/js/connecting-to-a-database'

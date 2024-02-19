@@ -1,6 +1,6 @@
 # Reading and writing files
 
-<Vimeo id="903019331"></Vimeo>
+<Vimeo id="913755678"></Vimeo>
 
 ## Reading a file
 
@@ -32,7 +32,7 @@ We can write to a file using javascript
 await fs.writeFile('./diary.txt', 'My diary:')
 ```
 
-::: warning
+::: danger
 
 Before you run `fs.writeFile`, you should know that it **overwrites all data**
 at the file path.

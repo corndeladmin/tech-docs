@@ -1,30 +1,11 @@
 # Fetching data
 
-An API (application programming interface) allows one app to use the
-functionality in another app. This is often done over the internet by making
-HTTP requests.
-
-In this guide, we'll see how to request data from an external service using its
-API.
-
-## HTTP request
-
-Let's suppose we're back in our health tracker app, and we'd like to make use of
-the
-[Nutritionix API](https://developer.syndigo.com/cxh/docs/nutritionix-api-guide).
-This API allows us to get calorie information for various foods, and health
-metrics for various workouts.
-
-The `fetch` function is globally available in Node, and it allows our code to
-make a HTTP request over the internet. This is exactly what your browser does
-when you open a website. But whereas the browser does all the hard work for us,
-we will need to carefully construct our HTTP request so that the API knows who
-we are and what we want.
+<Vimeo id="914394853" />
 
 ## Using `fetch`
 
-The fetch function allows us to build and send a request over the internet to
-any URL. For example
+The fetch function allows us to send a request over the internet to any URL. For
+example
 
 ::: code-group
 
@@ -137,11 +118,11 @@ const endpoint = '/v2/natural/exercise'
 const url = new URL(endpoint, domain)
 
 // make the headers
-const headers = {
+const headers = new Headers({
   'Content-Type': 'application/json',
   'x-app-id': process.env.NUTRITIONIX_ID,
   'x-app-key': process.env.NUTRITIONIX_KEY
-}
+})
 
 // make the body a JSON string
 const body = JSON.stringify({
@@ -193,7 +174,7 @@ we cannot send a `body` as part of a `GET` request.
 ::: tip
 
 Just because this function is called `fetch` doesn't mean it is always about
-receiving data. The `fetch` function can be used to both send and receive data
+_receiving_ data. The `fetch` function can be used to both send and receive data
 to API services.
 
 :::
