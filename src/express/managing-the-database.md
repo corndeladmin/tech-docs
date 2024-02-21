@@ -1,5 +1,7 @@
 # Managing the database
 
+<Vimeo id="915185365" />
+
 ## Creating the schema
 
 We will set up our database with the following schema:

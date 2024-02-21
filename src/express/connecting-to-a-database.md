@@ -1,12 +1,16 @@
-# Connecting to a database
+# Connecting to the database
+
+<Vimeo id="915186757" />
+
+## Setting up the connection
 
 We use `knex` to provide a connection to the database, allowing us to run SQL
 queries from within our javascript files.
 
-First, we install `knex`.
+First, we install `knex` and `sqlite3`.
 
 ```bash
-npm install knex
+npm install knex sqlite3
 ```
 
 Then, we add our database connection code to `db/index.js`.
