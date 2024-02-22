@@ -7,7 +7,7 @@
 When we send a request, the headers are available in the backend as
 `req.headers`.
 
-When we send a requst with a body, it will be parsed into the `req.body` for us
+When we send a request with a body, it will be parsed into the `req.body` for us
 on the backend.
 
 ::: code-group
