@@ -20,13 +20,6 @@ The letters in npm stand for _node package manager_, and it allows us to
 download additional libraries and packages to enrich the Node development
 experience. We'll learn more about npm later in the course!
 
-::: tip
-
-When you install Node, you automatically get npm as well! No separate download
-is needed.
-
-:::
-
 ## Installing Node and npm
 
 The installation method varies a bit depending on your operating system.
