@@ -1,79 +1,115 @@
 # Request and response
 
-## URL params
+<Vimeo id="915624417" />
 
-We can use url params to send "arguments" to the server.
+## Request and response
 
-We might want to make a request to get a particular user by their `id`:
+There are several ways to send extra information as part of the request and
+response. These include:
 
-```bash
-curl localhost:5000/api/users/4
+- Query params: parts of the url such as `?x=7&y=cool`
+- URL params: dynamic parts of the endpoint, such as the `7` in `/users/7`
+- Headers: Meta information about the request or response which is part of the
+  HTTP standard
+- Body: Complex, structured data which accompanies the request or response
+
+## HTTP tools
+
+Tools such as [cURL](https://curl.se/docs/), [Postman](https://www.postman.com/)
+and the VS Code plugin [Thunderclient](https://www.thunderclient.com/) allows us
+to construct more complex requests to test our applications. They simulate
+client applications such as CLIs, mobile apps and websites which would be making
+these requests in production.
+
+## Sending and receiving JSON
+
+We can configure our app to send an receive JSON as part of the body. As a
+bonus, this will also encode and parse between JSON and Javascript without need
+of `JSON.parse()` and `JSON.stringify()`.
+
+```js{2}
+const app = express()
+app.use(express.json())
 ```
 
-This is how we handle it on the server side:
+Now we can send and receive json
 
-```js
-app.get('/api/users/:id', async (req, res) => {
-  const { id } = req.params
-  const query = 'SELECT * FROM users WHERE id = (?)'
-  const results = await db.raw(query, [id])
-  res.json(results[0])
+::: code-group
+
+```js [server]
+app.get('/users', async (req, res) => {
+  const users = await User.findAll()
+  res.json(users)
 })
 ```
 
-::: danger
+```bash [client]
+> GET /users HTTP/1.1
+> Host: localhost:5000
+> User-Agent: curl/7.81.0
+> Accept: */*
 
-Do _not_ be tempted to use template literals to build your query:
+< HTTP/1.1 200 OK
+< X-Powered-By: Express
+< Content-Type: application/json; charset=utf-8
+< Content-Length: 465
+< ETag: W/"1d1-ANZR8XoyXChze/h4JDQ5/asCB28"
+< Date: Thu, 22 Feb 2024 17:07:31 GMT
+< Connection: keep-alive
+< Keep-Alive: timeout=5
 
-```js
-const query = `SELECT * FROM users WHERE id = ${req.params.id}`
-```
-
-This opens you up to SQL injection attacks, where hackers interpolate malicious
-SQL into your application:
-
-```bash
-curl "localhost:5000/api/users/1;%20DROP%20TABLE%20users;"
+[
+  {
+    "id": 1,
+    "username": "EluskM",
+    "verified": 1
+  },
+  {
+    "id": 2,
+    "username": "BillGatekeeper",
+    "verified": 1
+  },
+  {
+    "id": 3,
+    "username": "JeffWho",
+    "verified": 0
+  },
+  {
+    "id": 4,
+    "username": "OprahWindey",
+    "verified": 1
+  },
+  {
+    "id": 5,
+    "username": "MarkZeeberg",
+    "verified": 1
+  },
+  {
+    "id": 6,
+    "username": "LarryFlinger",
+    "verified": 0
+  },
+  {
+    "id": 7,
+    "username": "CannyWest",
+    "verified": 1
+  },
+  {
+    "id": 8,
+    "username": "TaylorSquid",
+    "verified": 0
+  },
+  {
+    "id": 9,
+    "username": "ArianaVenti",
+    "verified": 1
+  },
+  {
+    "id": 10,
+    "username": "KylieGenner",
+    "verified": 0
+  }
+]
 ```
 
 :::
-
-## Query parameters
-
-We can also send _query parameters_ as part of the url:
-
-```bash
-curl "localhost:5000/users?limit=5&page=2"
-```
-
-We obtain these on the server side from `req.query`.
-
-```js
-app.get('/api/users', async (req, res) => {
-  let { limit = 10, page = 1 } = req.query
-  const offset = limit * (page - 1)
-  const query = `SELECT * FROM users LIMIT (?) OFFSET (?)`
-  const results = await db.raw(query, [limit, offset])
-  res.json(results)
-})
-```
-
-## Request body
-
-When sending a `POST`, `PUT` or `PATCH` request, the request might contain a
-_body_ with some data in JSON format.
-
-```bash
-curl -X POST "localhost:5000/api/users" -H "Content-Type: application/json" -d '{"username": "DonaldDuck"}'
-```
-
-We can get the body as a javascript object from `req.body` on the server.
-
-```js
-app.post('/api/users', async (req, res) => {
-  const { username, verified = 0 } = req.body
-  const query = `INSERT INTO users (username, verified) VALUES ((?),(?))`
-  await db.raw(query, [username, verified])
-  res.status(201).json({ msg: 'User created.' })
-})
-```
