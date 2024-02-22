@@ -4,7 +4,7 @@
 
 ## Boilerplate
 
-A standard boilerplate can be inserted into your html documents by typiing
+A standard boilerplate can be inserted into your html documents by typing
 `html:5` in VS Code.
 
 ```html

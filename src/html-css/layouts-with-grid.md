@@ -39,7 +39,7 @@ inside it. Each child element represents a row or a column.
 
 If we add `grid-template-rows: 1fr 2fr 1fr;`, then Cell A and Cell C will each
 be given 25% of the height in the container, whereas Cell B will be given 50% of
-the hright.
+the right.
 
 ```css
 .container {
@@ -61,7 +61,7 @@ given all remaining height in the container.
 
 ::: tip
 
-`grid-template-colums: 1fr 2fr 1fr;` would work similarly, but would divide up
+`grid-template-columns: 1fr 2fr 1fr;` would work similarly, but would divide up
 the width of the container instead of the height.
 
 :::

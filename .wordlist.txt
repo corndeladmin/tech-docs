@@ -123,9 +123,11 @@ finalServiceWorkerStartTime
 findMinimumYear
 firstAuthor
 firstName
+Flexbox
 formatString
 formattedPi
 formattedPrice
+FrameRate
 fs
 García
 gardenCam
@@ -251,6 +253,7 @@ Repos
 req
 requestIncludesCredentials
 resetHost
+resizable
 returnFirstBookTitle
 RihannaBanana
 roomId
@@ -297,6 +300,8 @@ SyntaxError
 TaL
 targetTemperature
 TaylorSquid
+textarea
+Textarea
 timingAllowPassed
 timingInfo
 titleLetters
@@ -334,6 +339,7 @@ utf
 utils
 uyL
 VARCHAR
+vh
 vitepress
 vlog
 vm

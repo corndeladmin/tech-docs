@@ -5,7 +5,7 @@
 ## Making a flex container
 
 An element which contains children can be turned into a flex container by adding
-`display: flex;` to its properties. By default, it will attempt to squah all of
+`display: flex;` to its properties. By default, it will attempt to squash all of
 its children onto a single line, possibly deforming them to do so.
 
 ::: code-group

@@ -1,4 +1,4 @@
-# Stlying elements and classes
+# Styling elements and classes
 
 <Vimeo id="915145501" />
 
