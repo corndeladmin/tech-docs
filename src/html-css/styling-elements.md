@@ -1,82 +1,62 @@
-# Styling elements and classes
+# Stlying elements and classes
+
+<Vimeo id="915145501" />
+
+## Linking to the CSS
+
+When you create a `.css` file, we need to tell the `.html` file to import it in
+order for the styles to be applied.
+
+```html{6}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>FrameRate</title>
+  </head>
+  <body>
+  </body>
+</html>
+```
 
 ## Styling elements
 
-In CSS, we first specify which elements we want to apply a style to, and then we
-pass a list of key-value pairs defining the style we want.
-
-For example, we can change the style of _all_ `<h2>` elements like this:
+This CSS would turn _all_ `<h2>` elements green:
 
 ```css
 h2 {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  color: #2e008b;
+  color: green;
 }
 ```
 
 ## Styling classes
 
-Sometimes, you want to target specific elements, not every element! To do this,
-we can add a class to those elements in the html, and target them using a dot
-`.` followed by the class name in the css:
-
-::: code-group
-
-```html
-<div class="my-class">Movie 1</div>
-
-<div>Movie 2</div>
-
-<div class="my-class">Movie 3</div>
-```
+We target classes in CSS using a `.` dot. All HTML elements with
+`class="special"` will be have a red background.
 
 ```css
-/* This will affect all boxes */
-div {
-  height: 100px;
-  width: 100px;
-  border: solid 1px black;
-  margin: 1rem;
-}
-
-/* This will only affect boxes with class="my-class" */
-.my-class {
+.special {
   background-color: red;
 }
 ```
-
-:::
 
 ## Specificity
 
-You can write a chain of selectors to specifically target certain patterns and
-exclude others:
-
-::: code-group
-
-```html
-<div class="my-class">Movie 1</div>
-
-<div>Movie 2</div>
-
-<p>
-  <div class="my-class">Movie 3</div>
-</p>
-```
+We can be more specific by building up more complex selectors. In this example,
+only elements with `class="title"` and which are children of a `header` element
+will have the font-size applied:
 
 ```css
-div {
-  height: 100px;
-  width: 100px;
-  border: solid 1px black;
-  margin: 1rem;
-}
-
-/* Only members of "my-class" inside a <p> element will get this: */
-p .my-class {
-  background-color: red;
+header .title {
+  font-size: 20px;
 }
 ```
+
+::: tip
+
+Elements with `class="title"` which are not children of a header element will
+not be affected.
 
 :::

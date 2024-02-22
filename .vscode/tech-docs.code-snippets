@@ -55,5 +55,10 @@
       "",
       ":::"
     ]
+  },
+  "Vimeo": {
+    "scope": "markdown",
+    "prefix": "vimeo",
+    "body": "<Vimeo id=\"$2\" />"
   }
 }

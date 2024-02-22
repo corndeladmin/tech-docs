@@ -4,10 +4,10 @@ export const htmlCss = [
   {
     text: 'HTML',
     items: [
-      { text: 'Setting up a document', link: '/html-css/intro-to-html' },
+      { text: 'Setting up a document', link: '/html-css/html-document' },
       { text: 'HTML Elements', link: '/html-css/html-elements' },
       { text: 'Semantic HTML', link: '/html-css/semantic-html' },
-      { text: 'Forms', link: '/html-css/special-elements' }
+      { text: 'Forms', link: '/html-css/html-forms' }
     ]
   },
   {
@@ -22,12 +22,8 @@ export const htmlCss = [
         link: '/html-css/flexbox'
       },
       {
-        text: 'Page layouts',
-        link: '/html-css/page-layouts'
-      },
-      {
-        text: 'Transitions',
-        link: '/html-css/transitions'
+        text: 'Layouts with grid',
+        link: '/html-css/layouts-with-grid'
       }
     ]
   }
