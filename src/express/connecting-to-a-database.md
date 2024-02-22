@@ -41,21 +41,3 @@ const query = `SELECT * FROM users`
 const results = await db.raw(query)
 console.log(results)
 ```
-
-## Querying with substitutions
-
-Knex allows us to create SQL template queries with placeholders using `?`
-
-```js
-const query = `SELECT * FROM users WHERE id = ?`
-const results = await db.raw(query, [3])
-console.log(results)
-```
-
-We can insert several parameters by putting more values in the array:
-
-```js
-const query = `INSERT INTO users (username, verified) VALUES (?, ?) RETURNING *`
-const results = await db.raw(query, ['MickeyMouse', true])
-console.log(results)
-```
