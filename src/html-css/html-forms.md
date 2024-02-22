@@ -45,7 +45,7 @@ inside the `<option>` tag is what gets displayed to the user.
 
 ## Textarea
 
-A textarea is a bigger, resizeable text input.
+A textarea is a bigger, resizable text input.
 
 ```html
 <label for="review">Your Review:</label>
