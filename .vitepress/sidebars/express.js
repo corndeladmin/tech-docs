@@ -21,8 +21,16 @@ export const express = [
     text: 'Creating an API',
     items: [
       { text: 'Creating a server', link: '/express/creating-a-server' },
-      { text: 'Request and response', link: '/express/request-response' },
-      { text: 'Sending JSON', link: '/express/sending-json' },
+      {
+        text: 'Request and response',
+        link: '/express/request-response',
+        collapsed: true,
+        items: [
+          { text: 'Query params', link: '/express/query-params' },
+          { text: 'URL params', link: '/express/url-params' },
+          { text: 'Body and headers', link: '/express/body-and-headers' }
+        ]
+      },
       { text: 'Routing', link: '/express/routing' },
       { text: 'Middleware', link: '/express/middleware' },
       { text: 'Authentication and authorisation', link: '/express/auth' }
