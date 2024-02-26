@@ -103,8 +103,8 @@ console.log(totalPrice) // oops!
 
 ## Try it
 
-Create three variables, `a`, `b` and `c`. Assign to them any string, number and
-boolean (in that order). Don't log anything to the console.
+Create three variables named `a`, `b` and `c`. Assign to them any string, number
+and boolean (in that order). Don't log anything to the console.
 
 <Exercise>
 
