@@ -135,6 +135,7 @@ genresArray
 genresString
 getBrightness
 getColor
+getDiscountedPrices
 getTargetTemperature
 getters
 Getters
