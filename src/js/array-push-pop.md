@@ -38,6 +38,23 @@ console.log(authors)
 
 :::
 
+::: tip
+
+Note that `.push` and `.unshift` modify the array "in place", meaning they do
+not return a new array but modify an existing one. If you need to modify an
+array and return it, you need to use the methods and then `return` on a
+different line. For example,
+
+```js
+function shiftRight(arr) {
+  const last = arr.pop()
+  arr.unshift(last)
+  return arr
+}
+```
+
+:::
+
 ## Pop and shift
 
 The `.pop()` method will remove and return the final item of the array, whereas
@@ -74,17 +91,15 @@ Chinua Achebe
 
 :::
 
-::: tip
+:::tip
 
-Note that `.pop` and friends modify the array "in place", meaning they do not
-return a new array but modify an old one. If you need to modify an array and
-return it from within a function, you need to use the methods and then return on
-a different line. For example,
+If all you want to do is remove an item from an array, you can just do
 
 ```js
-function shiftRight(arr) {
-  const last = arr.pop()
-  arr.unshift(last)
-  return arr
-}
+authors.pop()
+authors.shift()
 ```
+
+You don't need to assign the removed item to a variable if it's not needed.
+
+:::
