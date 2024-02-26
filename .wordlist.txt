@@ -296,6 +296,7 @@ setTargetTemperature
 setTimeout
 setUsername
 shadowban
+shiftRight
 shortBooks
 SmartCamera
 SmartDevice
