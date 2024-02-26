@@ -58,8 +58,9 @@ console.log(discountedPrices)
 
 ::: tip
 
-If you want to make a funtion which accepts an array and returns a mapped array,
-you can do it very concisely by using the `return` keyword directly like this:
+If you want to make a function which accepts an array and returns a mapped
+array, you can do it very concisely by using the `return` keyword directly like
+this:
 
 ```js
 function getDiscountedPrices(bookPrices, discount) {
