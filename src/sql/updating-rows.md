@@ -51,7 +51,7 @@ WHERE username = 'RihannaBanana';
 
 ### Updating many rows
 
-As we mentioned, all rows included by the `WHERE` clause will be updates.
+As we mentioned, all rows included by the `WHERE` clause will be updated.
 
 ::: danger
 
