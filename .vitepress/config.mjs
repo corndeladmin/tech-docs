@@ -82,6 +82,10 @@ export default defineConfig({
             ]
           }
         ]
+      },
+      {
+        text: 'Glossary',
+        link: '/glossary'
       }
     ],
 
