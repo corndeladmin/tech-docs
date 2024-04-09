@@ -32,8 +32,8 @@ export const express = [
         ]
       },
       { text: 'Routing', link: '/express/routing' },
-      { text: 'Middleware', link: '/express/middleware' },
-      { text: 'Authentication and authorisation', link: '/express/auth' }
+      { text: 'Sending errors', link: '/express/sending-errors' },
+      { text: 'Schema validation', link: '/express/schema-validation' }
     ]
   },
   {
