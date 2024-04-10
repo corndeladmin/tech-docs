@@ -12,6 +12,10 @@ export default defineConfig({
       pattern: 'https://github.com/corndeladmin/tech-docs/tree/main/src/:path'
     },
 
+    search: {
+      provider: 'local'
+    },
+
     nav: [
       {
         text: 'Guides',
@@ -82,6 +86,10 @@ export default defineConfig({
             ]
           }
         ]
+      },
+      {
+        text: 'Glossary',
+        link: '/glossary'
       }
     ],
 
