@@ -59,7 +59,7 @@ references.
 
 ::: code-group
 
-```sql{4} [SQLite]
+```sql{5} [SQLite]
 CREATE TABLE user_likes (
     userId INTEGER,
     bleetId INTEGER,
@@ -159,6 +159,10 @@ JOIN user_likes ON users.id = user_likes.userId
 WHERE user_likes.bleetId = 2;
 ```
 
-|---|---|---|---|---| |5|MarkZeeberg|user|1|1600320|
-|9|ArianaVenti|user|1|1050322| |12|CardiBee|user|0|0|
-|13|EdShearing|user|1|400123| |15|SelenaGofar|user|1|690789|
+| id  | username    | access | verified | followers |
+| --- | ----------- | ------ | -------- | --------- |
+| 5   | MarkZeeberg | user   | 1        | 1600320   |
+| 9   | ArianaVenti | user   | 1        | 1050322   |
+| 12  | CardiBee    | user   | 0        | 0         |
+| 13  | EdShearing  | user   | 1        | 400123    |
+| 15  | SelenaGofar | user   | 1        | 690789    |
