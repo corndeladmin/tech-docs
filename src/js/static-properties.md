@@ -1,62 +1,31 @@
 # Static properties
 
-Static properties and methods in JavaScript provide a way for you to add
-properties and functions to classes themselves, rather than to instances of
-those classes. This feature is incredibly useful for utility functions,
-constants, or any data and methods that should be shared across all instances of
-a class.
-
-## Understanding static properties
-
-Static properties are part of the class definition itself. They are accessed
-using the class name, _not_ an instance of the class. This makes them ideal for
-utility functions or data that is common to all instances of a class.
-
-Why Use Static Properties and Methods?
-
-- **Utility methods**: Perfect for utility or helper functions that don't
-  require access to instance data.
-- **Constants**: Useful for defining constants related to the class.
-- **Singleton patterns**: Can assist in implementing singleton patterns by
-  ensuring only one instance of the class can be created.
+<Vimeo id="933310952" />
 
 ## Identifying static properties
 
 Let's say we're adding some smart cameras to our smart home system.
 
-::: code-group
-
 ```js
+import SmartDevice from './SmartDevice.js'
+
 class SmartCamera {
   constructor(location) {
     this.location = location
-    this.batteryLife = 100 // charged by default
+    this.batteryLife = 100
   }
 }
 
 const gardenCam = new SmartCamera('Garden')
-console.log(gardenCam)
 ```
 
-```console [output]
-SmartCamera {
-  location: 'Garden',
-  batteryLife: 100
-}
-```
-
-:::
-
-Now let us suppose we need to manage assigning ip addresses to all the cameras.
-Should we put this functionality on camera instances? _No_. One camera doesn't
-have access to the properties of another camera, so it wouldn't know which
-addresses are taken and which aren't. Because this is "meta" information about
-the whole class of cameras, it belongs as a static property.
+If we want to add a property to our camera class which is shared by all cameras,
+we should use a static property.
 
 ## Defining static properties
 
 Let's add a static property to our camera class which holds information about
-the ip range cameras are allowed to use.
+the IP range cameras are allowed to use.
 
 ::: code-group
 
