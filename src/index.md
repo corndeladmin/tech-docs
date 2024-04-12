@@ -11,17 +11,17 @@ hero:
     alt: Corndel
   actions:
     - theme: brand
-      text: Action 1
+      text: Action
       link: /
     - theme: alt
-      text: Action 2
-      link: /
+      text: Glossary
+      link: /glossary
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Video walkthroughs
+    details: Learn to build projects with step-by-step video walkthroughs
+  - title: Quick reference
+    details: Find the information you need quickly
+  - title: Try it out
+    details: Get hands-on with interactive examples
 ---
