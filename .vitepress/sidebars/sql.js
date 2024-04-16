@@ -55,14 +55,6 @@ export const sql = [
       {
         text: 'Creating tables',
         link: '/sql/creating-tables'
-      },
-      {
-        text: 'Foreign keys',
-        link: '/sql/foreign-keys'
-      },
-      {
-        text: 'Altering tables',
-        link: '/sql/altering-tables'
       }
     ]
   }
