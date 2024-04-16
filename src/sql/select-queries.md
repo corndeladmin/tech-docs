@@ -1,17 +1,6 @@
 # Select queries
 
-Let's suppose the `users` table is already defined in our database. Here are the
-first 5 rows.
-
-`Table: users`
-
-| id  | username       | access | verified | followers |
-| :-: | -------------- | ------ | :------: | :-------: |
-|  1  | EluskM         | admin  |    1     |  1987531  |
-|  2  | BillGatekeeper | user   |    1     |  1200457  |
-|  3  | JeffWho        | user   |    0     |  500124   |
-|  4  | OprahWindey    | admin  |    1     |  1750322  |
-|  5  | MarkZeeberg    | user   |    1     |  1600320  |
+<Vimeo id="934922038" />
 
 ## Selecting all data
 
@@ -51,17 +40,3 @@ the columns we want.
 SELECT username, verified
 FROM users;
 ```
-
-## Try it
-
-Try modifying the query below so that it selects only the `id` and `access`
-columns. When you're ready, click the **Run** button to see the output.
-
-<CodeMirror>
-
-```sql
-SELECT *
-FROM users;
-```
-
-</CodeMirror>
