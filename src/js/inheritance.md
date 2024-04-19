@@ -34,7 +34,7 @@ arguments that are needed for the parent class's constructor.
 
 ::: code-group
 
-```js {1,3}
+```js{1,3}
 class SmartCamera extends SmartDevice {
   constructor(location) {
     super()
