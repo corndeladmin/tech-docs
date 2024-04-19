@@ -13,7 +13,7 @@ CREATE TABLE replies (
 );
 ```
 
-When a default value is sepcified, the default value will be used in the event
+When a default value is specified, the default value will be used in the event
 that a value is not given for this column when inserting a new row.
 
 ::: warning
