@@ -38,48 +38,23 @@ export const sql = [
       {
         text: 'Grouped aggregates',
         link: '/sql/grouped-aggregates'
-      }
-    ]
-  },
-  {
-    text: 'Writing data',
-    items: [
-      {
-        text: 'Inserting rows',
-        link: '/sql/inserting-rows'
-      },
-      {
-        text: 'Updating rows',
-        link: '/sql/updating-rows'
-      },
-      {
-        text: 'Deleting rows',
-        link: '/sql/deleting-rows'
-      }
-    ]
-  },
-  {
-    text: 'Managing the database',
-    items: [
-      {
-        text: 'Creating tables',
-        link: '/sql/creating-tables'
-      },
-      {
-        text: 'Altering tables',
-        link: '/sql/altering-tables'
-      },
-      {
-        text: 'Deleting tables',
-        link: '/sql/deleting-tables'
-      },
-      {
-        text: 'One-to-many relationships',
-        link: '/sql/one-to-many'
       },
       {
         text: 'Many-to-many relationships',
         link: '/sql/many-to-many'
+      }
+    ]
+  },
+  {
+    text: 'Modifying the database',
+    items: [
+      {
+        text: 'Writing data',
+        link: '/sql/writing-data'
+      },
+      {
+        text: 'Creating tables',
+        link: '/sql/creating-tables'
       }
     ]
   }

@@ -43,7 +43,7 @@ class AppError extends Error {
 In our models, we can throw errors that arise from handling data, which is where
 most errors occur.
 
-```js {2-4,9-11}
+```js{2-4,9-11}
 async findById(id) {
   if (isNaN(id)) {
     throw new AppError('ID must be a number.', 400)

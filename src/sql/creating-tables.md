@@ -1,43 +1,20 @@
 # Creating tables
 
-Creating a new table in SQL essentially comes down to defining the columns. That
-includes choosing names for the columns, determining their type, and adding any
-constraints and default values. The aim is to make sure that you maintain _data
-integrity_ by getting the right data in the right place.
+<Vimeo id="935466837" />
 
-## Syntax
+## Creating a table
 
-The basic syntax to create a table in SQL is as follows:
+We can create a table by naming the table and its columns.
 
 ```sql
-CREATE TABLE table_name (
-    column1 datatype constraint,
-    column2 datatype constraint,
-    column3 datatype constraint,
-    ...
+CREATE TABLE replies (
+  content TEXT NOT NULL,
+  createdAt TEXT DEFAULT (datetime('now'))
 );
-
 ```
 
-- `table_name`: The name of the table you want to create.
-- `column`: The name of a column in the table.
-- `datatype`: The type of data that the column can hold (e.g., integer, text,
-  date).
-- `constraint`: Rules applied to the data values of columns (e.g., NOT NULL,
-  UNIQUE).
-
-## Choosing data types
-
-Data types specify what kind of data a column can hold. Some common SQL data
-types include:
-
-| Keyword      | Description                                                                 |
-| ------------ | --------------------------------------------------------------------------- |
-| `INTEGER`    | A whole number without a fractional component.                              |
-| `VARCHAR(n)` | A variable-length string of characters, where n defines the maximum length. |
-| `TEXT`       | A text string of any length.                                                |
-| `DATE`       | A calendar date (year, month, day).                                         |
-| `TIMESTAMP`  | A date and time combination.                                                |
+When a default value is specified, the default value will be used in the event
+that a value is not given for this column when inserting a new row.
 
 ::: warning
 
@@ -47,10 +24,10 @@ to the official docs for the SQL flavour you're working with.
 
 :::
 
-## Implementing constraints
+## Common constraints
 
 Constraints enforce rules on the data in a table, ensuring data integrity and
-consistency. Key constraints include:
+consistency. Common constraints include:
 
 | Keyword    | Description                                                     |
 | ---------- | --------------------------------------------------------------- |
@@ -65,65 +42,38 @@ A primary key is a column (or a set of columns) used to uniquely identify each
 row in a table. It is a type of constraint and is crucial for database
 integrity.
 
-```sql
-CREATE TABLE table_name (
-    column1 datatype PRIMARY KEY,
-    column2 datatype,
-    ...
+```sql{2}
+CREATE TABLE replies (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  content TEXT NOT NULL,
+  createdAt TEXT DEFAULT (datetime('now'))
 );
 ```
 
-## Example: Creating a users table
+## Foreign keys
 
-Let's see how the `users` table was created in this guide. As you can see, the
-approach varies a bit depending on the dialect of SQL being used.
+A foreign key ensures that the values in a particular column reference a row in
+some table. It is a way of connecting rows in different tables in a way that is
+understood the database itself.
 
-::: code-group
-
-```sql [SQLite]
-CREATE TABLE users (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    access TEXT CHECK (access IN ('user', 'admin')),
-    verified BOOLEAN NOT NULL DEFAULT FALSE,
-    followers INTEGER NOT NULL DEFAULT 0 CHECK (followers >= 0)
+```sql{5-8}
+CREATE TABLE replies (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  content TEXT NOT NULL,
+  createdAt TEXT DEFAULT (datetime('now')),
+  userId INTEGER NOT NULL,
+  bleetId INTEGER NOT NULL,
+  FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE,
+  FOREIGN KEY (bleetId) REFERENCES bleets(id) ON DELETE CASCADE
 );
 ```
 
-```sql [Postgres]
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    access TEXT CHECK (access IN ('user', 'admin')),
-    verified BOOLEAN NOT NULL DEFAULT FALSE,
-    followers INTEGER NOT NULL DEFAULT 0 CHECK (followers >= 0)
-);
-```
+::: tip
 
-```sql [MySQL]
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    access TEXT CHECK (access IN ('user', 'admin')),
-    verified BOOLEAN NOT NULL DEFAULT FALSE,
-    followers INT NOT NULL DEFAULT 0 CHECK (followers >= 0)
-) ENGINE=InnoDB;
-```
+The `ON DELETE CASCADE` key phrase ensures that if the referenced row is
+deleted, then all rows which reference it are also deleted.
 
-```
+For example, if a user is deleted, then all of their replies will also be
+deleted.
 
 :::
-
-This table
-
-- Uses `id` as the primary key, which auto-increments for each new user.
-- Ensures `username` is unique and not null.
-- Checks that `access` is either `'user'` or `'admin'`.
-- Sets `verified` to `false` and `followers` to `0` by default, with a check to
-  ensure `followers` is never negative.
-
-Creating tables in SQL is like laying the foundation for a building — it's
-essential to get it right for everything that follows to be stable and reliable.
-By understanding data types, constraints, and primary keys, you're well on your
-way to effectively organizing and managing your data.
-```

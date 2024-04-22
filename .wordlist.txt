@@ -11,6 +11,7 @@ anyNameYouWant
 Anyshire
 ANZR
 appendFile
+AppError
 areBooksEqual
 argv
 ArianaVenti
@@ -35,6 +36,7 @@ biomedicine
 bleet
 Bleeter
 bleetId
+bleetRouter
 bleet's
 bleets
 bookCondition
@@ -107,6 +109,8 @@ dotenv
 driay
 EdShearing
 Eich
+ejs
+EJS
 elit
 else's
 Elusk
@@ -114,6 +118,7 @@ EluskM
 encodedBodySize
 endTime
 env
+errorHandler
 esm
 etag
 EternalKnowledge
@@ -133,11 +138,13 @@ findMinimumYear
 firstAuthor
 firstName
 Flexbox
+FoodieTunes
 formatString
 formattedPi
 formattedPrice
 FrameRate
 fs
+GalacticGourmet
 García
 gardenCam
 genresArray
@@ -151,6 +158,7 @@ Getters
 gitignore
 gmail
 gonner
+GordonRambo
 Grande
 GsVpLyJPBxDD
 gws
@@ -159,6 +167,7 @@ hasOverdueBooks
 headersList
 HeadersList
 hotmail
+hoven
 https
 ic
 impactful
@@ -167,6 +176,7 @@ initialValue
 InnoDB
 inputId
 inputID
+instanceof
 internalCompileFunction
 ipAddress
 ipsum
@@ -175,10 +185,12 @@ isBookAvailable
 ISC
 isConnected
 isMembershipActive
+isNaN
 isOn
 JDQ
 JeffWho
 Jin
+Joi
 js
 json
 JSON
@@ -211,7 +223,9 @@ MarkZeeberg
 Márquez
 MarsRoyalty
 MartianOprah
+MDN
 mealController
+MeghanTrainer
 middleware
 Middleware
 minimumAge
@@ -219,6 +233,7 @@ minimumYear
  MinnieMouse
 MinnieMouse
 minYear
+MissingIngredients
 mkdir
 mkv
 mochajs
@@ -230,6 +245,7 @@ mv
 MzZ
 nel
 networkPrefix
+newBrightness
 newColor
 newName
 NextSingle
@@ -261,6 +277,7 @@ parseFloat
 parseInt
 piString
 png
+poolCam
 Postgres
 postRedirectStartTime
 powershell
@@ -287,6 +304,7 @@ RJlX
 roomId
 runMain
 runtime
+safeParse
 Satrapi
 sclient
 SelenaGofar
@@ -302,6 +320,7 @@ SmartCamera
 SmartDevice
 SmartLight
 SmartThermostat
+snyk
 SocialNetwork
 Sometown
 sortedByYearAscending
@@ -330,6 +349,7 @@ SyntaxError
 TaL
 targetTemperature
 TaylorSquid
+templating
 textarea
 Textarea
 thunderclient
@@ -358,24 +378,30 @@ TypeError
 typeof
 unavailableBooks
 unshift
+untrusted
 upperCaseQuote
 uri
+urlencoded
 urlList
 usain
 useNullAsDefault
 userAge
 userEarliestBookYear
 userId
+userRouter
+UserSchema
 usr
 utf
 utils
 uyL
 VARCHAR
+ve
 vh
 vitepress
 vlog
 vm
 Vue
+walkthroughs
 webpage
 wellbeing
 whitespace
@@ -385,7 +411,11 @@ wsl
 WSL
 xox
 XoyXChze
+xss
+XSS
 xz
 yaz
+zod
+Zod
 Zoja
 zz
