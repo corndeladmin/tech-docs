@@ -2,6 +2,8 @@
 
 import { data as glossary } from '../data/glossary.data.js'
 
+const terms = Object.keys(glossary).sort()
+
 function generateId(str) {
   return str
     .toLowerCase()
@@ -13,10 +15,10 @@ function generateId(str) {
 
 # Glossary
 
-<template v-for="def, term in glossary">
+<template v-for="term in terms">
 
 <h2 :id="generateId(term)">{{ term }}</h2>
 
-<p>{{ def }}</p>
+<p>{{ glossary[term] }}</p>
 
 </template>
