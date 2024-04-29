@@ -90,6 +90,10 @@ export default defineConfig({
       {
         text: 'Glossary',
         link: '/glossary'
+      },
+      {
+        text: 'Exercises',
+        link: '/exercises/'
       }
     ],
 
@@ -98,7 +102,8 @@ export default defineConfig({
       '/express/': sidebars.express,
       '/html-css/': sidebars.htmlCss,
       '/js/': sidebars.javascript,
-      '/sql/': sidebars.sql
+      '/sql/': sidebars.sql,
+      '/exercises/': sidebars.exercises
     },
 
     socialLinks: [
