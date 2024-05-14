@@ -24,6 +24,10 @@ export default defineConfig({
             text: 'Core',
             items: [
               {
+                text: 'Git',
+                link: '/git/'
+              },
+              {
                 text: 'Command line',
                 link: '/bash/'
               },
@@ -94,6 +98,7 @@ export default defineConfig({
     ],
 
     sidebar: {
+      '/git/': sidebars.git,
       '/bash/': sidebars.bash,
       '/express/': sidebars.express,
       '/html-css/': sidebars.htmlCss,
