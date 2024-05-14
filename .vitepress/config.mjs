@@ -25,7 +25,7 @@ export default defineConfig({
             items: [
               {
                 text: 'Command line',
-                link: '/command-line/'
+                link: '/bash/'
               },
               {
                 text: 'HTML & CSS',
