@@ -1,6 +1,6 @@
 export const bash = [
   {
-    text: 'Bash basics',
-    link: '/bash/basics'
-  }
-]
+    text: "Bash basics",
+    link: "/bash/",
+  },
+];

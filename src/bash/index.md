@@ -10,8 +10,10 @@ This guide assumes you are using a bash flavoured shell, so Linux or macOS.
 
 ::: tip
 
-If you are a Windows user, it is recommended to install
-[Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/setup/environment).
+If you are a Windows user, it is recommended to install the following:
+
+- [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/setup/environment).
+- [Windows Terminal](https://www.microsoft.com/store/productId/9N8G5RFZ9XK3)
 
 :::
 
