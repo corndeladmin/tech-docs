@@ -64,6 +64,7 @@ CleopatraTechQueen
 CLI
 CLIs
 Cmd
+codeberg
 Coles
 Commader
 CommonJS
@@ -156,6 +157,7 @@ getTargetTemperature
 getters
 Getters
 gitignore
+gitlab
 gmail
 gonner
 GordonRambo
@@ -190,6 +192,7 @@ isOn
 JDQ
 JeffWho
 Jin
+johndoe
 Joi
 js
 json
@@ -326,6 +329,7 @@ snyk
 SocialNetwork
 Sometown
 sortedByYearAscending
+sourcehut
 SpaceX
 src
 startsWith
@@ -411,6 +415,7 @@ wrapSafe
 writeFile
 wsl
 WSL
+xcode
 XK
 xox
 XoyXChze
