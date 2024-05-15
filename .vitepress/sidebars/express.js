@@ -18,7 +18,6 @@ export const express = [
     ]
   },
   {
-    text: 'Creating an API',
     text: 'Data layer',
     items: [
       {

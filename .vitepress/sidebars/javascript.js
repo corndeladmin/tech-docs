@@ -92,7 +92,19 @@ export const javascript = [
       { text: 'Getters and setters', link: '/js/getters-and-setters.md' },
       { text: 'Static properties', link: '/js/static-properties.md' },
       { text: 'Inheritance', link: '/js/inheritance.md' },
-      { text: 'Method overriding', link: '/js/method-overriding.md' }
+      { text: 'Method overriding', link: '/js/method-overriding.md' },
+      {
+        text: 'Design patterns',
+        collapsed: true,
+        items: [
+          { text: 'Singleton pattern', link: '/js/singleton-pattern' },
+          { text: 'Adapter pattern', link: '/js/adapter-pattern' },
+          { text: 'Facade pattern', link: '/js/facade-pattern' },
+          { text: 'Mediator pattern', link: '/js/mediator-pattern' },
+          { text: 'Strategy pattern', link: '/js/strategy-pattern' },
+          { text: 'Composite pattern', link: '/js/composite-pattern' }
+        ]
+      }
     ]
   },
 
