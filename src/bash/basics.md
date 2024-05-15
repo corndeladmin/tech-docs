@@ -1,15 +1,14 @@
 # Command line basics
 
 Let's learn some basic skills on the command line. Make sure you have completed
-the [installation steps](http://localhost:5173/bash/installation.html) before
-following this guide.
+the [installation steps](/bash/installation.html) before following this guide.
 
 ::: tip
 
 If you're working on Windows, this guide assumes you're working in WSL. There's
 a quickstart guide to setting up WSL in the
-[installation steps](http://localhost:5173/bash/installation.html), but you
-might also be interested in the
+[installation steps](/bash/installation.html), but you might also be interested
+in the
 [official docs](https://learn.microsoft.com/en-us/windows/wsl/setup/environment).
 
 :::
