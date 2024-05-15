@@ -20,49 +20,42 @@ The letters in npm stand for _node package manager_, and it allows us to
 download additional libraries and packages to enrich the Node development
 experience. We'll learn more about npm later in the course!
 
-## Installing Node and npm
+## Installing nvm
 
-The installation method varies a bit depending on your operating system.
+To manage the installation of Node and npm, we will be using a tool called
+[nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
+(Node version manager).
 
-### Windows
-
-1. **Download the Installer**: Go to the Node.js website and download the
-   Windows Installer (.msi) for the LTS version.
-
-1. **Run the Installer**: Execute the downloaded file and follow the prompts to
-   install Node.js. The installer includes Node.js and npm (Node Package
-   Manager).
-
-### macOS
-
-1. **Download the Installer**: Visit the Node.js website and download the macOS
-   Installer (.pkg) for the LTS version.
-
-1. **Run the Installer**: Open the package and follow the instructions to
-   install Node.js and npm.
-
-### Linux
-
-For Linux, the process can vary slightly depending on the distribution, but
-here's a general approach:
-
-**Using a Package Manager**: For most Linux distros, you can install Node.js via
-a package manager. For example, on Ubuntu, you can use:
+To install nvm on your machine, open a terminal and run
 
 ```bash
-sudo apt update
-sudo apt install nodejs
-sudo apt install npm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 ```
 
-::: info
+If that doesn't work, you could try
 
-For other Linux distributions, check the specific package management commands or
-consult the distribution's documentation for Node.js installation. You can also
-use Node Version Manager (nvm) for a more flexible installation and management
-of different Node.js versions.
+```bash
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+```
+
+::: note
+
+Make sure you are running this from a bash (or zsh) terminal. If you are working
+on Windows, this means you should be working from WSL.
 
 :::
+
+## Installing Node and npm
+
+After installing nvm, it is recommended to close and re-open your terminal.
+
+You should be able to run
+
+```bash
+nvm install node
+```
+
+to get the latest version of Node.
 
 ## Verify the installation
 

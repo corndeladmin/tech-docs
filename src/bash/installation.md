@@ -2,7 +2,7 @@
 
 ## Linux
 
-Great news! Bash is installed by default.
+If you're on Linux, great news! Bash is installed by default.
 
 In most distros, you can hit `Ctrl + Alt + T` on your keyboard and it will open
 a bash terminal.
@@ -47,7 +47,7 @@ for "command" in your explorer search bar).
 
 With a command prompt open, type
 
-```cmd
+```
 wsl --install
 ```
 
@@ -57,7 +57,9 @@ minutes.
 ### Launching WSL
 
 You will need to restart your computer. When it has rebooted, search for "wsl"
-in your explorer. Open up WSL, and you should see a terminal prompt.
+in your explorer. Open up WSL, and you should see a terminal prompt. By default,
+WSL will select Ubuntu as the linux distro to install - it might take a few
+minutes to get everything installed and set up.
 
 ### Configuring WSL
 
@@ -67,7 +69,7 @@ and it looks as though you're not typing anything. This is a security feature -
 rest assured that your keystrokes are being registered. Hit enter when you're
 done.
 
-Once that's done, type
+Once you have created your user account, type
 
 ```bash
 echo "Hello, bash!"
@@ -77,11 +79,48 @@ and hit enter. You should see your message printed in the terminal.
 
 ### Updating WSL
 
-It's also recommended to update your WSL installation. Run
+Run
 
 ```bash
 sudo apt update && sudo apt upgrade
 ```
 
 At some point during this process, you might need to press `y` and hit enter to
-confirm you want to perform the upgrades.
+confirm you want to perform the upgrades. This will update your package manager
+to make sure you have the libraries you need to work on WSL.
+
+Also, we should add the `wget` and `ca-certificates` utilities, which allows us
+to fetch content from servers and run security checks.
+
+```bash
+sudo apt-get install wget ca-certificates
+```
+
+With these steps completed, you have WSL set up and ready to use.
+
+### Problems with virtualisation
+
+Sometimes, virtualisation is switched off in your computer's BIOS/UEFI settings,
+and this prevents WSL from running properly.
+
+To check, you can open Task Manager (`Crtl + Shift + Esc`) and click the
+Performance tab. In the CPU page, you should see "Virtualisation" in the data
+underneath the graph - if it is disabled, you can try to enable it through the
+BIOS/UEFI settings.
+
+Usually, this involves:
+
+1. Restarting your computer and holding a key such as `F2`, `F10`, `F12`, `Esc`,
+   or `Del`. The exact key you need varies depending on your model of computer,
+   but it is sometimes displayed during the startup screen.
+
+1. In the BIOS/UEFI settings, the virtualisation support is usually under
+   "Advanced", "CPU Configuration" or similar. Look for settings labeled "Intel
+   VT-x," "Intel Virtualization Technology," "AMD-V," or similar, depending on
+   your CPU.
+
+1. Set virtualisation to "Enabled", make sure to save the settings and exit
+   BIOS/UEFI setup.
+
+Boot up your computer and check Task Manager again - if virtualisation is now
+enabled, you can try installing WSL again.
