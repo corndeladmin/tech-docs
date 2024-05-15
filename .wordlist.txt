@@ -159,6 +159,7 @@ getDiscountedPrices
 getTargetTemperature
 getters
 Getters
+githubusercontent
 gitignore
 gmail
 gonner
@@ -192,6 +193,7 @@ isConnected
 isMembershipActive
 isNaN
 isOn
+itemName
 JDQ
 JeffWho
 Jin
@@ -274,6 +276,7 @@ oCM
 OneDrive
 OprahWindey
 Oryx
+ov
 Pachinko
 pageCount
 pageNumbers
@@ -290,6 +293,7 @@ powershell
 premiumMember
 previousLoans
 productId
+qO
 queryBooks
 quickReads
 quickstart
@@ -297,6 +301,7 @@ rangeRequested
 readFile
 readingTime
 readingTimes
+readme
 ReadMore
 redirectEndTime
 redirectStartTime
@@ -407,13 +412,16 @@ uyL
 VARCHAR
 ve
 vh
+visualstudio
 vitepress
 vlog
 vm
+vscode
 Vue
 walkthroughs
 webpage
 wellbeing
+wget
 whitespace
 wrapSafe
 writeFile
