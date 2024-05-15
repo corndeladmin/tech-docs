@@ -3,6 +3,7 @@
 Let's learn some basic skills on the command line. Make sure you have completed
 the [installation steps](/bash/installation.html) before following this guide.
 
+
 ::: tip
 
 If you're working on Windows, this guide assumes you're working in WSL. There's
