@@ -4,6 +4,10 @@ export const git = [
     link: "/git/",
   },
   {
+    text: "Setting up Git",
+    link: "/git/set-up",
+  },
+  {
     text: "Git basics",
     link: "/git/basics",
   },
