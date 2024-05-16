@@ -1,142 +1,112 @@
-# Command line basics
+# Bash basics
 
-Let's learn some basic skills on the command line. Make sure you have completed
-the [installation steps](/bash/installation.html) before following this guide.
-
+<Vimeo id="947051708" />
 
 ::: tip
 
 If you're working on Windows, this guide assumes you're working in WSL. There's
 a quickstart guide to setting up WSL in the
-[installation steps](/bash/installation.html), but you might also be interested
-in the
-[official docs](https://learn.microsoft.com/en-us/windows/wsl/setup/environment).
+[installation steps](/bash/installation-windows.html).
 
 :::
 
-## Create a directory
+## Running a command
 
-A directory is a folder. They contain files and other directories.
-
-Open up a terminal and run
+Open a terminal and run
 
 ```bash
-cd ~
+echo "Hello, Bash!"
 ```
 
-This will navigate your terminal to your user's home directory. The `cd` stands
-for "change directory".
+to print a cheery message in the console.
 
-Now, run
+## Create a directory
+
+Create a `Repos` directory with
 
 ```bash
 mkdir Repos
 ```
 
-This will create a directory inside your home directory called `Repos`. This is
-where you can keep all of your projects (i.e. repositories) for this course, and
-any other hobby projects you create in the future.
+## Change directory
 
-::: warning
-
-Don't create your `Repos` directory in a location which is monitored by tools
-such as Dropbox or OneDrive. It is not a good idea to have these file syncing
-tools running on your software projects for security and performance reasons.
-
-:::
-
-## Switching directories
-
-Run
+Enter your new directory with
 
 ```bash
 cd Repos
 ```
 
-to navigate into the new `Repos` directory.
+## Chain commands
 
-Run
+You can chain commands with `&&`
 
 ```bash
 mkdir notes && cd notes
 ```
 
-to create a new `notes` directory and navigate into it in a single step.
+## Make a new file
 
-::: tip
-
-The `&&` operator can be used in lots of different scenarios. It waits for the
-previous command to complete, and then runs the next command.
-
-:::
-
-## Create a file
-
-::: tip
-
-In case you navigated away from `notes`, you can run
+Make a new file with
 
 ```bash
-cd ~/Repos/notes
+touch note1.txt
 ```
 
-to get back to your `notes` directory.
-
-:::
-
-Let's create a new note in our `notes` directory:
+Make multiple files with
 
 ```bash
-touch note-1.txt
+touch note2.txt note3.txt
 ```
 
-The `touch` command will create a file if it doesn't exist.
+## List a directory
 
-## Listing directories
-
-To list the contents of the current directory, simply run
+List the contents of the current directory with
 
 ```bash
 ls
 ```
 
-You can also pass a path if you want to see the contents of some other
-directory, for example
+or some other directory by passing its path
 
 ```bash
-ls ~/Repos/notes
+ls todos
 ```
 
-will list the contents of the `notes` directory. You should see your
-`note-1.txt` file listed in here.
+## Move a file
 
-## Moving a file
-
-Let's make a `todos` directory in our `notes` project:
+Move a file with
 
 ```bash
-mkdir todos
+mv todo2.txt todos
 ```
 
-We can move the `note-1.txt` into the new directory:
+## Rename a file
+
+Rename a file with the `mv` command
 
 ```bash
-mv note-1.txt todos/note-1.txt
+mv note2.txt todo2.txt
 ```
 
-We can also use `mv` to rename files:
+## Delete a file
+
+Delete a file with
 
 ```bash
-mv todos/note-1.txt todos/todo-1.txt
+rm note3.txt
 ```
 
-The `note-1.txt` file is now called `todo-1.txt`
+## Delete a folder
 
-## Summary
+Delete a whole directory with `rm` and some options
 
-We've learned how to:
+```bash
+rm -rf todos
+```
 
-- navigate directories with `cd`
-- create directories with `mkdir`
-- create files with `touch`
-- list the contents of a directory with `ls`
+::: danger
+
+The `todos` folder and everything it contains will be deleted without going into
+the recycle bin. Once it's gone, you can never get it back.
+
+:::
