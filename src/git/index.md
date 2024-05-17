@@ -1,5 +1,9 @@
 # Introduction to Git
 
+<p align="center">
+  <img src="./image-1.png" alt="Git logo">
+</p>
+
 ## What is Git
 
 Git is the most popular version system. It lets us keep track of the changes we

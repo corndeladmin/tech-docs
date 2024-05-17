@@ -1,15 +1,19 @@
 export const git = [
   {
-    text: "Introduction to Git",
-    link: "/git/",
+    text: 'Introduction to Git',
+    link: '/git/'
   },
   {
-    text: "Setting up Git",
-    link: "/git/set-up",
+    text: 'Installation',
+    collapsed: true,
+    items: [
+      { text: 'Linux', link: '/git/installation-linux' },
+      { text: 'Mac', link: '/git/installation-mac' },
+      { text: 'Windows', link: '/git/installation-windows' }
+    ]
   },
   {
-    text: "Git basics",
-    link: "/git/basics",
-  },
+    text: 'Git basics',
+    link: '/git/basics'
+  }
 ]
-

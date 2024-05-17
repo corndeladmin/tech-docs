@@ -24,12 +24,12 @@ export default defineConfig({
             text: 'Core',
             items: [
               {
-                text: 'Git',
-                link: '/git/'
-              },
-              {
                 text: 'Command line',
                 link: '/bash/'
+              },
+              {
+                text: 'Git',
+                link: '/git/'
               },
               {
                 text: 'HTML & CSS',
