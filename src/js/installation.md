@@ -1,9 +1,9 @@
 # Installation
 
+<Vimeo id="947358863" />
+
 To run our first javascript program, we need to install some software that can
-read our code and execute it on the computer. There are some different options
-available (including the web browser you're viewing this page on!), but we'll be
-using Node.js.
+read our code and execute it on the computer. We'll be using Node.js.
 
 ## What is Node?
 
@@ -38,7 +38,7 @@ If that doesn't work, you could try
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 ```
 
-::: note
+::: info
 
 Make sure you are running this from a bash (or zsh) terminal. If you are working
 on Windows, this means you should be working from WSL.
