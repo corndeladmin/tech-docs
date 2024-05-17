@@ -100,6 +100,7 @@ export default defineConfig({
 
     sidebar: {
       '/bash/': sidebars.bash,
+      '/vscode/': sidebars.vscode,
       '/express/': sidebars.express,
       '/html-css/': sidebars.htmlCss,
       '/js/': sidebars.javascript,
