@@ -1,4 +1,10 @@
-# Introduction
+# HTML & CSS
+
+<p align="center">
+
+![HTML & CSS Logo](image.png)
+
+</p>
 
 To make an analogy we hope isn't too gruesome, if a website is like the human
 body, then

@@ -1,6 +1,8 @@
 # Introduction to SQL
 
-## What is SQL?
+<p align="center">
+  <img src="./image.png" alt="SQL Logo"/>
+</p>
 
 SQL is a powerful language designed for managing and manipulating relational
 databases. From its inception in the early 1970s at IBM, SQL has evolved into a

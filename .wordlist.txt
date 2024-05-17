@@ -58,6 +58,7 @@ CardiBee
 changeColor
 charset
 Chinua
+chmod
 Cisneros
 cjs
 CleopatraTechQueen
@@ -80,6 +81,7 @@ cp
 Crake
 createdAt
 createId
+Crtl
 Ctrl
 curr
 currentBrightness
@@ -101,6 +103,7 @@ DiaryEntry
 discountedPrice
 discountedPrices
 displayPrice
+distro
 distros
 docx
 Dodgeball
@@ -120,6 +123,7 @@ encodedBodySize
 endTime
 env
 errorHandler
+Esc
 esm
 etag
 EternalKnowledge
@@ -156,6 +160,7 @@ getDiscountedPrices
 getTargetTemperature
 getters
 Getters
+githubusercontent
 gitignore
 gitlab
 gmail
@@ -180,6 +185,7 @@ inputId
 inputID
 instanceof
 internalCompileFunction
+interoperable
 ipAddress
 ipsum
 isAvailable
@@ -189,6 +195,7 @@ isConnected
 isMembershipActive
 isNaN
 isOn
+itemName
 JDQ
 JeffWho
 Jin
@@ -269,8 +276,10 @@ nvm
 occurence
 occurences
 oCM
+OneDrive
 OprahWindey
 Oryx
+ov
 Pachinko
 pageCount
 pageNumbers
@@ -287,12 +296,15 @@ powershell
 premiumMember
 previousLoans
 productId
+qO
 queryBooks
 quickReads
+quickstart
 rangeRequested
 readFile
 readingTime
 readingTimes
+readme
 ReadMore
 redirectEndTime
 redirectStartTime
@@ -382,6 +394,7 @@ turnOn
 txt
 TypeError
 typeof
+UEFI
 unavailableBooks
 unshift
 untrusted
@@ -403,13 +416,16 @@ uyL
 VARCHAR
 ve
 vh
+visualstudio
 vitepress
 vlog
 vm
+vscode
 Vue
 walkthroughs
 webpage
 wellbeing
+wget
 whitespace
 wrapSafe
 writeFile
@@ -426,4 +442,5 @@ yaz
 zod
 Zod
 Zoja
+Zsh
 zz

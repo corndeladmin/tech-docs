@@ -1,4 +1,5 @@
 export { bash } from './bash.js'
+export { vscode } from './vscode.js'
 export { express } from './express.js'
 export { htmlCss } from './html-css.js'
 export { javascript } from './javascript.js'

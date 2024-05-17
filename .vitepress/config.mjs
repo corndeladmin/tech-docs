@@ -43,6 +43,7 @@ export default defineConfig({
           },
           {
             text: 'Languages',
+            collapsed: true,
             items: [
               {
                 text: 'Javascript',
@@ -100,6 +101,7 @@ export default defineConfig({
     sidebar: {
       '/git/': sidebars.git,
       '/bash/': sidebars.bash,
+      '/vscode/': sidebars.vscode,
       '/express/': sidebars.express,
       '/html-css/': sidebars.htmlCss,
       '/js/': sidebars.javascript,
