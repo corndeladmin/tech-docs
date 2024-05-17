@@ -28,8 +28,8 @@ export default defineConfig({
                 link: '/bash/'
               },
               {
-                text: 'VS Code',
-                link: '/vscode/'
+                text: 'Git',
+                link: '/git/'
               },
               {
                 text: 'HTML & CSS',
@@ -99,6 +99,7 @@ export default defineConfig({
     ],
 
     sidebar: {
+      '/git/': sidebars.git,
       '/bash/': sidebars.bash,
       '/vscode/': sidebars.vscode,
       '/express/': sidebars.express,
