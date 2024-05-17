@@ -1,5 +1,11 @@
 # VS Code
 
+<p align="center">
+
+![VS Code logo](image-1.png)
+
+</p>
+
 Visual Studio Code (VS Code) is a free, open-source code editor developed by
 Microsoft that supports a wide range of programming languages and development
 tools.

@@ -1,4 +1,10 @@
-# Introduction
+# Bash
+
+<div align="center" width="100">
+
+![Bash logo](image.png)
+
+</div>
 
 Navigating the command line is a skill that can greatly enhance your efficiency
 as a programmer or system administrator. It allows direct communication with

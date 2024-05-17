@@ -4,6 +4,15 @@ export const sql = [
     link: '/sql/'
   },
   {
+    text: 'Installation',
+    collapsed: true,
+    items: [
+      { text: 'Linux', link: '/sql/installation-linux' },
+      { text: 'Mac', link: '/sql/installation-mac' },
+      { text: 'Windows', link: '/sql/installation-windows' }
+    ]
+  },
+  {
     text: 'Reading data',
     items: [
       {
