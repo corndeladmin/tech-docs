@@ -3,8 +3,8 @@
 <Vimeo id="933311098" />
 
 Instance methods are functions defined inside a class that operate on instances
-of the class. They can access and modify the instance's properties, take
-parameters, return values, and even call other methods
+of the class. They can access and modify the instance's properties, accept
+parameters, return values, and even call other methods.
 
 ## Defining a method
 
