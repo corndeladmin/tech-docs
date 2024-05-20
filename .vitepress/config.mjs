@@ -28,6 +28,10 @@ export default defineConfig({
                 link: '/bash/'
               },
               {
+                text: 'VS Code',
+                link: '/vscode/'
+              },
+              {
                 text: 'Git',
                 link: '/git/'
               },
@@ -43,7 +47,6 @@ export default defineConfig({
           },
           {
             text: 'Languages',
-            collapsed: true,
             items: [
               {
                 text: 'Javascript',
