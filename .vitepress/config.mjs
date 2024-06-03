@@ -16,10 +16,6 @@ export default defineConfig({
       provider: 'local'
     },
 
-    search: {
-      provider: 'local'
-    },
-
     nav: sidebars.topnav,
 
     sidebar: {
