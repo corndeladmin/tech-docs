@@ -16,85 +16,16 @@ export default defineConfig({
       provider: 'local'
     },
 
-    nav: [
-      {
-        text: 'Guides',
-        items: [
-          {
-            text: 'Core',
-            items: [
-              {
-                text: 'Command line',
-                link: '/command-line/'
-              },
-              {
-                text: 'HTML & CSS',
-                link: '/html-css/'
-              },
-              {
-                text: 'SQL',
-                link: '/sql/'
-              }
-            ]
-          },
-          {
-            text: 'Languages',
-            items: [
-              {
-                text: 'Javascript',
-                link: '/js/'
-              },
-              {
-                text: 'Python',
-                link: '/python/'
-              },
-              {
-                text: 'C#',
-                link: '/csharp/'
-              },
-              {
-                text: 'Java',
-                link: '/java/'
-              }
-            ]
-          }
-        ]
-      },
-      {
-        text: 'Frameworks',
-        items: [
-          {
-            text: 'Javascript',
-            items: [
-              {
-                text: 'React',
-                link: '/react/'
-              },
-              {
-                text: 'Express',
-                link: '/express/'
-              }
-            ]
-          },
-          {
-            text: 'C#',
-            items: [
-              {
-                text: '.Net',
-                link: '/dotnet/'
-              }
-            ]
-          }
-        ]
-      },
-      {
-        text: 'Glossary',
-        link: '/glossary'
-      }
-    ],
+    search: {
+      provider: 'local'
+    },
+
+    nav: sidebars.topnav,
 
     sidebar: {
+      '/git/': sidebars.git,
       '/bash/': sidebars.bash,
+      '/vscode/': sidebars.vscode,
       '/express/': sidebars.express,
       '/html-css/': sidebars.htmlCss,
       '/js/': sidebars.javascript,

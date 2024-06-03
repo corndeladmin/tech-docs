@@ -29,7 +29,7 @@ app.set('view engine', 'ejs')
 Let's make a folder for our views, and create our first view.
 
 ```bash
-mkidr views
+mkdir views
 touch views/index.ejs
 ```
 

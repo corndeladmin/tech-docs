@@ -1,0 +1,1 @@
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qwill help you to think about how the rows should be grouped in order to get the total likes column we desire.\\E$"}

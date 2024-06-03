@@ -67,7 +67,7 @@ export default mealController
 
 What's this code doing?
 
-- Make a new `meal` controller to handle user input like `node cli meal`
+- Make a new `mealController` to handle user input like `node cli meal`
 - Make an `add` subcommand to handle `node cli meal add "Pizza" 2000`
 - Take the arguments (e.g. `"Pizza"`, `2000`) and pass them to the `Meal` model
 
@@ -78,16 +78,16 @@ we need to hook them up. In `index.js`, we do
 
 ```js
 import { program } from 'commander'
-import meal from './meal.js' // [!code ++]
+import mealController from './meal.js' // [!code ++]
 
 program.version('0.1.0').description('A CLI health tracker')
 
-program.addCommand(meal) // [!code ++]
+program.addCommand(mealController) // [!code ++]
 
 program.parse(process.argv)
 ```
 
-We've added the `meal` command to our `program` - now it's ready to use.
+We've added the `mealController` to our `program` - now it's ready to use.
 
 ## Use the command
 

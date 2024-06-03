@@ -1,33 +1,30 @@
 # Grouped aggregates
 
+<Vimeo id="935089904" />
+
 Sometimes, we don't want to add, count or average all of the data in a column at
 once. We'd rather group some rows together by some criteria and produce partial
 aggregates.
 
 ## Using `GROUP BY`
 
-Suppose we wanted to know the average number of likes users have gotten across
-all of their bleets. We want to query the `bleets` table, group the rows by
-their `userId` and then average the `likes` for each group.
-
-Here is a query which achieves this:
+Suppose we want to know the average impressions per user:
 
 ```sql
-SELECT userId, AVG(likes) AS likes_per_user
+SELECT userId, AVG(impressions)
 FROM bleets
-GROUP BY userId
-ORDER BY likes_per_user DESC;
+GROUP BY userId;
 ```
 
-## Try it
+## Combining with joins
 
-<CodeMirror>
+The above query can be modified to make use of joins, providing more useful data
+in the results:
 
 ```sql
-SELECT userId, AVG(likes) AS likes_per_user
+SELECT users.username, AVG(bleets.impressions) AS avg_impressions
 FROM bleets
-GROUP BY userId
-ORDER BY likes_per_user DESC;
+INNER JOIN users ON users.id = bleets.userId
+GROUP BY users.id
+ORDER BY avg_impressions;
 ```
-
-</CodeMirror>

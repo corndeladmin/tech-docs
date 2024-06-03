@@ -1,8 +1,6 @@
 # Aggregate queries
 
-Aggregate functions allow you to perform calculations on a set of values,
-enabling you to extract meaningful insights from your data. In this guide, we'll
-learn how to use `COUNT`, `SUM` and `AVG`.
+<Vimeo id="935483189" />
 
 ## Overview
 
@@ -17,7 +15,7 @@ learn how to use `COUNT`, `SUM` and `AVG`.
 Let's find out the total number of bleets in the database.
 
 ```sql
-SELECT COUNT(id) AS total_bleets
+SELECT COUNT(id)
 FROM bleets;
 ```
 
@@ -26,22 +24,33 @@ effectively giving us the number of bleets.
 
 ## Using `SUM`
 
-How many likes have every been given in the history of Bleeter? Let's add the
-likes column on the `bleets` table.
+How many impressions have ever been made in the history of Bleeter? Let's add up
+the likes column on the `bleets` table.
 
 ```sql
-SELECT SUM(likes) AS total_likes
+SELECT SUM(impressions)
 FROM bleets;
 ```
 
 ## Using `AVG`
 
-Let's work out the average number of followers per user in the `users` table.
+If instead of the sum we wanted the average number of impressions per bleet, we
+could use
 
 ```sql
-SELECT AVG(followers) AS average_followers
-FROM users;
+SELECT AVG(impressions)
+FROM bleets;
 ```
 
-Here, we calculate the average followers each user has, which helps in
-understanding the general popularity within your user base.
+## Combining with joins
+
+These functions can be combined with joins to create powerful queries.
+
+For example, how many bleets have ever been written by verified users?
+
+```sql
+SELECT COUNT(bleets.id)
+FROM users
+INNER JOIN bleets ON users.id = bleets.userId
+WHERE users.verified = true;
+```

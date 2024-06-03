@@ -173,7 +173,7 @@ In `app.js`, we'll import the three classes:
 
 ::: code-group
 
-```js{1-3}
+```js{1-3} [app.js]
 import DiaryEntry from './classes/DiaryEntry.js'
 import Meal from './classes/Meal.js'
 import Workout from './classes/Workout.js'
