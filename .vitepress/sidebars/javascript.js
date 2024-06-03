@@ -26,7 +26,8 @@ export const javascript = [
       },
 
       { text: 'Functions', link: '/js/functions' },
-      { text: 'Parameters', link: '/js/parameters' }
+      { text: 'Parameters', link: '/js/parameters' },
+      { text: 'Arrow functions', link: '/js/arrow-functions' }
     ]
   },
 
