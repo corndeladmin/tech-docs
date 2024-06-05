@@ -61,7 +61,7 @@ We can still use `i` as a pointer to loop through an array.
 function average(arr) {
   let total = 0
 
-  for (let i = 1; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     total += arr[i]
   }
 
