@@ -89,21 +89,19 @@ export const javascript = [
         link: '/js/classes-and-instances'
       },
       { text: 'Instance Methods', link: '/js/instance-methods' },
-      { text: 'Private properties', link: '/js/private-properties.md' },
-      { text: 'Getters and setters', link: '/js/getters-and-setters.md' },
-      { text: 'Static properties', link: '/js/static-properties.md' },
-      { text: 'Inheritance', link: '/js/inheritance.md' },
-      { text: 'Method overriding', link: '/js/method-overriding.md' },
+      { text: 'Private properties', link: '/js/private-properties' },
+      { text: 'Getters and setters', link: '/js/getters-and-setters' },
+      { text: 'Static properties', link: '/js/static-properties' },
+      { text: 'Inheritance', link: '/js/inheritance' },
+      { text: 'Method overriding', link: '/js/method-overriding' },
       {
         text: 'Design patterns',
         collapsed: true,
         items: [
-          { text: 'Singleton pattern', link: '/js/singleton-pattern' },
-          { text: 'Adapter pattern', link: '/js/adapter-pattern' },
-          { text: 'Facade pattern', link: '/js/facade-pattern' },
-          { text: 'Mediator pattern', link: '/js/mediator-pattern' },
-          { text: 'Strategy pattern', link: '/js/strategy-pattern' },
-          { text: 'Composite pattern', link: '/js/composite-pattern' }
+          { text: 'Singleton', link: '/js/singleton-pattern' },
+          { text: 'Adapter', link: '/js/adapter-pattern' },
+          { text: 'Facade', link: '/js/facade-pattern' },
+          { text: 'Mediator', link: '/js/mediator-pattern' }
         ]
       }
     ]

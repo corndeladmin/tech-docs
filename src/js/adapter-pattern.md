@@ -55,7 +55,12 @@ class LightAdapter {
     }
   }
 }
+```
 
+Now, we can wrap an old light in the adapter so that its interface is identical
+to a smart light.
+
+```js
 const oldLight = new OldLight()
 const adaptedLight = new LightAdapter(oldLight)
 
