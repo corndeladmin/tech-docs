@@ -26,7 +26,8 @@ export const javascript = [
       },
 
       { text: 'Functions', link: '/js/functions' },
-      { text: 'Parameters', link: '/js/parameters' }
+      { text: 'Parameters', link: '/js/parameters' },
+      { text: 'Arrow functions', link: '/js/arrow-functions' }
     ]
   },
 
@@ -88,11 +89,21 @@ export const javascript = [
         link: '/js/classes-and-instances'
       },
       { text: 'Instance Methods', link: '/js/instance-methods' },
-      { text: 'Private properties', link: '/js/private-properties.md' },
-      { text: 'Getters and setters', link: '/js/getters-and-setters.md' },
-      { text: 'Static properties', link: '/js/static-properties.md' },
-      { text: 'Inheritance', link: '/js/inheritance.md' },
-      { text: 'Method overriding', link: '/js/method-overriding.md' }
+      { text: 'Private properties', link: '/js/private-properties' },
+      { text: 'Getters and setters', link: '/js/getters-and-setters' },
+      { text: 'Static properties', link: '/js/static-properties' },
+      { text: 'Inheritance', link: '/js/inheritance' },
+      { text: 'Method overriding', link: '/js/method-overriding' },
+      {
+        text: 'Design patterns',
+        collapsed: true,
+        items: [
+          { text: 'Singleton', link: '/js/singleton-pattern' },
+          { text: 'Adapter', link: '/js/adapter-pattern' },
+          { text: 'Facade', link: '/js/facade-pattern' },
+          { text: 'Mediator', link: '/js/mediator-pattern' }
+        ]
+      }
     ]
   },
 
