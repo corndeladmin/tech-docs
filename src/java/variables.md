@@ -12,14 +12,11 @@ some boilerplate like this:
 
 ```java
 public class Main {
-    public static void main(String[] args) {
-        // Your code goes here
-    }
+  public static void main(String[] args) {
+    // Your code goes here
+  }
 }
 ```
-
-For the rest of this guide, we will assume the code is being placed inside the
-boilerplate above, and we won't write it out in every example.
 
 :::
 
@@ -27,39 +24,69 @@ boilerplate above, and we won't write it out in every example.
 
 In Java, we can use `var` to create new **variables**.
 
+::: code-group
+
 ```java
-var bookTitle = "Persepolis";
-System.out.println(bookTitle);
+public class Main {
+  public static void main(String[] args) {
+    var bookTitle = "Persepolis";
+    System.out.println(bookTitle);
+  }
+}
 ```
 
-```
+```[output]
 Persepolis
 ```
 
+:::
+
 The order of the lines matters.
 
+::: code-group
+
 ```java
-System.out.println(bookTitle);
-var bookTitle = "Persepolis";
+public class Main {
+  public static void main(String[] args) {
+    System.out.println(bookTitle);
+    var bookTitle = "Persepolis";
+  }
+}
 ```
 
+```[output]
+./Main.java:3: error: cannot find symbol
+    System.out.println(bookTitle);
+                       ^
+  symbol:   variable bookTitle
+  location: class Main
+1 error
+error: compilation failed
 ```
-<!-- TODO -->
-```
+
+:::
 
 ## Specifying type
 
 Rather than using `var`, it is generally better to give the **type** of the
 variable.
 
+::: code-group
+
 ```java
-String bookTitle = "Persepolis";
-System.out.println(bookTitle);
+public class Main {
+  public static void main(String[] args) {
+    String bookTitle = "Persepolis";
+    System.out.println(bookTitle);
+  }
+}
 ```
 
-```
+```[output]
 Persepolis
 ```
+
+:::
 
 This makes it clear to everyone reading the code that `bookTitle` contains a
 string.
@@ -74,70 +101,85 @@ soon!
 
 ## Redefining variables
 
-Variables declared with `var` or their type can be reassigned new values.
+Variables can be reassigned new values.
+
+::: code-group
 
 ```java
-var bookTitle = "Persepolis";
-System.out.println(bookTitle);
+public class Main {
+  public static void main(String[] args) {
+    String bookTitle = "Persepolis";
+    System.out.println(bookTitle);
 
-bookTitle = "The Kite Runner";
-System.out.println(bookTitle);
+    bookTitle = "The Kite Runner";
+    System.out.println(bookTitle);
+  }
+}
 ```
 
-```
+```[output]
 Persepolis
 The Kite Runner
 ```
 
-Variables define with their type can only be reassigned to variables of the same
-type:
-
-```java
-var bookTitle = "Persepolis";
-System.out.println(bookTitle);
-
-bookTitle = "The Kite Runner"; // ok
-System.out.println(bookTitle);
-
-bookTitle = 10 // error!
-```
-
-```
-<!-- TODO -->
-```
+:::
 
 ## Using `final`
 
 To define a **constant** in Java, we use the `final` keyword.
 
+::: code-group
+
 ```java
-final String libraryName = "Central Library";
-System.out.println(libraryName);
+public class Main {
+  public static void main(String[] args) {
+    final String libraryName = "Central Library";
+    System.out.println(libraryName);
+  }
+}
 ```
 
-```
+```[ouput]
 Central Library
 ```
 
+:::
+
 However, because we used `final`, we cannot change its value.
 
+::: code-group
+
 ```java
-final String libraryName = "Central Library";
-System.out.println(libraryName);
+public class Main {
+  public static void main(String[] args) {
+    final String libraryName = "Central Library";
+    System.out.println(libraryName);
 
-libraryName = "Quantum Codex"; // This will cause an error
+    libraryName = "Quantum Codex"; // This will cause an error
+  }
+}
 ```
 
+```[output]
+./Main.java:6: error: cannot assign a value to final variable libraryName
+    libraryName = "Quantum Codex";
+    ^
+1 error
+error: compilation failed
 ```
-<!-- TODO -->
-```
+
+:::
 
 ::: warning
 
 You can't use `final` with `var`!
 
 ```java
-final var libraryName = "Central Library"
+public class Main {
+  public static void main(String[] args) {
+    final var libraryName = "Central Library";
+  }
+}
 ```
 
 This will throw an error.
@@ -149,24 +191,32 @@ This will throw an error.
 A variable which points to another variable's value does not update its value
 when the original variable changes.
 
+::: code-group
+
 ```java
-String user1 = "BookishBen99";
-String user2 = user1;
+public class Main {
+  public static void main(String[] args) {
+    String user1 = "BookishBen99";
+    String user2 = user1;
 
-System.out.println("User 1: " + user1);
-System.out.println("User 2: " + user2);
+    System.out.println("User 1: " + user1);
+    System.out.println("User 2: " + user2);
 
-user1 = "pageturner_mia";
+    user1 = "pageturner_mia";
 
-// Notice that user2 does not change
-System.out.println("User 1: " + user1);
-System.out.println("User 2: " + user2);
+    // Notice that user2 does not change
+    System.out.println("User 1: " + user1);
+    System.out.println("User 2: " + user2);
+  }
+}
 ```
 
-```
+```[ouput]
 User 1: BookishBen99
 User 2: BookishBen99
 
 User 1: pageturner_mia
 User 2: BookishBen99
 ```
+
+:::

@@ -10,6 +10,13 @@ export const java = [
   {
     text: 'Foundations',
     collapsed: true,
-    items: [{ text: 'Variables', link: '/java/variables' }]
+    items: [
+      { text: 'Variables', link: '/java/variables' },
+      {
+        text: 'Operators and expressions',
+        link: '/java/operators-and-expressions'
+      },
+      { text: 'Data types', link: '/java/data-types' }
+    ]
   }
 ]
