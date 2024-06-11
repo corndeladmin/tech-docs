@@ -38,7 +38,7 @@ We can assign new values to indices.
 const books = [
   'Things Fall Apart',
   'Beloved',
-  'One Hundred Years of Solitude',
+  'The Kite Runner',
   'The God of Small Things',
   'Persepolis'
 ]
@@ -49,8 +49,8 @@ console.log(books)
 
 ```console [output]
 Things Fall Apart
+Beloved
 The Kite Runner
-One Hundred Years of Solitude
 The God of Small Things
 Persepolis
 ```
