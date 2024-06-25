@@ -64,10 +64,10 @@ It'd be useful if the `connect()` method also logged the battery life of the dev
 
 ::: code-group
 
-```js{8,9,10,11}
+```js{8,9,10,11,12}
 class SmartCamera extends SmartDevice {
   constructor(name, location) {
-    super(name) // call the SmartDevice constructor
+    super(name)
     this.location = location
     this.batteryLife = 100
   }
@@ -102,17 +102,19 @@ SmartCamera {
 
 We can see that the first two lines of code in the `connect()` method are the same as its overridden method. There should be a way to avoid duplicating this code!
 
-```js{9,10}
+```js{9,10,12}
 class SmartCamera extends SmartDevice {
   constructor(name, location) {
-    super(name) // call the SmartDevice constructor
+    super(name)
     this.location = location
     this.batteryLife = 100
   }
 
   connect() {
+    // These two lines are duplicates of the lines in the parent class!
     this.isConnected = true
     console.log(`${this.name} is now connected.`)
+
     console.log(`Battery is at ${this.batteryLife}%`)
   }
 }
@@ -120,16 +122,18 @@ class SmartCamera extends SmartDevice {
 
 We can use the `super()` method, as seen in the constructor, to call the _overridden_ method from the `SmartDevice` class. So, our `SmartCamera` `connect()` method becomes this:
 
-```js{9}
+```js{9,10}
 class SmartCamera extends SmartDevice {
   constructor(name, location) {
-    super(name) // call the SmartDevice constructor
+    super(name)
     this.location = location
     this.batteryLife = 100
   }
 
   connect() {
+    // We call the SmartCamera connect() method by calling super() 
     super()
+
     console.log(`Battery is at ${this.batteryLife}%`)
   }
 }
