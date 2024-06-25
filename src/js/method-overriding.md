@@ -102,7 +102,7 @@ SmartCamera {
 
 We can see that the first two lines of code in the `connect()` method are the same as its overridden method. There should be a way to avoid duplicating this code!
 
-```js{9,10,12}
+```js{9,10,11}
 class SmartCamera extends SmartDevice {
   constructor(name, location) {
     super(name)
