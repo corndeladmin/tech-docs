@@ -26,5 +26,14 @@ export const htmlCss = [
         link: '/html-css/layouts-with-grid'
       }
     ]
+  },
+  {
+    text: 'UI Patterns',
+    items: [
+      {
+        text: 'Cards',
+        link: 'html-css/cards'
+      }
+    ]
   }
 ]
