@@ -75,5 +75,5 @@ Feel free to modify the HTML or CSS to get a feel for how it works.
   title="Cards"
   user="shai11"
   id="vYqYpdP"
-  height="1000"
+  height="900"
 />
