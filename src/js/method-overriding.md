@@ -54,7 +54,87 @@ SmartCamera {
   location: 'Front Door',
   batteryLife: 100
 }
-
 ```
 
 :::
+
+## Overriding a method
+
+It'd be useful if the `connect()` method also logged the battery life of the device! We can do this by overriding the `connect()` method.
+
+::: code-group
+
+```js{8,9,10,11,12}
+class SmartCamera extends SmartDevice {
+  constructor(name, location) {
+    super(name)
+    this.location = location
+    this.batteryLife = 100
+  }
+
+  connect() {
+    this.isConnected = true
+    console.log(`${this.name} is now connected.`)
+    console.log(`Battery is at ${this.batteryLife}%`)
+  }
+}
+
+const doorCam = new SmartCamera('Snoopy', 'Front Door')
+doorCam.connect()
+console.log(doorCam)
+```
+
+```console [output]
+Snoopy is now connected.
+Battery is at 100%
+
+SmartCamera {
+  name: 'Snoopy',
+  isConnected: true,
+  location: 'Front Door',
+  batteryLife: 100
+}
+```
+
+:::
+
+### Using `super()`
+
+We can see that the first two lines of code in the `connect()` method are the same as its overridden method. There should be a way to avoid duplicating this code!
+
+```js{9,10,11}
+class SmartCamera extends SmartDevice {
+  constructor(name, location) {
+    super(name)
+    this.location = location
+    this.batteryLife = 100
+  }
+
+  connect() {
+    // These two lines are duplicates of the lines in the parent class!
+    this.isConnected = true
+    console.log(`${this.name} is now connected.`)
+
+    console.log(`Battery is at ${this.batteryLife}%`)
+  }
+}
+```
+
+We can use the `super()` method, as seen in the constructor, to call the _overridden_ method from the `SmartDevice` class. So, our `SmartCamera` `connect()` method becomes this:
+
+```js{9,10}
+class SmartCamera extends SmartDevice {
+  constructor(name, location) {
+    super(name)
+    this.location = location
+    this.batteryLife = 100
+  }
+
+  connect() {
+    // We call the SmartCamera connect() method by calling super() 
+    super()
+
+    console.log(`Battery is at ${this.batteryLife}%`)
+  }
+}
+```
