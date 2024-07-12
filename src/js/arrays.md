@@ -49,8 +49,8 @@ console.log(books)
 
 ```console [output]
 Things Fall Apart
+Beloved
 The Kite Runner
-One Hundred Years of Solitude
 The God of Small Things
 Persepolis
 ```

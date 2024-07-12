@@ -20,7 +20,6 @@ mathematical calculations.
 |  `/`   | Division       | Divides one value by another                                  |
 |  `**`  | Exponentiation | Raises one value to the power of another                      |
 |  `%`   | Remainder      | Calculates the remainder on division                          |
-|  `//`  | Quotient       | Divides the numbers then rounds _down_ to the nearest integer |
 
 ## Expressions
 
