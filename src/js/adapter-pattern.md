@@ -1,7 +1,5 @@
 # The adapter pattern
 
-<Vimeo id="123" />
-
 ## Purpose
 
 The adapter pattern allows us to create a new interface around an existing
