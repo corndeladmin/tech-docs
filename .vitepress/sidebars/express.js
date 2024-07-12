@@ -46,5 +46,22 @@ export const express = [
       { text: 'CSS and assets', link: '/express/css-and-assets' },
       { text: 'User input', link: 'express/user-input' }
     ]
+  },
+  {
+    text: 'Web sockets',
+    items: [
+      {
+        text: 'Creating a web socket server',
+        link: '/express/web-socket-server'
+      },
+      {
+        text: 'Syncing clients',
+        link: '/express/syncing-clients'
+      },
+      {
+        text: 'Creating a web socket client',
+        link: '/express/web-socket-client'
+      }
+    ]
   }
 ]
