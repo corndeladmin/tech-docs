@@ -1,7 +1,5 @@
 # The mediator pattern
 
-<Vimeo id="123" />
-
 ## Purpose
 
 The mediator pattern allows us to get different classes working together in
