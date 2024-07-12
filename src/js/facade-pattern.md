@@ -1,7 +1,5 @@
 # The facade pattern
 
-<Vimeo id="123" />
-
 ## Purpose
 
 The facade pattern allows us to create a simple interface around complex

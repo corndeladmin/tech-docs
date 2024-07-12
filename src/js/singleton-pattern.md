@@ -1,7 +1,5 @@
 # Singleton pattern
 
-<Vimeo id="123" />
-
 ## Purpose
 
 The singleton pattern ensures that at most one instance of a class can be

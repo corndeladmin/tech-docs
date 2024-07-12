@@ -44,7 +44,7 @@ export const javascript = [
           { text: 'Push', link: '/js/array-push-pop' },
           { text: 'Map', link: '/js/array-map' },
           { text: 'Filter', link: '/js/array-filter' },
-          { text: 'Reduce', link: '/js/array-reduce.md' }
+          { text: 'Reduce', link: '/js/array-reduce' }
         ]
       },
       {
@@ -101,7 +101,8 @@ export const javascript = [
           { text: 'Singleton', link: '/js/singleton-pattern' },
           { text: 'Adapter', link: '/js/adapter-pattern' },
           { text: 'Facade', link: '/js/facade-pattern' },
-          { text: 'Mediator', link: '/js/mediator-pattern' }
+          { text: 'Mediator', link: '/js/mediator-pattern' },
+          { text: 'Event emitter', link: '/js/event-emitter' }
         ]
       }
     ]
