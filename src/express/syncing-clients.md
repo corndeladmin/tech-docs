@@ -73,8 +73,8 @@ server.on('connection', socket => {
   // when we receive a message
   // forward the message to all clients
   socket.on('message', message => {
-    for (let socket of sockets) {
-      socket.send(message)
+    for (let recipient of sockets) {
+      recipient.send(message)
     }
   })
 })
