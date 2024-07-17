@@ -52,10 +52,8 @@ public class UserRepository {
         var lastName = resultSet.getString("lastName");
         var email = resultSet.getString("email");
         var avatar = resultSet.getString("avatar");
-
         users.add(new User(id, username, firstName, lastName, email, avatar));
       }
-
       return users;
     }
   }
@@ -84,7 +82,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DB {
+public class DB { // [!code focus:7]
   static final String dbUrl = "jdbc:sqlite:bleeter.db";
 
   public static Connection getConnection() throws SQLException {
@@ -108,8 +106,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserRepository {
-  public static List<User> findAll() throws SQLException { // [!code focus:23]
-    var dbUrl = "jdbc:sqlite:bleeter.db"; // [!code --]
+  public static List<User> findAll() throws SQLException { 
+    var dbUrl = "jdbc:sqlite:bleeter.db"; // [!code --] // [!code focus:8]
     var query = 
       "SELECT id, username, firstName, lastName, email, avatar FROM users";
 
@@ -117,7 +115,6 @@ public class UserRepository {
     try (var connection = DB.getConnection(); // [!code ++]
         var statement = connection.createStatement();
         var resultSet = statement.executeQuery(query);) {
-
       var users = new ArrayList<User>();
       while (resultSet.next()) {
         var id = resultSet.getInt("id");
@@ -126,10 +123,8 @@ public class UserRepository {
         var lastName = resultSet.getString("lastName");
         var email = resultSet.getString("email");
         var avatar = resultSet.getString("avatar");
-
         users.add(new User(id, username, firstName, lastName, email, avatar));
       }
-
       return users;
     }
   }
@@ -145,7 +140,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DB {
+public class DB { // [!code focus:8]
   static final String dbUrl = "jdbc:sqlite:bleeter.db"; // [!code --]
   static final String dbUrl = "jdbc:sqlite:some-other-file.db"; // [!code ++]
 
