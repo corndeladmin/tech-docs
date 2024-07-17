@@ -26,9 +26,9 @@ This lets JDBC connect to our sqlite database.
 We can then make queries to the database like so:
 
 ```java
-package com.corndel.bleeter.Repositories;
+package com.corndel.bleeter.repositories;
 
-import com.corndel.bleeter.Models.User;
+import com.corndel.bleeter.models.User;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -36,9 +36,8 @@ import java.util.List;
 
 public class UserRepository {
   public static List<User> findAll() throws SQLException { 
-    var dbUrl = "jdbc:sqlite:bleeter.db"; // [!code focus:7]
-    var query = 
-      "SELECT id, username, firstName, lastName, email, avatar FROM users";
+    var dbUrl = "jdbc:sqlite:bleeter.db"; // [!code focus:6]
+    var query = "SELECT id, username, verified FROM users";
 
     try (var connection = DriverManager.getConnection(dbUrl); // [!code highlight:3]
         var statement = connection.createStatement();
@@ -48,11 +47,8 @@ public class UserRepository {
       while (resultSet.next()) {
         var id = resultSet.getInt("id");
         var username = resultSet.getString("username");
-        var firstName = resultSet.getString("firstName");
-        var lastName = resultSet.getString("lastName");
-        var email = resultSet.getString("email");
-        var avatar = resultSet.getString("avatar");
-        users.add(new User(id, username, firstName, lastName, email, avatar));
+        var verified = resultSet.getBoolean("verified");
+        users.add(new User(id, username, verified));
       }
       return users;
     }
@@ -96,9 +92,9 @@ Now we can make a connection through this class instead of having to enter the c
 For example, we've made a tiny change to the code above:
 
 ```java
-package com.corndel.bleeter.Repositories;
+package com.corndel.bleeter.repositories;
 
-import com.corndel.bleeter.Models.User;
+import com.corndel.bleeter.models.User;
 import com.corndel.bleeter.DB; // [!code ++]
 import java.sql.DriverManager; // [!code --]
 import java.sql.SQLException;
@@ -107,23 +103,20 @@ import java.util.List;
 
 public class UserRepository {
   public static List<User> findAll() throws SQLException { 
-    var dbUrl = "jdbc:sqlite:bleeter.db"; // [!code --] // [!code focus:8]
-    var query = 
-      "SELECT id, username, firstName, lastName, email, avatar FROM users";
+    var dbUrl = "jdbc:sqlite:bleeter.db"; // [!code --] // [!code focus:7]
+    var query = "SELECT id, username, verified FROM users";
 
     try (var connection = DriverManager.getConnection(dbUrl); // [!code --]
     try (var connection = DB.getConnection(); // [!code ++]
         var statement = connection.createStatement();
         var resultSet = statement.executeQuery(query);) {
+
       var users = new ArrayList<User>();
       while (resultSet.next()) {
         var id = resultSet.getInt("id");
         var username = resultSet.getString("username");
-        var firstName = resultSet.getString("firstName");
-        var lastName = resultSet.getString("lastName");
-        var email = resultSet.getString("email");
-        var avatar = resultSet.getString("avatar");
-        users.add(new User(id, username, firstName, lastName, email, avatar));
+        var verified = resultSet.getBoolean("verified");
+        users.add(new User(id, username, verified));
       }
       return users;
     }
