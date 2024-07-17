@@ -7,10 +7,22 @@ We'll need to create the "Data Access Layer". That is, the part of our applicati
 Models are classes that we use to store data within the application.
 
 ```java
-package com.corndel.bleeter.Models;
+package com.corndel.bleeter.models;
 
 public class User {
+  private Integer id;
+  public String username;
+  public boolean verified;
 
+  public User(Integer id, String username, boolean verified) {
+    this.id = id;
+    this.username = username;
+    this.verified = verified;
+  }
+
+  public Integer getId() {
+    return id;
+  }
 }
 ```
 
@@ -18,12 +30,32 @@ Repositories are classes that interact with the database to let us persist, modi
 
 
 ```java
-package com.corndel.bleeter.Repositories;
+package com.corndel.bleeter.repositories;
 
-import com.corndel.bleeter.Models.User;
+import com.corndel.bleeter.models.User;
+import com.corndel.bleeter.DB;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserRepository {
+  public static List<User> findAll() throws SQLException { 
+    var query = "SELECT id, username, verified FROM users";
 
+    try (var connection = DB.getConnection();
+        var statement = connection.createStatement();
+        var resultSet = statement.executeQuery(query);) {
+
+      var users = new ArrayList<User>();
+      while (resultSet.next()) {
+        var id = resultSet.getInt("id");
+        var username = resultSet.getString("username");
+        var verified = resultSet.getBoolean("verified");
+        users.add(new User(id, username, verified));
+      }
+      return users;
+    }
+  }
 }
 ```
 
@@ -31,11 +63,22 @@ public class UserRepository {
 
 JDBC lets us set up _Prepared Statements_. These let us substitute in parameters to our SQL queries.
 
-```js
-static User findById(id) {
-  var query = `SELECT * FROM users WHERE id = ?`
-  const results = await db.raw(query, [id])
-  return results[0]
+```java
+public static User findById(id) {
+  var query = "SELECT id, username, verified FROM users WHERE id = ?"; // [!code highlight:7]
+  try (var connection = DB.getConnection();
+      var statement = connection.prepareStatement(query)) {
+    statement.setInt(1, id)
+    try (var resultSet = statement.executeQuery()) {
+      if (!resultSet.next()) {
+        return null;
+      }
+      var id = resultSet.getInt("id");
+      var username = resultSet.getString("username");
+      var verified = resultSet.getBoolean("verified");
+      return new User(id, username, verified);
+    }
+  }
 }
 ```
 
@@ -46,8 +89,8 @@ you up to SQL injection attacks.
 
 Consider
 
-```js
-  User.findById('3; DROP TABLE users;')
+```java
+  User.findById("3; DROP TABLE users;");
 ```
 
 Always use prepared statements!
@@ -59,11 +102,15 @@ Always use prepared statements!
 We can use an `INSERT` query with several parameters by putting more `?` and
 passing the substitutions in the array:
 
-```js
-static async create(username, verified) {
-  const query =
-    'INSERT INTO users (username, verified) VALUES (?, ?) RETURNING *'
-  const results = await db.raw(query, [username, verified])
-  return results[0]
+```java
+public static User create(username, verified) {
+  var query = "INSERT INTO users (username, verified) VALUES (?, ?) RETURNING *";
+
 }
 ```
+
+::: info
+
+Note the `RETURNING *`
+
+:::
