@@ -42,10 +42,12 @@ This SQL, along with the seed data, could be stored in the directory
 `src/main/resources/db/migration` in our project. We _could_ run it with, for example,
 
 ```bash
-sqlite3 db.sqlite < src/main/resources/db/migration/V1__Reset.sql
+sqlite3 bleeter.sqlite < src/main/resources/db/migration/V1__Reset.sql
 ```
 
-However, we can use a tool called flyway to manage this.
+However, we can instead use a tool called flyway to manage this.
+
+In `pom.xml`, we can configure the flyway plugin to manage the correct database.
 
 ```xml
   <build>
@@ -55,7 +57,7 @@ However, we can use a tool called flyway to manage this.
         <artifactId>flyway-maven-plugin</artifactId>
         <version>10.15.2</version>
         <configuration>
-          <url>jdbc:sqlite:nozama.db</url>
+          <url>jdbc:sqlite:bleeter.sqlite</url>
         </configuration>
         <dependencies>
           <dependency>
@@ -69,12 +71,8 @@ However, we can use a tool called flyway to manage this.
 </build>
 ```
 
+We can then use flyway to run the sql statements in order using the following commmand:
+
 ```bash
 mvn flyway:migrate
 ```
-
-::: warning
-
-Since we're just practising, including your test seed data with your migrations is okay. 
-
-:::

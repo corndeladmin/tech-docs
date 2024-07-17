@@ -1,34 +1,39 @@
-# Adding a model layer
+# Adding a data access layer
 
-<Vimeo id="915256736" />
+We'll need to create the "Data Access Layer". That is, the part of our application that deals with interacting with the database and data models. 
 
-## Creating models
+## Models and Repositories
 
-Models are responsible for interacting with the database. For example, we might
-create a `User` class for interacting with the table of users:
+Models are classes that we use to store data within the application.
 
-```js
-// models/User.js
-import db from '../db/index.js'
+```java
+package com.corndel.bleeter.Models;
 
-class User {
-  static async findAll(limit, page) {
-    const query = 'SELECT * FROM users'
-    const results = await db.raw(query)
-    return results
-  }
+public class User {
+
 }
+```
 
-export default User
+Repositories are classes that interact with the database to let us persist, modify, and delete this data.
+
+
+```java
+package com.corndel.bleeter.Repositories;
+
+import com.corndel.bleeter.Models.User;
+
+public class UserRepository {
+
+}
 ```
 
 ## Querying with substitutions
 
-Knex allows us to create SQL template queries with placeholders using `?`
+JDBC lets us set up _Prepared Statements_. These let us substitute in parameters to our SQL queries.
 
 ```js
-static async findById(id) {
-  const query = `SELECT * FROM users WHERE id = ?`
+static User findById(id) {
+  var query = `SELECT * FROM users WHERE id = ?`
   const results = await db.raw(query, [id])
   return results[0]
 }
@@ -42,10 +47,10 @@ you up to SQL injection attacks.
 Consider
 
 ```js
-User.findById('3; DROP TABLE users;')
+  User.findById('3; DROP TABLE users;')
 ```
 
-Always use knex's `?` substitution syntax.
+Always use prepared statements!
 
 :::
 
