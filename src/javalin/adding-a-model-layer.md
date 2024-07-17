@@ -1,10 +1,10 @@
-# Adding a data access layer
+# Adding a model layer
 
-We'll need to create the "Data Access Layer". That is, the part of our application that deals with interacting with the database and data models. 
+We'll need to create the _model_ layer and the _data access layer_. These are the parts of our application that deals with handling data models and persisiting data using the database. 
 
 ## Models and Repositories
 
-Models are classes that we use to store data within the application.
+Models are classes that we use to represent data within the application.
 
 ```java
 package com.corndel.bleeter.models;
@@ -65,10 +65,10 @@ JDBC lets us set up _Prepared Statements_. These let us substitute in parameters
 
 ```java
 public static User findById(id) {
-  var query = "SELECT id, username, verified FROM users WHERE id = ?"; // [!code highlight:7]
+  var query = "SELECT id, username, verified FROM users WHERE id = ?"; // [!code highlight]
   try (var connection = DB.getConnection();
-      var statement = connection.prepareStatement(query)) {
-    statement.setInt(1, id)
+      var statement = connection.prepareStatement(query)) { // [!code highlight]
+    statement.setInt(1, id) // [!code highlight]
     try (var resultSet = statement.executeQuery()) {
       if (!resultSet.next()) {
         return null;
@@ -100,17 +100,29 @@ Always use prepared statements!
 ## Inserting data
 
 We can use an `INSERT` query with several parameters by putting more `?` and
-passing the substitutions in the array:
+passing the substitutions in with `.setString()`, `.setInt()`, or the appropriate set method for the datatype:
 
 ```java
 public static User create(username, verified) {
-  var query = "INSERT INTO users (username, verified) VALUES (?, ?) RETURNING *";
+  var query =  // [!code highlight:2]
+    "INSERT INTO users (username, verified) VALUES (?, ?) RETURNING *";
 
+  try (var connection = DB.getConnection();
+      var statement = con.prepareStatement(query)) {
+    statement.setString(1, username); // [!code highlight]
+    statement.executeUpdate(); // [!code highlight]
+
+    try (var resultSet = statement.getResultSet()) {
+      rs.next()
+      var id = rs.getInt("id");
+      return new User(id, username, verified)
+    }
+  }
 }
 ```
 
 ::: info
 
-Note the `RETURNING *`
+Note the `RETURNING *` causes the statement to have a `resultSet` after execution. This lets us get the `id` and other fields of the newly created `User` from the database.
 
 :::
