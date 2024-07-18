@@ -1,7 +1,5 @@
 # Routing
 
-<Vimeo id="932486851" />
-
 ## Creating a router
 
 To create an express router, we import the `Router` function from express.
