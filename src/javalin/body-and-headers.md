@@ -1,44 +1,52 @@
 # Body and headers
 
-<Vimeo id="915622944" />
-
 ## Endpoints with body
 
-When we send a request, the headers are available in the backend as
-`req.headers`.
+When we send a request, the headers are available in the backend as `ctx.header()`.
 
-When we send a request with a body, it will be parsed into the `req.body` for us
-on the backend.
+When we send a request with a JSON body, we can use `ctx.bodyAsClass(Some.class)` to parse the JSON into an object using a class.
 
 ::: code-group
 
-```js{1} [server]
-app.post('/users', async (req, res) => {
-  const user = await User.create(req.body.username, req.body.verified)
-  res.json(user)
-})
+```java{8-10,13-18} [server]
+public class App {
+  private Javalin app;
+
+  public App() {
+    app.post(
+        "/users",
+        ctx -> {
+          var body = ctx.bodyAsClass(UserRequestBody.class);
+          var newUser = UserRepository.create(body.username, body.verified);
+          res.status(HttpStatus.CREATED).json(newUser);
+        });
+  }
+
+  class UserRequestBody {
+    public String username;
+    public boolean verified;
+
+    public UserRequestBody() {}
+  }
+}
 ```
 
 ```bash{3} [client]
-curl -v -X POST http://localhost:5000/users \
+curl -v -X POST http://localhost:8080/users \
   -H "Content-Type: application/json" \
   -d '{"username": "MinnieMouse", "verified": true}'
 
 > POST /users HTTP/1.1
-> Host: localhost:5000
+> Host: localhost:8080
 > User-Agent: curl/7.81.0
 > Accept: */*
 > Content-Type: application/json
 > Content-Length: 45
 
 < HTTP/1.1 200 OK
-< X-Powered-By: Express
 < Content-Type: application/json; charset=utf-8
 < Content-Length: 47
-< ETag: W/"2f-nb/7y2Be3oCM0RJlX39MzZ6dYkE"
 < Date: Thu, 22 Feb 2024 16:57:57 GMT
-< Connection: keep-alive
-< Keep-Alive: timeout=5
 
 {
   "id": 21,
@@ -47,6 +55,12 @@ curl -v -X POST http://localhost:5000/users \
 }
 
 ```
+
+:::
+
+::: tip
+
+Since the `ctx.bodyAsClass()` method uses the Jackson ObjectMapper under the hood, it needs a default constructor. It will then fill in the fields that match betwwen the class and the JSON body.
 
 :::
 
