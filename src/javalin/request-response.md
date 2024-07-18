@@ -1,7 +1,5 @@
 # Request and response
 
-<Vimeo id="915624417" />
-
 ## Request and response
 
 There are several ways to send extra information as part of the request and
@@ -23,24 +21,15 @@ these requests in production.
 
 ## Sending and receiving JSON
 
-We can configure our app to send an receive JSON as part of the body. As a
-bonus, this will also encode and parse between JSON and Javascript without need
-of `JSON.parse()` and `JSON.stringify()`.
-
-```js{2}
-const app = express()
-app.use(express.json())
-```
-
-Now we can send and receive json
+We can send and receive JSON.
 
 ::: code-group
 
-```js [server]
-app.get('/users', async (req, res) => {
-  const users = await User.findAll()
-  res.json(users)
-})
+```java [server]
+app.get("/users", ctx -> {
+    var users = UserRepository.findAll();
+    ctx.json(users);
+});
 ```
 
 ```bash [client]
