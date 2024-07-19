@@ -2,7 +2,7 @@
 
 ## Endpoints with body
 
-When we send a request, the headers are available in the backend as `ctx.header()`.
+When we send a request, the headers are available in the backend as `ctx.header(String)`.
 
 When we send a request with a JSON body, we can use `ctx.bodyAsClass(Some.class)` to parse the JSON into an object using a class.
 
@@ -58,11 +58,7 @@ curl -v -X POST http://localhost:8080/users \
 
 :::
 
-::: tip
-
-Since the `ctx.bodyAsClass()` method uses the Jackson ObjectMapper under the hood, it needs a default constructor. It will then fill in the fields that match betwwen the class and the JSON body.
-
-:::
+Since the `ctx.bodyAsClass()` method uses the Jackson ObjectMapper under the hood, it needs a default constructor. It will then fill in the public fields that match betwwen the class and the JSON body.
 
 ::: tip
 
