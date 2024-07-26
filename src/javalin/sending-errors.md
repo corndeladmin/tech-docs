@@ -1,11 +1,8 @@
 # Sending errors
 
-<Vimeo id="932585825" />
-
 ## Error codes
 
-When a client makes an HTTP request to the server, the server usually responds
-with a status code.
+When a client makes an HTTP request to the server, the server usually responds with a status code.
 
 Here are some of the more common status codes.
 
@@ -25,56 +22,79 @@ Detailed information on all status codes can be found on
 
 In particular, we are interested in the error codes, (`400`-`599`).
 
-## Custom error class
+## Error Responses
 
-To allow us to throw errors with status codes, we can extend the `Error` class.
+Javalin includes some `HttpResponseException`s that we can use to trigger error responses.
 
-```js
-class AppError extends Error {
-  constructor(message, code) {
-    super(message)
-    this.code = code
+```java
+public class HomeController {
+  public static void post() throws HttpResponseException {
+    throw new ForbiddenResponse();
+  }
+}
+
+public class App {
+  private Javalin app;
+
+  public App() {
+    app = Javalin.create();
+    app.post("/", HomeController::post);
   }
 }
 ```
 
-## Throwing custom errors
+::: tip
 
-In our models, we can throw errors that arise from handling data, which is where
-most errors occur.
+A list of available error responses are available on [Javalin's documentation](https://javalin.io/documentation#default-responses). They are all named consistently in the form `statusName + "Response"`.
 
-```js{2-4,9-11}
-async findById(id) {
-  if (isNaN(id)) {
-    throw new AppError('ID must be a number.', 400)
+:::
+
+## Custom exceptions
+
+## Throwing errors
+
+In our models, we can throw errors that arise from handling data, which is where most errors occur.
+
+```java
+public class UserRepository {
+  public static User findById(int id) throws HttpResponseException {
+    if (id < 0) {
+      throw new BadRequestResponse("ID is invalid");
+    }
+
+    var query = "SELECT id, username, firstName, lastName, email, avatar FROM users WHERE id = ?";
+
+    try (var con = DB.getConnection();
+        var stmt = con.prepareStatement(query)) {
+      stmt.setInt(1, id);
+      try (var rs = stmt.executeQuery()) {
+        if (!rs.next()) {
+          throw new NotFoundResponse("");
+        }
+        var username = rs.getString("username");
+        var email = rs.getString("email");
+        var verified = rs.getBoolean("avatar");
+
+        return new User(id, username, email, verified);
+      }
+    }
   }
-
-  const query = 'SELECT * FROM users WHERE id = ?'
-  const results = await db.raw(query, [id])
-
-  if (!results.length) {
-    throw new AppError(`User with id ${id} does exist.`, 404)
-  }
-
-  return results[0]
 }
 ```
 
 ## Catching errors
 
-We can catch the error in our controller and decide what to do with it. In this
-case, we pass the error to an error handler.
+We can catch the error in our controller and decide what to do with it. In this case, we pass the error to an error handler.
 
-```js
-router.get('/:userId', async (req, res, next) => {
-  const { userId } = req.params
-  try {
-    const user = await User.findById(userId)
-    res.json(user)
-  } catch (err) {
-    next(err)
+```java
+public class App {
+  private Javalin app;
+
+  public App() {
+    app = Javalin.create();
+    app.get("/user/{userId}", ctx -> {});
   }
-})
+}
 ```
 
 ## Handling errors

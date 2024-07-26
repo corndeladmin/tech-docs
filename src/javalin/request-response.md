@@ -21,7 +21,7 @@ these requests in production.
 
 ## Sending and receiving JSON
 
-We can send and receive JSON.
+Sending JSON is relatively simple if we're happy with exposing the public fields and getters.
 
 ::: code-group
 

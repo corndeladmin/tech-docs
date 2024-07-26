@@ -21,6 +21,7 @@ export const javalin = [
     text: 'Creating an API',
     items: [
       { text: 'Creating a server', link: '/javalin/creating-a-server' },
+      { text: 'Routing and Controllers', link: '/javalin/routing' },
       {
         text: 'Request and response',
         link: '/javalin/request-response',
@@ -31,9 +32,7 @@ export const javalin = [
           { text: 'Body and headers', link: '/javalin/body-and-headers' }
         ]
       },
-      { text: 'Routing', link: '/javalin/routing' },
       { text: 'Sending errors', link: '/javalin/sending-errors' },
-      { text: 'Schema validation', link: '/javalin/schema-validation' }
     ]
   },
   {
