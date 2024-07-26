@@ -1,8 +1,16 @@
 # Body and headers
 
-## Endpoints with body
+## Headers
 
 When we send a request, the headers are available in the backend as `ctx.header(String)`.
+
+## Endpoints with body
+
+### Accessing the body text
+
+### Form data
+
+### JSON
 
 When we send a request with a JSON body, we can use `ctx.bodyAsClass(Some.class)` to parse the JSON into an object using a class.
 
