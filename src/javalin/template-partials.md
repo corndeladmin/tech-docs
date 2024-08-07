@@ -1,7 +1,5 @@
 # Template partials
 
-<Vimeo id="936176254" />
-
 ## The problem
 
 Many pages in a website might share the same content. For example, our views
@@ -9,13 +7,16 @@ might look like this (the repeated content has been highlighted):
 
 ::: code-group
 
-```html{1-9,12-13} [index.ejs]
+```html{1-9,12-13} [index.jte]
+@import bleeter.models.Page
+@param Page page
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bleeter | <%= title %></title>
+    <title>Bleeter | ${page.title}</title>
   </head>
 
   <body>
@@ -25,43 +26,54 @@ might look like this (the repeated content has been highlighted):
 </html>
 ```
 
-```html{1-9,20-21} [bleets.ejs]
+```html{1-9,20-21} [bleets.jte]
+@import java.util.List
+@import bleeter.models.Page
+@import bleeter.models.Bleet
+@param Page page
+@param List<Bleet> bleets
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bleeter | <%= title %></title>
+    <title>Bleeter | ${page.title}</title>
   </head>
 
   <body>
     <h1>Bleets</h1>
     <ol>
-      <% for (let bleet of bleets) { %>
+      @for(var bleet : bleets)
       <!-- use bleet -->
       <li>
-        <%= bleet.content.slice(0, 10) + '...' %>
-        <a href="<%= `/bleets/${bleet.id}` %>">Read more</a>
+        ${bleet.content.substring(0, 10)}...
+        <a href="/bleets/${bleet.id}">Read more</a>
       </li>
-      <% } %>
+      @endfor
     </ol>
   </body>
 </html>
 ```
 
-```html{1-9,13-14} [bleet.ejs]
+```html{1-9,13-14} [bleet.jte]
+@import bleeter.models.Page
+@import bleeter.models.Bleet
+@param Page page
+@param Bleet bleet
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bleeter | <%= title %></title>
+    <title>Bleeter | ${page.title}</title>
   </head>
 
   <body>
     <h1>A bleet</h1>
-    <p><%= bleet.content %></p>
-    <p><%= bleet.createdAt %></p>
+    <p>${bleet.content}</p>
+    <p>${bleet.createdAt}</p>
   </body>
 </html>
 ```
@@ -72,14 +84,14 @@ This is a problem, because if we need to make a change to the shared parts of
 each view, we need to update each view individually, which is extra work and an
 opportunity for mistakes.
 
-## Creating partials
+## Template calls
 
 We can create partial templates and use them in our views.
 
 The directory structure might look like this:
 
 ```txt
-views/
+templates/
 ├── bleet.ejs
 ├── bleets.ejs
 ├── index.ejs
