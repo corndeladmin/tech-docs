@@ -19,14 +19,15 @@ export default defineConfig({
     nav: sidebars.topnav,
 
     sidebar: {
-      '/git/': sidebars.git,
       '/bash/': sidebars.bash,
-      '/vscode/': sidebars.vscode,
       '/express/': sidebars.express,
+      '/git/': sidebars.git,
       '/html-css/': sidebars.htmlCss,
-      '/js/': sidebars.javascript,
       '/java/': sidebars.java,
-      '/sql/': sidebars.sql
+      '/js/': sidebars.javascript,
+      '/react/': sidebars.react,
+      '/sql/': sidebars.sql,
+      '/vscode/': sidebars.vscode
     },
 
     socialLinks: [
