@@ -29,25 +29,37 @@ export const java = [
     collapsed: true,
     items: [
       {
-        text: 'Arrays',
+        text: 'Arrays and Lists',
         collapsed: true,
-        items: [{ text: 'qq', link: '/java/qq' }]
+        items: [
+          { text: 'arrays', link: '/java/arrays' },
+          { text: 'lists', link: '/java/lists' }
+        ]
       },
       {
         text: 'Strings',
         collapsed: true,
-        items: [{ text: 'qq', link: '/java/qq' }]
+        items: [
+          { text: 'Formatting', link: '/java/string-formatting' },
+          { text: 'Split and join', link: '/java/string-split-join' }
+        ]
       },
       {
         text: 'Loops',
         collapsed: true,
-        items: [{ text: 'qq', link: '/java/qq' }]
+        items: [
+          { text: 'While loops', link: '/java/while-loops' },
+          { text: 'For loops', link: '/java/for-loops' },
+          { text: 'For-each loops', link: '/java/for-each-loops' },
+          { text: 'Control flow', link: '/java/loop-control-flow' },
+          { text: 'Nested loops', link: '/java/nested-loops' }
+        ]
       },
 
       {
-        text: 'Objects',
+        text: 'Basic Classes and Objects',
         collapsed: true,
-        items: [{ text: 'qq', link: '/java/qq' }]
+        items: [{ test: 'Basic Classes', link: '/java/basic-classes' }]
       }
     ]
   },
@@ -56,7 +68,17 @@ export const java = [
     text: 'Object oriented programming',
     collapsed: true,
     items: [
-      { text: 'qq', link: '/java/qq' },
+      { text: 'Classes and Instances', link: '/java/classes-and-instances' },
+      {
+        text: 'Private fields and methods',
+        link: '/java/private-fields-and-properties'
+      },
+      {
+        text: 'Static fields and methods',
+        link: '/java/static-fields-and-methods'
+      },
+      { text: 'Inheritance', link: '/java/inheritance' },
+      { text: '', link: '/java/inheritance' },
       {
         text: 'Design patterns',
         collapsed: true,

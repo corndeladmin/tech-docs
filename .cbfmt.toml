@@ -1,3 +1,0 @@
-[languages]
-js = ["prettier"]
-java = ["google-java-format -"]
