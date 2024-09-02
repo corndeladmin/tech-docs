@@ -16,7 +16,12 @@ export const java = [
         text: 'Operators and expressions',
         link: '/java/operators-and-expressions'
       },
-      { text: 'Data types', link: '/java/data-types' }
+      { text: 'Data types', link: '/java/data-types' },
+      { text: 'Logical operators', link: '/java/logical-operators' },
+      { text: 'Comparison operators', link: '/java/comparison-operators' },
+      { text: 'Conditional statements', link: '/java/conditional-statements' },
+      { text: 'Methods', link: '/java/functions' },
+      { text: 'Parameters', link: '/java/parameters' }
     ]
   },
   {
@@ -26,31 +31,23 @@ export const java = [
       {
         text: 'Arrays',
         collapsed: true,
-        items: [
-          { text: 'qq', link: '/java/qq' }
-        ]
+        items: [{ text: 'qq', link: '/java/qq' }]
       },
       {
         text: 'Strings',
         collapsed: true,
-        items: [
-          { text: 'qq', link: '/java/qq' }
-        ]
+        items: [{ text: 'qq', link: '/java/qq' }]
       },
       {
         text: 'Loops',
         collapsed: true,
-        items: [
-          { text: 'qq', link: '/java/qq' }
-        ]
+        items: [{ text: 'qq', link: '/java/qq' }]
       },
 
       {
         text: 'Objects',
         collapsed: true,
-        items: [
-          { text: 'qq', link: '/java/qq' }
-        ]
+        items: [{ text: 'qq', link: '/java/qq' }]
       }
     ]
   },
@@ -63,9 +60,7 @@ export const java = [
       {
         text: 'Design patterns',
         collapsed: true,
-        items: [
-          { text: 'qq', link: '/java/qq' }
-        ]
+        items: [{ text: 'qq', link: '/java/qq' }]
       }
     ]
   },
@@ -73,9 +68,7 @@ export const java = [
   {
     text: 'Testing',
     collapsed: true,
-    items: [
-      { text: 'qq', link: '/java/qq' }
-    ]
+    items: [{ text: 'qq', link: '/java/qq' }]
   },
 
   {
@@ -84,15 +77,13 @@ export const java = [
     items: [
       { text: 'Creating a Maven project', link: '/java/qq' },
       { text: 'Making a CLI', link: '/java/qq' },
-      { text: 'Handling Errors', link: '/java/qq' },
+      { text: 'Handling Errors', link: '/java/qq' }
     ]
   },
 
   {
     text: 'Asynchronous code',
     collapsed: true,
-    items: [
-      { text: 'qq', link: '/java/qq' }
-    ]
+    items: [{ text: 'qq', link: '/java/qq' }]
   }
 ]
