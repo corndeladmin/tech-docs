@@ -68,7 +68,7 @@ error: compilation failed
 
 ## Specifying type
 
-Rather than using `var`, it is generally better to give the **type** of the
+Rather than using `var`, it is possible to explicitly give the **type** of the
 variable.
 
 ::: code-group
@@ -88,8 +88,8 @@ Persepolis
 
 :::
 
-This makes it clear to everyone reading the code that `bookTitle` contains a
-string.
+Whether to use `var` or the explicit type is a
+[matter of opinion](https://medium.com/@victorhsr/java-to-var-or-not-to-var-that-is-the-question-10efe4989320).
 
 ::: info
 
@@ -133,7 +133,7 @@ To define a **constant** in Java, we use the `final` keyword.
 ```java
 public class Main {
   public static void main(String[] args) {
-    final String libraryName = "Central Library";
+    final var libraryName = "Central Library";
     System.out.println(libraryName);
   }
 }
@@ -152,7 +152,7 @@ However, because we used `final`, we cannot change its value.
 ```java
 public class Main {
   public static void main(String[] args) {
-    final String libraryName = "Central Library";
+    final var libraryName = "Central Library";
     System.out.println(libraryName);
 
     libraryName = "Quantum Codex"; // This will cause an error
@@ -167,22 +167,6 @@ public class Main {
 1 error
 error: compilation failed
 ```
-
-:::
-
-::: warning
-
-You can't use `final` with `var`!
-
-```java
-public class Main {
-  public static void main(String[] args) {
-    final var libraryName = "Central Library";
-  }
-}
-```
-
-This will throw an error.
 
 :::
 
