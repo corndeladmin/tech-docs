@@ -32,8 +32,11 @@ export const java = [
         text: 'Arrays and Lists',
         collapsed: true,
         items: [
-          { text: 'arrays', link: '/java/arrays' },
-          { text: 'lists', link: '/java/lists' }
+          { text: 'Arrays', link: '/java/arrays' },
+          { text: 'Array techniques', link: '/java/array-techniques' },
+          { text: 'Lists', link: '/java/lists' },
+          { text: 'List techniques', link: '/java/list-techniques' },
+          { text: 'Map and filter', link: '/java/map-filter' }
         ]
       },
       {
