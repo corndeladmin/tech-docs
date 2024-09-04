@@ -1,8 +1,8 @@
 # Lists
 
-<Vimeo id="123" />
+<Vimeo id="1006303544" />
 
-## Creating a list
+## Creating a `List`
 
 A `List` is more versatile than an array because we can add and remove items.
 Its size can change. There are several types of `List` but the most common is
@@ -34,7 +34,18 @@ public class Main {
 
 :::
 
-## ArrayList methods
+::: tip
+
+If you're comfortable with using `var`, it's possible to create an empty
+`ArrayList` a little more concisely:
+
+```java
+var authors = new ArrayList<String>();
+```
+
+:::
+
+## `ArrayList` methods
 
 There are lots of methods which allow us to work with Lists.
 

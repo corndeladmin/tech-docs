@@ -1,5 +1,7 @@
 # List techniques
 
+<Vimeo id="1006303506" />
+
 ## Sort and search
 
 To sort and search a `List` we use the `Collections` class.
