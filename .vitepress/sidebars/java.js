@@ -54,15 +54,18 @@ export const java = [
           { text: 'While loops', link: '/java/while-loops' },
           { text: 'For loops', link: '/java/for-loops' },
           { text: 'For-each loops', link: '/java/for-each-loops' },
-          { text: 'Control flow', link: '/java/loop-control-flow' },
-          { text: 'Nested loops', link: '/java/nested-loops' }
+          { text: 'Control flow', link: '/java/loop-control-flow' }
         ]
       },
 
       {
         text: 'Basic Classes and Objects',
         collapsed: true,
-        items: [{ test: 'Basic Classes', link: '/java/basic-classes' }]
+        items: [
+          { text: 'Object basics', link: '/java/object-basics' },
+          { text: 'Lists of objects', link: '/java/lists-of-objects' },
+          { text: 'Nested obects', link: '/java/nested-objects' }
+        ]
       }
     ]
   },
