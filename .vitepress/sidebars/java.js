@@ -63,8 +63,11 @@ export const java = [
         collapsed: true,
         items: [
           { text: 'Object basics', link: '/java/object-basics' },
-          { text: 'Lists of objects', link: '/java/lists-of-objects' },
-          { text: 'Nested obects', link: '/java/nested-objects' }
+          {
+            text: 'Classes and instances',
+            link: '/java/classes-and-instances'
+          },
+          { text: 'Lists of objects', link: '/java/lists-of-objects' }
         ]
       }
     ]

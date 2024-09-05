@@ -2,11 +2,14 @@
 
 ## Creating a Maven project using VSCode
 
-First, make sure that the [Java Maven Plugin](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven) is installed
+First, make sure that the
+[Java Maven Plugin](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
+is installed
 
 Press Cmd+Shift+P to open the command pallette
 
-Run the `Maven: New Module...` command (Type in `>maven` and select the command from the list)
+Run the `Maven: New Module...` command (Type in `>maven` and select the command
+from the list)
 
 Choose the parent directory (none)
 
@@ -77,7 +80,8 @@ This file configures maven, dependencies, and build plugins.
 
 #### Test dependencies
 
-Sometimes we only want dependencies when we're testing the code, rather than running it
+Sometimes we only want dependencies when we're testing the code, rather than
+running it
 
 ```xml
   <dependencies>
@@ -100,9 +104,10 @@ Sometimes we only want dependencies when we're testing the code, rather than run
 
 These determine what happens during the different steps of building.
 
-To illustrate this, instead of setting the compiler options in the `<properties>` tag, we can configure the compiler plugin directly:
+To illustrate this, instead of setting the compiler options in the
+`<properties>` tag, we can configure the compiler plugin directly:
 
-```
+```xml
 <properties> // [!code --]
     <maven.compiler.release>21</maven.compiler.release> // [!code --]
 </properties> // [!code --]
@@ -123,7 +128,9 @@ To illustrate this, instead of setting the compiler options in the `<properties>
 
 #### Packaging your application into an cli executable.
 
-We can use other plugins to do even more _fancy stuff_, like packaging your java application into an executable, so that you can run `./supportbank ... ...` from the command line!
+We can use other plugins to do even more _fancy stuff_, like packaging your java
+application into an executable, so that you can run `./supportbank ... ...` from
+the command line!
 
 ```xml
 <plugin>
