@@ -1,6 +1,7 @@
 export { bash } from './bash.js'
 export { express } from './express.js'
 export { git } from './git.js'
+export { javalin } from './javalin.js'
 export { htmlCss } from './html-css.js'
 export { javascript } from './javascript.js'
 export { java } from './java.js'

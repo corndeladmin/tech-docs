@@ -74,6 +74,15 @@ export const topnav = [
             link: '/dotnet/'
           }
         ]
+      },
+      {
+        text: 'Java',
+        items: [
+          {
+            text: 'Javalin',
+            link: '/javalin/'
+          }
+        ]
       }
     ]
   },

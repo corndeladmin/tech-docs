@@ -43,7 +43,7 @@ server.on('connection', (socket) => {
 })
 ```
 
-When the `'connection'` even is emitted, we are passed a web socket, which we
+When the `'connection'` event is emitted, we are passed a web socket, which we
 can call whatever we want (here, we used `socket`).
 
 ## Listening for socket events
