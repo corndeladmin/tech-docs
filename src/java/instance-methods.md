@@ -1,6 +1,6 @@
 # Instance Methods
 
-<Vimeo id="123" />
+<Vimeo id="1006968384" />
 
 Instance methods are functions defined inside a class that operate on instances
 of the class. They can access and modify the instance's properties, accept

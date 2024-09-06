@@ -93,7 +93,11 @@ export const java = [
   {
     text: 'Testing',
     collapsed: true,
-    items: [{ text: 'qq', link: '/java/qq' }]
+    items: [
+      { text: 'Unit testing', link: '/java/unit-testing' },
+      { text: 'Arrange, act, assert', link: '/java/arrange-act-assert' },
+      { text: 'Test driven development', link: '/java/tdd' }
+    ]
   },
 
   {

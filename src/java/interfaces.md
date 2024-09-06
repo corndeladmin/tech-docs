@@ -1,6 +1,6 @@
 # Interfaces
 
-<Vimeo id="123" />
+<Vimeo id="1006968035" />
 
 ## Defining an interface
 
@@ -24,25 +24,25 @@ its own behaviour.
 ::: code-group
 
 ```js{10-11} [SmartScreen.js]
-class SmartScreen implements Lockable {
+class SmartScreen implements Protected {
   private String password;
 
   public SmartScreen () {
-    this.password = "default"
+    this.password = "default";
   }
 
   @Override
   public void setPassword(String password) {
     if (password.length < 6) {
-      System.out.println("Password must have at least 6 characters.")
+      System.out.println("Password must have at least 6 characters.");
     } else {
-      this.password = password
+      this.password = password;
     }
   }
 
   @Override
   public boolean checkPassword(String attempt) {
-    return this.attempt == this.password
+    return attempt == this.password;
   }
 
   // Other methods...
@@ -50,7 +50,7 @@ class SmartScreen implements Lockable {
 ```
 
 ```js{12-13} [SmartThermostat.js]
-class SmartThermostat implements Lockable {
+class SmartThermostat implements Protected {
   private String password;
   private int temperature;
 
@@ -62,15 +62,15 @@ class SmartThermostat implements Lockable {
   @Override
   public void setPassword(String password) {
     if (password.length < 10) {
-      System.out.println("Password must have at least 10 characters.")
+      System.out.println("Password must have at least 10 characters.");
     } else {
-      this.password = password
+      this.password = password;
     }
   }
 
   @Override
   public boolean checkPassword(String attempt) {
-    return this.attempt == this.password
+    return attempt == this.password
   }
 
   // Other methods...

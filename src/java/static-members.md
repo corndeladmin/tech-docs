@@ -1,6 +1,6 @@
 # Static properties
 
-<Vimeo id="123" />
+<Vimeo id="1006968233" />
 
 ## Defining static properties
 

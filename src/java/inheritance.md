@@ -1,6 +1,6 @@
 # Inheritance
 
-<Vimeo id="123" />
+<Vimeo id="1006968093" />
 
 ## Creating a parent class
 
@@ -58,23 +58,49 @@ public class Main {
     public static void main(String[] args) {
         SmartCamera poolCam = new SmartCamera("Pool House");
         poolCam.togglePower();
-        System.out.println(poolCam.isOn) // true
+        System.out.println(poolCam.isOn()) // true
     }
 }
 ```
 
 :::
 
-Notice that the `SmartCamera` class has access to the `togglePower()` method and
-the `isOn` property, even though we didn't define them in the `SmartCamera`
-class. This is because `SmartCamera` inherits from `SmartDevice`.
+Notice that the `SmartCamera` class has `togglePower()` and `isOn()`, even
+though we didn't define them in the `SmartCamera` class. This is because
+`SmartCamera` inherits from `SmartDevice`.
+
+::: tip
+
+You can pass arguments to the `super()` method.
+
+```java
+class A {
+  protected int a;
+  public A(int a) {
+    this.a = a;
+  }
+}
+
+class B extends A {
+  private int b;
+  public B(int a, int b) {
+    super(a); // pass a to the parent constructor
+    this.b = b;
+  }
+}
+```
+
+Now `B instance = new B(1, 2);` will have `instance.a // 1` and
+`instance.b // 2`.
+
+:::
 
 ## Abstract classes
 
 It is possible to create an instance of `SmartDevice` directly:
 
 ```java
-SmartDevice device = new SmartDevice()
+SmartDevice device = new SmartDevice();
 ```
 
 If this isn't desirable, we can make the `SmartDevice` class into an `abstract`
@@ -97,5 +123,5 @@ public abstract class SmartDevice {
 Now, attempting to instantiate `SmartDevice` directly will result in an error:
 
 ```java
-SmartDevice device = new SmartDevice() // Error
+SmartDevice device = new SmartDevice(); // Error
 ```
