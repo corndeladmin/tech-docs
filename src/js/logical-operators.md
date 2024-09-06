@@ -40,7 +40,7 @@ true
 
 :::
 
-## Try it
+<!-- ## Try it
 
 In the `.log()` below, write the javascript equivalent of
 
@@ -56,4 +56,4 @@ const z = true
 console.log() // <-- put your calculation here
 ```
 
-</Exercise>
+</Exercise> -->

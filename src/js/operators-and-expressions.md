@@ -12,14 +12,14 @@ expected:
 Javascript provides several arithmetic operators that let you perform
 mathematical calculations.
 
-| Symbol | Name           | Description                                                   |
-| :----: | -------------- | ------------------------------------------------------------- |
-|  `+`   | Addition       | Adds two values                                               |
-|  `-`   | Subtraction    | Finds the difference between two values                       |
-|  `*`   | Multiplication | Multiplies two values                                         |
-|  `/`   | Division       | Divides one value by another                                  |
-|  `**`  | Exponentiation | Raises one value to the power of another                      |
-|  `%`   | Remainder      | Calculates the remainder on division                          |
+| Symbol | Name           | Description                              |
+| :----: | -------------- | ---------------------------------------- |
+|  `+`   | Addition       | Adds two values                          |
+|  `-`   | Subtraction    | Finds the difference between two values  |
+|  `*`   | Multiplication | Multiplies two values                    |
+|  `/`   | Division       | Divides one value by another             |
+|  `**`  | Exponentiation | Raises one value to the power of another |
+|  `%`   | Remainder      | Calculates the remainder on division     |
 
 ## Expressions
 
@@ -82,7 +82,7 @@ console.log(availableBooks)
 
 :::
 
-## Try it
+<!-- ## Try it
 
 Calculate the remainder when `a` to the power of `b` is divided by `c`. Log your
 answer to the console.
@@ -97,4 +97,4 @@ const c = 5
 console.log() // <-- put your calculation here
 ```
 
-</Exercise>
+</Exercise> -->
