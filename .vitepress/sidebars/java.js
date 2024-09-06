@@ -59,7 +59,7 @@ export const java = [
       },
 
       {
-        text: 'Basic Classes and Objects',
+        text: 'Classes and Objects',
         collapsed: true,
         items: [
           { text: 'Object basics', link: '/java/object-basics' },
@@ -77,17 +77,11 @@ export const java = [
     text: 'Object oriented programming',
     collapsed: true,
     items: [
-      { text: 'Classes and Instances', link: '/java/classes-and-instances' },
-      {
-        text: 'Private fields and methods',
-        link: '/java/private-fields-and-properties'
-      },
-      {
-        text: 'Static fields and methods',
-        link: '/java/static-fields-and-methods'
-      },
+      { text: 'Instance methods', link: '/java/instance-methods' },
+      { text: 'Private members', link: '/java/private-members' },
+      { text: 'Static members', link: '/java/static-members' },
       { text: 'Inheritance', link: '/java/inheritance' },
-      { text: '', link: '/java/inheritance' },
+      { text: 'Interfaces', link: '/java/interfaces' },
       {
         text: 'Design patterns',
         collapsed: true,
