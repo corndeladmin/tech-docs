@@ -4,7 +4,6 @@
   <img src="/images/javascript_logo.jpg" width="300px" />
 </p>
 
-Hey there! So, you're getting started with JavaScript? That's fantastic.
 JavaScript is like the Swiss Army knife of the web development world. It started
 off back in 1995, created by Brendan Eich at Netscape. The idea was simple: make
 web pages interactive.
