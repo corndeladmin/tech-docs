@@ -104,9 +104,9 @@ export const java = [
     text: 'Building projects',
     collapsed: true,
     items: [
-      { text: 'Creating a Maven project', link: '/java/qq' },
-      { text: 'Making a CLI', link: '/java/qq' },
-      { text: 'Handling Errors', link: '/java/qq' }
+      { text: 'Creating a Maven project', link: '/java/creating-projects' },
+      { text: 'Making a CLI', link: '/java/making-a-cli' },
+      { text: 'Adding subcommands', link: '/java/adding-subcommands' }
     ]
   },
 
