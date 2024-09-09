@@ -16,7 +16,12 @@ export const java = [
         text: 'Operators and expressions',
         link: '/java/operators-and-expressions'
       },
-      { text: 'Data types', link: '/java/data-types' }
+      { text: 'Data types', link: '/java/data-types' },
+      { text: 'Logical operators', link: '/java/logical-operators' },
+      { text: 'Comparison operators', link: '/java/comparison-operators' },
+      { text: 'Conditional statements', link: '/java/conditional-statements' },
+      { text: 'Methods', link: '/java/functions' },
+      { text: 'Parameters', link: '/java/parameters' }
     ]
   },
   {
@@ -24,32 +29,45 @@ export const java = [
     collapsed: true,
     items: [
       {
-        text: 'Arrays',
+        text: 'Arrays and Lists',
         collapsed: true,
         items: [
-          { text: 'qq', link: '/java/qq' }
+          { text: 'Arrays', link: '/java/arrays' },
+          { text: 'Array techniques', link: '/java/array-techniques' },
+          { text: 'Lists', link: '/java/lists' },
+          { text: 'List techniques', link: '/java/list-techniques' },
+          { text: 'Map and filter', link: '/java/map-filter' }
         ]
       },
       {
         text: 'Strings',
         collapsed: true,
         items: [
-          { text: 'qq', link: '/java/qq' }
+          { text: 'Formatting', link: '/java/string-formatting' },
+          { text: 'Split and join', link: '/java/string-split-join' }
         ]
       },
       {
         text: 'Loops',
         collapsed: true,
         items: [
-          { text: 'qq', link: '/java/qq' }
+          { text: 'While loops', link: '/java/while-loops' },
+          { text: 'For loops', link: '/java/for-loops' },
+          { text: 'For-each loops', link: '/java/for-each-loops' },
+          { text: 'Control flow', link: '/java/loop-control-flow' }
         ]
       },
 
       {
-        text: 'Objects',
+        text: 'Classes and Objects',
         collapsed: true,
         items: [
-          { text: 'qq', link: '/java/qq' }
+          { text: 'Object basics', link: '/java/object-basics' },
+          {
+            text: 'Classes and instances',
+            link: '/java/classes-and-instances'
+          },
+          { text: 'Lists of objects', link: '/java/lists-of-objects' }
         ]
       }
     ]
@@ -59,13 +77,15 @@ export const java = [
     text: 'Object oriented programming',
     collapsed: true,
     items: [
-      { text: 'qq', link: '/java/qq' },
+      { text: 'Instance methods', link: '/java/instance-methods' },
+      { text: 'Private members', link: '/java/private-members' },
+      { text: 'Static members', link: '/java/static-members' },
+      { text: 'Inheritance', link: '/java/inheritance' },
+      { text: 'Interfaces', link: '/java/interfaces' },
       {
         text: 'Design patterns',
         collapsed: true,
-        items: [
-          { text: 'qq', link: '/java/qq' }
-        ]
+        items: [{ text: 'qq', link: '/java/qq' }]
       }
     ]
   },
@@ -74,7 +94,9 @@ export const java = [
     text: 'Testing',
     collapsed: true,
     items: [
-      { text: 'qq', link: '/java/qq' }
+      { text: 'Unit testing', link: '/java/unit-testing' },
+      { text: 'Arrange, act, assert', link: '/java/arrange-act-assert' },
+      { text: 'Test driven development', link: '/java/tdd' }
     ]
   },
 
@@ -84,15 +106,13 @@ export const java = [
     items: [
       { text: 'Creating a Maven project', link: '/java/qq' },
       { text: 'Making a CLI', link: '/java/qq' },
-      { text: 'Handling Errors', link: '/java/qq' },
+      { text: 'Handling Errors', link: '/java/qq' }
     ]
   },
 
   {
     text: 'Asynchronous code',
     collapsed: true,
-    items: [
-      { text: 'qq', link: '/java/qq' }
-    ]
+    items: [{ text: 'qq', link: '/java/qq' }]
   }
 ]
