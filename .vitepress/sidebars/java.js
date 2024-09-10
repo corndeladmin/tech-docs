@@ -106,7 +106,13 @@ export const java = [
     items: [
       { text: 'Creating a Maven project', link: '/java/creating-projects' },
       { text: 'Making a CLI', link: '/java/making-a-cli' },
-      { text: 'Adding subcommands', link: '/java/adding-subcommands' }
+      { text: 'Adding subcommands', link: '/java/adding-subcommands' },
+      { text: 'Handling errors', link: '/java/handling-errors' },
+      { text: 'Reading and writing files', link: '/java/file-io' },
+      { text: 'Working with JSON', link: '/java/working-with-json' },
+      { text: 'Environment variables', link: '/java/environment-variables' },
+      { text: 'HTTP GET requests', link: '/java/http-get' },
+      { text: 'HTTP POST requests', link: '/java/http-post' }
     ]
   },
 
