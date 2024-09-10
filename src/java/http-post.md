@@ -37,23 +37,15 @@ HttpRequest request = HttpRequest.newBuilder()
 
 We send the request using a `HttpClient`. Here is the full code.
 
-::: info
-
-In the video, we converted the `{ "query": "Swimming for 30m" }` json into a
-string before passing it to `BodyPublishers.ofString()`. That isn't actually
-necessary, we can pass the `json` object directly, which saves us a line of code
-:smile:
-
-:::
-
 ```java
 public static String fetchCalories() throws Exception {
   Dotenv dotenv = Dotenv.load();
 
   // Create a json for the body
   ObjectMapper objectMapper = new ObjectMapper();
-  ObjectNode json = objectMapper.createObjectNode();
-  json.put("query", "Swimming for 30m");
+  ObjectNode jsonObject = objectMapper.createObjectNode();
+  jsonObject.put("query", "Swimming for 30m");
+  String jsonString = objectMapper.writeValueAsString(jsonObject);
 
   URI uri = new URI("https://trackapi.nutritionix.com/v2/natural/exercise");
 
@@ -62,7 +54,7 @@ public static String fetchCalories() throws Exception {
       .header("Content-Type", "application/json")
       .header("x-app-id", dotenv.get("NUTRITIONIX_ID"))
       .header("x-app-key", dotenv.get("NUTRITIONIX_KEY"))
-      .POST(HttpRequest.BodyPublishers.ofString(json))
+      .POST(HttpRequest.BodyPublishers.ofString(jsonString))
       .build();
 
   HttpClient client = HttpClient.newHttpClient();
