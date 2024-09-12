@@ -1,10 +1,13 @@
 # Making a CLI
 
+<Vimeo id="1007716892" />
+
 ## Installing Picocli
 
 We're going to be using Picocli to make our command line
 
-To add this as a dependency in Maven, add the following dependency to the dependencies in your `pom.xml`
+To add this as a dependency in Maven, add the following dependency to the
+dependencies in your `pom.xml`
 
 ```xml
 <dependency>
@@ -16,7 +19,8 @@ To add this as a dependency in Maven, add the following dependency to the depend
 
 ## Setting up your CLI
 
-In the main class, we set up `picocli.CommandLine` to process the command line `args`.
+In the main class, we set up `picocli.CommandLine` to process the command line
+`args`.
 
 ```java
 package com.corndel.healthtracker;
@@ -25,12 +29,14 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
 @Command(name = "healthtracker", description = "A CLI health tracker")
-public class Main {
+public class App {
+
   public static void main(String[] args) {
-    CommandLine cmd = new CommandLine(new Main());
-    int exitCode = cmd.execute(args);
+    CommandLine cli = new CommandLine(new App());
+    int exitCode = cli.execute(args);
     System.exit(exitCode);
   }
+
 }
 ```
 
@@ -38,88 +44,75 @@ public class Main {
 
 Picocli uses _annotations_ to declare metadata.
 
-Here, we use the `@Command()` annotation to declare the name and description of our `healthtracker` cli command.
+Here, we use the `@Command()` annotation to declare the name and description of
+our `healthtracker` cli command.
 
 :::
 
-::: tip
+## Printing a message
 
-The line `cmd.execute(args)` should always go at the end of this file.
-It is what allows `CommandLine` access to the user's terminal commands, like
-`meal add "Pizza" 2000`.
+To execute some code, we need to add a `run()` method, and also implement the
+`Runnable` interface.
 
-:::
+```java{2,4-7}
+@Command(name = "healthtracker", description = "A CLI health tracker")
+public class App implements Runnable {
 
-## Create a command
-
-Next, we will add **controllers**. A controller receives a request from the
-user, and talks to the models to make things happen.
-
-To create a controller for meals:
-
-```java
-package com.corndel.healthtracker.controllers;
-
-import com.corndel.healthtracker.models.Meal;
-import picocli.CommandLine.Command;
-
-@Command(name = "meal")
-public class MealController {
-  @Command(name = "log", description = "Log a new meal")
-  void Log(
-      @Parameters(paramLabel = "<name>", description = "The name of the meal") String name,
-      @Parameters(
-              paramLabel = "<calories>",
-              description = "The calorie content of the meal in kcal")
-          String calories) {
-    var meal = new Meal(name, Integer.parseInt(calories));
-
-    System.out.println(meal.toString());
+  @Override
+  public void run() {
+    System.out.println("Welcome! Please specify a command.")
   }
+
+  public static void main(String[] args) {
+    CommandLine cli = new CommandLine(new App());
+    int exitCode = cli.execute(args);
+    System.exit(exitCode);
+  }
+
 }
 ```
 
-What's this code doing?
+Now the `run()` method will run if the user simply executes `healthtracker` in
+the terminal.
 
-- Make a new `mealController` to handle user input like `node cli meal`
-- Make an `add` subcommand to handle `node cli meal add "Pizza" 2000`
-- Take the arguments (e.g. `"Pizza"`, `2000`) and pass them to the `Meal` model
+```console
+> healthtracker
 
-## Register the command
-
-We have a `program` in `cli/index.js` and a `mealController` in `cli/meal.js` -
-we need to hook them up. In `index.js`, we do
-
-```js
-import { program } from "commander";
-import mealController from "./meal.js"; // [!code ++]
-
-program.version("0.1.0").description("A CLI health tracker");
-
-program.addCommand(mealController); // [!code ++]
-
-program.parse(process.argv);
+Welcome! Please specify a command.
 ```
 
-We've added the `mealController` to our `program` - now it's ready to use.
+## Handling input arguments
 
-## Use the command
+The user can specify arguments to pass to the `run()` method. We configure the
+CLI to accept these using the `@Parameters` decorator. We can access them around
+our class.
 
-The CLI should now be fully functioning. From the project root, open a terminal
-and run
+```java{4-5,9}
+@Command(name = "healthtracker", description = "A CLI health tracker")
+public class App implements Runnable {
 
-::: code-group
+  @Parameters(index = "0", description = "The name to greet")
+  private String name;
 
-```bash
-node cli meal add 'Lasagne' 1100
+  @Override
+  public void run() {
+    String msg = String.format("Welcome, %s! Please specify a command.", name);
+    System.out.println(msg);
+  }
+
+  public static void main(String[] args) {
+    CommandLine cli = new CommandLine(new App());
+    int exitCode = cli.execute(args);
+    System.exit(exitCode);
+  }
+
+}
 ```
 
-```console [output]
-Meal { name: 'Lasagne', calories: 1100 }
+Now the user can pass their name to the CLI to get a more personalised message.
+
+```console
+> healthtracker Magnus
+
+Welcome, Magnus! Please specify a command.
 ```
-
-:::
-
-## Design tips
-
-Go here if you want to deep dive into the philosophy of cli design and development https://clig.dev/

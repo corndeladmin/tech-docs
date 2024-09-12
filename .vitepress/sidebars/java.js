@@ -54,7 +54,8 @@ export const java = [
           { text: 'While loops', link: '/java/while-loops' },
           { text: 'For loops', link: '/java/for-loops' },
           { text: 'For-each loops', link: '/java/for-each-loops' },
-          { text: 'Control flow', link: '/java/loop-control-flow' }
+          { text: 'Control flow', link: '/java/loop-control-flow' },
+          { text: 'Nested loops', link: '/java/nested-loops' }
         ]
       },
 
@@ -104,9 +105,15 @@ export const java = [
     text: 'Building projects',
     collapsed: true,
     items: [
-      { text: 'Creating a Maven project', link: '/java/qq' },
-      { text: 'Making a CLI', link: '/java/qq' },
-      { text: 'Handling Errors', link: '/java/qq' }
+      { text: 'Creating a Maven project', link: '/java/creating-projects' },
+      { text: 'Making a CLI', link: '/java/making-a-cli' },
+      { text: 'Adding subcommands', link: '/java/adding-subcommands' },
+      { text: 'Handling errors', link: '/java/handling-errors' },
+      { text: 'Reading and writing files', link: '/java/file-io' },
+      { text: 'Working with JSON', link: '/java/working-with-json' },
+      { text: 'Environment variables', link: '/java/environment-variables' },
+      { text: 'HTTP GET requests', link: '/java/http-get' },
+      { text: 'HTTP POST requests', link: '/java/http-post' }
     ]
   },
 
