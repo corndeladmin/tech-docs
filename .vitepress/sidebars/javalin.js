@@ -12,8 +12,16 @@ export const javalin = [
         link: '/javalin/connecting-to-a-database'
       },
       {
-        text: 'Adding a model layer',
-        link: '/javalin/adding-a-model-layer'
+        text: 'Models and repositories',
+        collapsed: true,
+        items: [
+          { text: 'Querying for data', link: '/javalin/adding-a-model-layer' },
+          {
+            text: 'Querying with substitutions',
+            link: '/javalin/adding-a-model-layer-2'
+          },
+          { text: 'Inserting data', link: '/javalin/adding-a-model-layer-3' }
+        ]
       }
     ]
   },
@@ -32,7 +40,7 @@ export const javalin = [
           { text: 'Body and headers', link: '/javalin/body-and-headers' }
         ]
       },
-      { text: 'Sending errors', link: '/javalin/sending-errors' },
+      { text: 'Sending errors', link: '/javalin/sending-errors' }
     ]
   },
   {

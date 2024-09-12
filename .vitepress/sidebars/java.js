@@ -54,7 +54,8 @@ export const java = [
           { text: 'While loops', link: '/java/while-loops' },
           { text: 'For loops', link: '/java/for-loops' },
           { text: 'For-each loops', link: '/java/for-each-loops' },
-          { text: 'Control flow', link: '/java/loop-control-flow' }
+          { text: 'Control flow', link: '/java/loop-control-flow' },
+          { text: 'Nested loops', link: '/java/nested-loops' }
         ]
       },
 
