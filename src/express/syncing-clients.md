@@ -1,10 +1,6 @@
 # Syncing clients
 
-Now that we can make a web socket server, how do we send messages between
-clients?
-
-In this guide, we will make a simple application in which a connected client
-sends a message, and all other clients will receive the message.
+<Vimeo id="1010811238" />
 
 ## Setting up the server
 
@@ -22,59 +18,38 @@ server.on('connection', socket => {
 
 ## Tracking sockets
 
-In order to update all clients, we need to keep a reference to all sockets that
-have been created.
+In order to update all the clients, we need to keep track of their server side
+sockets they have created.
 
-```js{8-9,11-15}
+Forunately, the `WebSocketServer` object keeps track of that for us in a
+property called `clients`.
+
+```js{6}
 import { WebSocketServer } from 'ws'
 
 const server = new WebSocketServer({ port: 5001 })
 
-let sockets = []
-
-server.on('connection', socket => {
-  // keep track of new sockets
-  sockets.push(socket)
-
-  // if the client disconnects
-  // remove the client's socket from the list
-  socket.on('disconnect', () => {
-    sockets = sockets.filter(s => s !== socket)
-  })
+server.on('connection', () => {
+  console.log(server.clients) // lists all created sockets
 })
 ```
-
-::: info
-
-In a production system, we'd choose a more robust way of keeping track of
-sockets, but this will do for now.
-
-:::
 
 ## Forwarding messages
 
 When a client sends a message to its socket, we need to parse the message, then
 loop through and forward its content to every connected client.
 
-```js{14-20}
+```js
 import { WebSocketServer } from 'ws'
 
 const server = new WebSocketServer({ port: 5001 })
 
-let sockets = []
-
 server.on('connection', socket => {
-  sockets.push(socket)
-
-  socket.on('disconnect', () => {
-    sockets = sockets.filter(s => s !== socket)
-  })
-
   // when we receive a message
   // forward the message to all clients
   socket.on('message', message => {
-    for (let recipient of sockets) {
-      recipient.send(message)
+    for (let client of server.clients) {
+      client.send(message)
     }
   })
 })

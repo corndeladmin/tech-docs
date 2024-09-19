@@ -125,7 +125,7 @@ User 2: BookishBen99
 
 :::
 
-## Try it
+<!-- ## Try it
 
 1. Create a variable called `movie` and assign it to the string
    `'Donnie Darko'`.
@@ -137,4 +137,4 @@ User 2: BookishBen99
 // code here
 ```
 
-</Exercise>
+</Exercise> -->

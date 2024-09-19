@@ -44,7 +44,7 @@ The easiest way is using the `gh` command line tool.
 
 1. Run `gh auth login`
 
-1. Select "Github.com", "SSH" and "Sign in with browser"
+1. Select "Github.com", "HTTPS" and "Sign in with browser"
 
 1. Copy the one-time code and paste it into the
    [device login page](https://github.com/login/device)

@@ -86,7 +86,7 @@ false
 
 :::
 
-## Try it
+<!-- ## Try it
 
 In the `.log()`, check whether `num1` is smaller than `num2`.
 
@@ -99,4 +99,4 @@ const num2 = 105 * 1431
 console.log() // <-- put your comparison here
 ```
 
-</Exercise>
+</Exercise> -->
