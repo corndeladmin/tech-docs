@@ -2,19 +2,22 @@
 
 ## Project setup
 
-### Set up a Maven project
-
-qq
-
 ### Add the Javalin dependency
 
-Add the following dependency to `pom.xml`
+Add the following dependencies to `pom.xml`
 
 ```xml
 <dependency>
     <groupId>io.javalin</groupId>
-    <artifactId>javalin</artifactId>
+    <artifactId>javalin-bundle</artifactId>
     <version>6.1.6</version>
+</dependency>
+
+<!-- This might not be needed -->
+<dependency>
+  <groupId>org.jetbrains.kotlin</groupId>
+  <artifactId>kotlin-stdlib</artifactId>
+  <version>1.9.0</version>
 </dependency>
 ```
 
@@ -48,7 +51,8 @@ public class App {
 
 ## Compile and run the app
 
-We can now either use VSCode to compile and run our server, or run it in the command line with the following command:
+We can now either use VSCode to compile and run our server, or run it in the
+command line with the following command:
 
 ::: code-group
 
@@ -81,7 +85,8 @@ We can now either use VSCode to compile and run our server, or run it in the com
 
 ## Make a request
 
-Now we can make a `GET` request to `localhost:8080/hello` to see the server return a message.
+Now we can make a `GET` request to `localhost:8080/hello` to see the server
+return a message.
 
 ::: code-group
 
