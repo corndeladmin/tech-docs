@@ -1,10 +1,6 @@
 # Syncing clients
 
-Now that we can make a web socket server, how do we send messages between
-clients?
-
-In this guide, we will make a simple application in which a connected client
-sends a message, and all other clients will receive the message.
+<Vimeo id="1010811238" />
 
 ## Setting up the server
 

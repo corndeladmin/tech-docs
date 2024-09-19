@@ -1,10 +1,6 @@
 # Web socket servers
 
-A web socket server enables a live, real-time connection between the client
-(e.g. web browser) and server.
-
-Most importantly, this is a two-way connection, so the server can send messages
-to the client without the client needing to make a GET request.
+<Vimeo id="1010811222" />
 
 ::: info
 
