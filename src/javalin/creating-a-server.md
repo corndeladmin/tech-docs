@@ -1,10 +1,12 @@
 # Creating a server
 
+<Vimdeo id="1012077168" />
+
 ## Project setup
 
 ### Add the Javalin dependency
 
-Add the following dependencies to `pom.xml`
+Add the following dependency to `pom.xml`
 
 ```xml
 <dependency>
@@ -12,14 +14,50 @@ Add the following dependencies to `pom.xml`
     <artifactId>javalin-bundle</artifactId>
     <version>6.1.6</version>
 </dependency>
+```
 
-<!-- This might not be needed -->
+### Configure Exec Maven
+
+If using the `exec-maven-plugin`, make sure it is pointing at the app
+entrypoint, e.g. `com.bleeter.App`
+
+::: details
+
+```xml
+<plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>exec-maven-plugin</artifactId>
+  <version>3.0.0</version>
+  <configuration>
+    <mainClass>com.bleeter.App</mainClass>
+  </configuration>
+</plugin>
+```
+
+:::
+
+### Optional dependencies
+
+In case there are any errors, there are an extra couple of dependencies you may
+need to include explicitly:
+
+::: details
+
+```xml
 <dependency>
   <groupId>org.jetbrains.kotlin</groupId>
   <artifactId>kotlin-stdlib</artifactId>
   <version>1.9.0</version>
 </dependency>
+
+<dependency>
+  <groupId>ch.qos.logback</groupId>
+  <artifactId>logback-classic</artifactId>
+  <version>1.2.11</version>
+</dependency>
 ```
+
+:::
 
 ## Configure the app
 
@@ -31,19 +69,18 @@ package com.corndel.bleeter;
 import io.javalin.Javalin;
 
 public class App {
-  private Javalin app;
-
   public static void main(String[] args) {
-    var javalin = new App().javalinApp();
-    javalin.start(8080);
+    var app = createApp();
+    app.start(5000);
   }
 
-  public App() {
-    app = Javalin.create();
-    app.get("/hello", ctx -> ctx.result("Welcome to the Bleeter server!"));
-  }
+  public static Javalin createApp() {
+    var app = Javalin.create();
 
-  public Javalin javalinApp() {
+    app.get("/hello", ctx -> {
+      ctx.result("Hello Bleeter!");
+    });
+
     return app;
   }
 }
@@ -57,7 +94,7 @@ command line with the following command:
 ::: code-group
 
 ```bash
-./mvnw clean compile exec:java -Dexec.mainClass=com.corndel.bleeter.App
+mvn clean compile exec:java
 ```
 
 ```console [output]
@@ -91,11 +128,11 @@ return a message.
 ::: code-group
 
 ```bash
-curl localhost:8080/hello
+curl localhost:5000/hello
 ```
 
 ```console [output]
-Welcome to the Bleeter server!
+Hello Bleeter!
 ```
 
 :::

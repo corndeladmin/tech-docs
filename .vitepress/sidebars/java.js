@@ -82,12 +82,12 @@ export const java = [
       { text: 'Private members', link: '/java/private-members' },
       { text: 'Static members', link: '/java/static-members' },
       { text: 'Inheritance', link: '/java/inheritance' },
-      { text: 'Interfaces', link: '/java/interfaces' },
-      {
-        text: 'Design patterns',
-        collapsed: true,
-        items: [{ text: 'qq', link: '/java/qq' }]
-      }
+      { text: 'Interfaces', link: '/java/interfaces' }
+      // {
+      //   text: 'Design patterns',
+      //   collapsed: true,
+      //   items: [{ text: 'qq', link: '/java/qq' }]
+      // }
     ]
   },
 
@@ -115,11 +115,5 @@ export const java = [
       { text: 'HTTP GET requests', link: '/java/http-get' },
       { text: 'HTTP POST requests', link: '/java/http-post' }
     ]
-  },
-
-  {
-    text: 'Asynchronous code',
-    collapsed: true,
-    items: [{ text: 'qq', link: '/java/qq' }]
   }
 ]
