@@ -22,18 +22,13 @@ src
 
 ## Using `config.staticFiles.add()`
 
-We instruct our javalin app to serve files from `public` using `config.staticFiles.add()`.
+We instruct our javalin app to serve files from `public` using
+`config.staticFiles.add()`.
 
-```java{6-9}
-public class App {
-  public Javalin app;
-
-  public App() {
-    app = Javalin.create(
-        config -> {
-          config.staticFiles.add("/public", Location.CLASSPATH);
-        });
-  }
+```java
+var app = Javalin.create(config -> {
+  // set up static files
+  config.staticFiles.add("/public", Location.CLASSPATH);
 }
 ```
 
