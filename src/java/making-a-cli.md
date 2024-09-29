@@ -91,7 +91,7 @@ our class.
 @Command(name = "healthtracker", description = "A CLI health tracker")
 public class App implements Runnable {
 
-  @Parameters(index = "0", description = "The name to greet")
+  @Parameters(index = "0", description = "The name to greet", defaultValue = "User")
   private String name;
 
   @Override
@@ -116,3 +116,10 @@ Now the user can pass their name to the CLI to get a more personalised message.
 
 Welcome, Magnus! Please specify a command.
 ```
+
+::: tip
+
+Note that we have include the `defaultValue` in the `@Parameter` field. If no
+name is given, this default value will be used instead.
+
+:::

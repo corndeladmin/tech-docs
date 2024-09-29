@@ -1,55 +1,55 @@
 # Using loops
 
-<Vimeo id="936176206" />
+<Vimeo id="1" />
 
-## Passing an array
+## Inserting data
 
-It is a very common scenario to pass an array of objects to our template.
-
-```js
-app.get('/bleets', async (req, res) => {
-  const bleets = await Bleet.findAll() // bleets is an array
-  res.render('bleets', { bleets })
-})
-```
-
-This renders the `bleets.ejs` template with access to the array of `bleets` from
-the database.
-
-## Rendering lists
-
-In our view, we can use EJS to render the list using a `for`/`of` loop.
+Use `th:text` to insert and escape text data.
 
 ```html
-<ol>
-  <% for (let bleet of bleets) { %>
-  <li>
-    <%= bleet.content.slice(0, 10) + '...' %>
-    <a href="<%= `/bleets/${bleet.id}` %>">Read more</a>
-  </li>
-  <% } %>
-</ol>
+<!-- Escaped text -->
+<p th:text="${x + y}"></p>
 ```
 
-::: tip
+Use `th:utext` for unescaped text (e.g., when you want to render HTML from the
+data)
 
-It is not necessary to use `<ol>` or `<ul>` when rendering lists - you can use
-this looping pattern to render any html you like.
+```html
+<!-- Unescaped HTML content -->
+<p th:utext="${htmlContent}"></p>
+```
+
+::: danger
+
+You should always escape content unless you are certain its safe. Anything from
+userland should always be escaped. Failing to do so can expose your site to
+hackers.
 
 :::
 
-::: info
+## Attribute replacement
 
-The `<% %>` tags interpolate javascript into the template without displaying
-anything in the view. This is often used to start and end loops, or to do
-conditional rendering such as
+Replace attributes like `href`, `src`, etc. This allows us to insert parameters.
 
 ```html
-<% if (condition) { %>
-<p>Condition is true!</p>
-<% } else { %>
-<p>Condition is false!</p>
-<% } %>
+<a th:href="@{/bleets/{id}(id=${bleetId})}">View bleet</a>
 ```
 
-:::
+## Conditional rendering
+
+Use `th:if` to conditionally include elements
+
+```html
+<p th:if="${user.loggedIn}">Welcome, user!</p>
+<p th:unless="${!user.loggedIn}">Please log in.</p>
+```
+
+## Iteration
+
+Loop through collections to dynamically generate elements.
+
+```html
+<ul>
+  <li th:each="bleet : ${bleets}" th:text="${bleet.content}"></li>
+</ul>
+```

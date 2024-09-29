@@ -2,71 +2,55 @@
 
 <Vimeo id="1008127386" />
 
-## Making a body
+## Creating a body
 
-Often, when we want to make a POST request, we need to send a body as part of
-the request.
+Post requests often include a body. For example, we want to send JSON which
+looks like this:
 
-One way to do this "on the fly" is by using Jackson's `ObjectNode` helper.
-
-```java
-ObjectMapper objectMapper = new ObjectMapper();
-ObjectNode jsonObject = objectMapper.createObjectNode();
-jsonObject.put("query", "Swimming for 30m");
+```json
+{
+  "query": "Swimming 30 m"
+}
 ```
 
-This creates a JSON object which we can pass to
-`HttpRequest.BodyPublishers.ofString(jsonObject)` to construct the POST
-request's body.
-
-## Constructing the request
-
-We construct the request by setting headers and inserting the body.
+We can make a class with the correct shape
 
 ```java
-HttpRequest request = HttpRequest.newBuilder()
-    .uri(uri)
-    .header("Content-Type", "application/json")
-    .header("x-app-id", dotenv.get("NUTRITIONIX_ID"))
-    .header("x-app-key", dotenv.get("NUTRITIONIX_KEY"))
-    .POST(HttpRequest.BodyPublishers.ofString(jsonString))
-    .build();
+class Query {
+  public String query;
+
+  public Query(String str) {
+    this.query = str;
+  }
+}
 ```
+
+Unirest can then use Jackson in the background to convert `Query` objects into
+JSON.
 
 ## Sending the request
 
-We send the request using a `HttpClient`. Here is the full code.
+To send the post request, we can use Unirest.
 
 ```java
-public static String fetchCalories() throws Exception {
-  Dotenv dotenv = Dotenv.load();
+String url = "https://trackapi.nutritionix.com/v2/natural/exercise";
+Query query = new Query("Swimming 30 m");
 
-  // Create a json for the body
-  ObjectMapper objectMapper = new ObjectMapper();
-  ObjectNode jsonObject = objectMapper.createObjectNode();
-  jsonObject.put("query", "Swimming for 30m");
-  String jsonString = objectMapper.writeValueAsString(jsonObject);
+var response = Unirest.post(url)
+    .header("Content-Type", "application/json")
+    .header("x-app-id", dotenv.get("NUTRITIONIX_ID"))
+    .header("x-app-key", dotenv.get("NUTRITIONIX_KEY"))
+    .body(query)
+    .asString();
 
-  URI uri = new URI("https://trackapi.nutritionix.com/v2/natural/exercise");
-
-  HttpRequest request = HttpRequest.newBuilder()
-      .uri(uri)
-      .header("Content-Type", "application/json")
-      .header("x-app-id", dotenv.get("NUTRITIONIX_ID"))
-      .header("x-app-key", dotenv.get("NUTRITIONIX_KEY"))
-      .POST(HttpRequest.BodyPublishers.ofString(jsonString))
-      .build();
-
-  HttpClient client = HttpClient.newHttpClient();
-  HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
-  return response.body();
-}
+return response.getBody();
 ```
 
 ## Parsing complex JSON
 
-If you get some complex JSON like this
+We get a complex JSON, but all we want is the value of `"nf_calories"`.
+
+::: details
 
 ```json
 {
@@ -91,15 +75,25 @@ If you get some complex JSON like this
 }
 ```
 
-and you just want the value of `nf_calories`, you can use Jackson's `.readTree`
-method like this:
+:::
+
+We can use Jackson's `.readTree()` method to turn a string of JSON into an
+object dynamically.
+
+```java{6}
+String json = response.getBody();
+ObjectMapper mapper = new ObjectMapper();
+var tree = mapper.readTree(json);
+```
+
+This allows us to walk through the JSON and pick out the bits we need.
 
 ```java
-ObjectMapper objectMapper = new ObjectMapper();
+int calories = tree
+    .get("exercises")
+    .get(0)
+    .get("nf_calories")
+    .asInt();
 
-objectMapper.readTree(jsonResponse)
-  .path("exercises")
-  .get(0)
-  .path("nf_calories")
-  .asInt();
+return calories;
 ```
