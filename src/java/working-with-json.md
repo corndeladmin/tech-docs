@@ -94,6 +94,21 @@ ObjectMapper objectMapper = new ObjectMapper();
 Exercise exercise = objectMapper.readValue(json, Exercise.class);
 ```
 
+### JSON keys
+
+If you find that the keys in the JSON don't match up with the keys in the object
+you're mapping to, you can use a special decorator.
+
+```java
+class Exercise {
+  @JsonProperty("Name")
+  private String activity;
+}
+```
+
+Now, parsing a JSON which has `{ "Name": "swimming" }` will map `swimming` into
+the `activity` property of the `Exercise` class.
+
 ## JSON Lists
 
 JSON supports list like structures.

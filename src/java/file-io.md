@@ -78,8 +78,8 @@ public void writeLine(String line) throws IOException {
 
 ## CSV
 
-We can use split and join to work with CSV files. We add some utility methods to
-our `Meal` class.
+We can use [split and join](/java/string-split-join) to work with CSV files. We
+add some utility methods to our `Meal` class.
 
 ```java
 public static Meal fromCSV(String row) {
