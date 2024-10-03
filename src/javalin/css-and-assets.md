@@ -1,35 +1,38 @@
 # CSS and assets
 
-<Vimeo id="936624461" />
+<Vimeo id="1015733171" />
+
+::: tip
+
+If your assets aren't loading, try adding leading slash, so `/logo.png` instead
+of `logo.png`.
+
+:::
 
 ## Including assets
 
-With static file serving set up, you are able to access assets in the
-`public folder` from within your views. Suppose you have an image stored at
-`public/images/logo.png`. You can display it in your views like this:
+With static file serving set up, it's very easy to include assets from the
+public folder in our views.
 
-```html{6} [index.ejs]
-<%- include('partials/header') %>
+For example,
 
-<h1>Welcome to Bleeter</h1>
-<h2>Follow the herd</h2>
-
-<img src="/images/logo.png" alt="Bleeter logo" width="150">
-
-<%- include('partials/footer') %>
+```html
+<img src="logo.png" alt="The Bleeter Logo" />
 ```
+
+will look for `logo.png` inside the `public` folder.
 
 ## Applying CSS
 
 To apply CSS to your files, create a `.css` file in your public folder. For
-example, `public/css/index.css`. To apply it, simply include in your HTML
-`<head>` as normal:
+example, `public/css/style.css`. To apply it, include in your HTML `<head>` as
+normal:
 
-```html{4} [header.ejs]
+```html{4}
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/index.css">
-  <title>Bleeter | <%= title %></title>
+  <link rel="stylesheet" href="css/style.css">
+  <title>Bleeter</title>
 </head>
 ```
