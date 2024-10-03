@@ -1,5 +1,7 @@
 # Static files
 
+<vimeo id="1015232498" />
+
 ## Serving static files
 
 Until now, we have been using our server to send back data such as strings or

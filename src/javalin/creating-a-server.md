@@ -1,6 +1,6 @@
 # Creating a server
 
-<Vimdeo id="1012077168" />
+<Vimeo id="1012077168" />
 
 ## Project setup
 
