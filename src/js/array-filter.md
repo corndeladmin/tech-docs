@@ -12,7 +12,7 @@ array.
 ```js
 const pageNumbers = [300, 150, 120, 500, 250]
 
-const shortBooks = pageNumbers.map(num => num < 200)
+const shortBooks = pageNumbers.filter(num => num < 200)
 console.log(shortBooks)
 ```
 
