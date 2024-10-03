@@ -1,6 +1,6 @@
 # Using loops
 
-<Vimeo id="1" />
+<Vimeo id="1015232378" />
 
 ## Inserting data
 
@@ -27,7 +27,19 @@ hackers.
 
 :::
 
+## Iteration
+
+Loop through collections to dynamically generate elements.
+
+```html
+<ul>
+  <li th:each="bleet : ${bleets}" th:text="${bleet.content}"></li>
+</ul>
+```
+
 ## Attribute replacement
+
+<Vimeo id="1015232333" />
 
 Replace attributes like `href`, `src`, etc. This allows us to insert parameters.
 
@@ -37,19 +49,11 @@ Replace attributes like `href`, `src`, etc. This allows us to insert parameters.
 
 ## Conditional rendering
 
+<Vimeo id="1015258140" />
+
 Use `th:if` to conditionally include elements
 
 ```html
 <p th:if="${user.loggedIn}">Welcome, user!</p>
-<p th:unless="${!user.loggedIn}">Please log in.</p>
-```
-
-## Iteration
-
-Loop through collections to dynamically generate elements.
-
-```html
-<ul>
-  <li th:each="bleet : ${bleets}" th:text="${bleet.content}"></li>
-</ul>
+<p th:if="${!user.loggedIn}">Please log in.</p>
 ```
