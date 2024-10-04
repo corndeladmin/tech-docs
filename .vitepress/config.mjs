@@ -21,6 +21,7 @@ export default defineConfig({
     sidebar: {
       '/bash/': sidebars.bash,
       '/express/': sidebars.express,
+      '/flask/': sidebars.flask,
       '/git/': sidebars.git,
       '/javalin/': sidebars.javalin,
       '/html-css/': sidebars.htmlCss,
