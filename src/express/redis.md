@@ -5,7 +5,7 @@
 There are a few ways of
 [installing Redis itself](https://redis.io/docs/latest/operate/oss_and_stack/install/).
 
-::: [TIP]
+::: tip
 
 Note that Redis is a lightweight version, whereas Redis Stack contains more
 features.
