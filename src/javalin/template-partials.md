@@ -1,5 +1,7 @@
 # Template partials
 
+<Vimeo id="1023782926" />
+
 ## Configuring Thymeleaf
 
 Before using fragments, we need to configure Thymeleaf.
