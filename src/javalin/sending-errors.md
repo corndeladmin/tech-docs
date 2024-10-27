@@ -67,39 +67,3 @@ app.exception(Exception.class, (e, ctx) -> {
   ctx.result("An unkown error occurred.");
 });
 ```
-
-<!-- RedirectResponse
-Returns a 302 Found response with the default title Redirected.
-
-BadRequestResponse
-Returns a 400 Bad Request response with the default title Bad request.
-
-UnauthorizedResponse
-Returns a 401 Unauthorized response with the default title Unauthorized.
-
-ForbiddenResponse
-Returns a 403 Forbidden response with the default title Forbidden.
-
-NotFoundResponse
-Returns a 404 Not Found response with the default title Not found.
-
-MethodNotAllowedResponse
-Returns a 405 Method Not Allowed response with the default title Method not allowed.
-
-ConflictResponse
-Returns a 409 Conflict response with the default title Conflict.
-
-GoneResponse
-Returns a 410 Gone response with the default title Gone.
-
-InternalServerErrorResponse
-Returns a 500 Internal Server Error response with the default title Internal server error.
-
-BadGatewayResponse
-Returns a 502 Bad Gateway response with the default title Bad gateway.
-
-ServiceUnavailableResponse
-Returns a 503 Service Unavailable response with the default title Service unavailable.
-
-GatewayTimeoutResponse
-Returns a 504 Gateway Timeout response with the default title Gateway timeout. -->
