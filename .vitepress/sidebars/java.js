@@ -82,12 +82,17 @@ export const java = [
       { text: 'Private members', link: '/java/private-members' },
       { text: 'Static members', link: '/java/static-members' },
       { text: 'Inheritance', link: '/java/inheritance' },
-      { text: 'Interfaces', link: '/java/interfaces' }
-      // {
-      //   text: 'Design patterns',
-      //   collapsed: true,
-      //   items: [{ text: 'qq', link: '/java/qq' }]
-      // }
+      { text: 'Interfaces', link: '/java/interfaces' },
+      {
+        text: 'Design patterns',
+        collapsed: true,
+        items: [
+          { text: 'Singleton pattern', link: '/java/singleton-pattern' },
+          { text: 'Adapter pattern', link: '/java/adapter-pattern' },
+          { text: 'Facade pattern', link: '/java/facade-pattern' },
+          { text: 'Mediator pattern', link: '/java/mediator-pattern' }
+        ]
+      }
     ]
   },
 
