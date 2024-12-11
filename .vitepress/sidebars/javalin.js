@@ -54,5 +54,22 @@ export const javalin = [
       { text: 'CSS and assets', link: '/javalin/css-and-assets' },
       { text: 'User input', link: '/javalin/user-input' }
     ]
+  },
+  {
+    text: 'Web sockets',
+    items: [
+      {
+        text: 'Creating a web socket server',
+        link: '/javalin/web-socket-server'
+      },
+      {
+        text: 'Syncing clients',
+        link: '/javalin/syncing-clients'
+      },
+      {
+        text: 'Creating a web socket client',
+        link: '/javalin/web-socket-client'
+      }
+    ]
   }
 ]
