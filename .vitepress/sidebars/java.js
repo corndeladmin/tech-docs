@@ -90,7 +90,8 @@ export const java = [
           { text: 'Singleton pattern', link: '/java/singleton-pattern' },
           { text: 'Adapter pattern', link: '/java/adapter-pattern' },
           { text: 'Facade pattern', link: '/java/facade-pattern' },
-          { text: 'Mediator pattern', link: '/java/mediator-pattern' }
+          { text: 'Mediator pattern', link: '/java/mediator-pattern' },
+          { text: 'Event emitter', link: '/java/event-emitter' }
         ]
       }
     ]
