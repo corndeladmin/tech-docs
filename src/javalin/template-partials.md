@@ -1,180 +1,87 @@
 # Template partials
 
-## The problem
+<Vimeo id="1023782926" />
 
-Many pages in a website might share the same content. For example, our views
-might look like this (the repeated content has been highlighted):
+## Configuring Thymeleaf
 
-::: code-group
+Before using fragments, we need to configure Thymeleaf.
 
-```html{1-9,12-13} [index.jte]
-@import bleeter.models.Page
-@param Page page
+```java
+var resolver = new ClassLoaderTemplateResolver();
+resolver.setPrefix("/templates/");
+resolver.setSuffix(".html");
+resolver.setTemplateMode("HTML");
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bleeter | ${page.title}</title>
-  </head>
-
-  <body>
-    <h1>Welcome to Bleeter</h1>
-    <h2>Follow the herd</h2>
-  </body>
-</html>
+var engine = new TemplateEngine();
+engine.setTemplateResolver(resolver);
 ```
 
-```html{1-9,20-21} [bleets.jte]
-@import java.util.List
-@import bleeter.models.Page
-@import bleeter.models.Bleet
-@param Page page
-@param List<Bleet> bleets
+Now, we pass this `engine` object when we're registering Thymeleaf as a file
+renderer:
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bleeter | ${page.title}</title>
-  </head>
-
-  <body>
-    <h1>Bleets</h1>
-    <ol>
-      @for(var bleet : bleets)
-      <!-- use bleet -->
-      <li>
-        ${bleet.content.substring(0, 10)}...
-        <a href="/bleets/${bleet.id}">Read more</a>
-      </li>
-      @endfor
-    </ol>
-  </body>
-</html>
+```java
+config.fileRenderer(new JavalinThymeleaf(engine));
 ```
 
-```html{1-9,13-14} [bleet.jte]
-@import bleeter.models.Page
-@import bleeter.models.Bleet
-@param Page page
-@param Bleet bleet
+Finally, we remove the `"/templates"` prefix from our handlers:
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bleeter | ${page.title}</title>
-  </head>
-
-  <body>
-    <h1>A bleet</h1>
-    <p>${bleet.content}</p>
-    <p>${bleet.createdAt}</p>
-  </body>
-</html>
+```java{3}
+public class HomeController {
+  public static void renderHome(Context ctx) {
+    ctx.render("index.html");
+  }
+}
 ```
 
-:::
+## Defining fragments
 
-This is a problem, because if we need to make a change to the shared parts of
-each view, we need to update each view individually, which is extra work and an
-opportunity for mistakes.
+We can create reusable snippets of HTML and insert them into our templates. This
+reduces code duplication.
 
-## Template calls
-
-We can create partial templates and use them in our views.
-
-The directory structure might look like this:
-
-```txt
-templates/
-├── bleet.ejs
-├── bleets.ejs
-├── index.ejs
-└── partials
-    ├── footer.ejs
-    └── header.ejs
+```html
+<!-- templates/fragments.html -->
+<footer th:fragment="footer">
+  <div>Copyright Bleeter Inc.</div>
+</footer>
 ```
 
-We will put the repeated HTML into the partial templates.
+## Using fragments
 
-::: code-group
+We can use fragments throughout our templates:
 
-```html [header.ejs]
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bleeter | <%= title %></title>
-  </head>
+```html{5}
+<!-- index.html -->
+<body>
+  <h1>Welcome to Bleeter!</h1>
 
-  <body>
+  <div th:replace="fragments :: footer"></div>
+</body>
 ```
 
-```html [footer.ejs]
-  </body>
-</html>
+The entire div will be replaced with the `<footer>` fragment.
+
+## Passing data
+
+We can pass data into our fragments to make them more flexible.
+
+```html
+<!-- fragments.html -->
+<header th:fragment="header(title)">
+  <h1 th:text="${title}">Default</h1>
+</header>
 ```
 
-:::
+Then when we use them in the template, we pass an argument for title:
 
-## Using partials
+```html{3}
+<!-- index.html -->
+<body>
+  <div th:replace="fragments :: header('Welcome to bleeter')"></div>
 
-To use the partial templates in our views, we use the EJS `include` function.
+  <main>
+    <!-- other content here -->
+  </main>
 
-::: code-group
-
-```html [index.ejs]
-<%- include('partials/header') %>
-
-<h1>Welcome to Bleeter</h1>
-<h2>Follow the herd</h2>
-
-<%- include('partials/footer') %>
+  <div th:replace="fragments :: footer"></div>
+</body>
 ```
-
-```html [bleets.ejs]
-<%- include('partials/header') %>
-
-<h1>Bleets</h1>
-<ol>
-  <% for (let bleet of bleets) { %>
-  <!-- use bleet -->
-  <li>
-    <%= bleet.content.slice(0, 10) + '...' %>
-    <a href="<%= `/bleets/${bleet.id}` %>">Read more</a>
-  </li>
-  <% } %>
-</ol>
-
-<%- include('partials/footer') %>
-```
-
-```html [bleet.ejs]
-<%- include('partials/header') %>
-
-<h1>A bleet</h1>
-<p><%= bleet.content %></p>
-<p><%= bleet.createdAt %></p>
-
-<%- include('partials/footer') %>
-```
-
-:::
-
-::: danger
-
-When rendering untrusted content such as user input (including input stored in the database), always use `<%= %>` and not `<%- %>`. The ensures that the HTML content is escaped and prevents [XSS attacks](https://learn.snyk.io/lesson/xss/).
-
-:::
-
-::: info
-
-Partials have access to the data of their parent! So, for example, the `title` which is passed to the `index.ejs` template is available in the `header.ejs` partial.
-
-:::

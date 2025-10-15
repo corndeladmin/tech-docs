@@ -1,14 +1,19 @@
 # Request and response
 
+<Vimeo id="1012077106" />
+
 ## Request and response
 
 There are several ways to send extra information as part of the request and
 response. These include:
 
 - Query params: parts of the url such as `?x=7&y=cool`
+
 - URL params: dynamic parts of the endpoint, such as the `7` in `/users/7`
+
 - Headers: Meta information about the request or response which is part of the
   HTTP standard
+
 - Body: Complex, structured data which accompanies the request or response
 
 ## HTTP tools
@@ -21,7 +26,8 @@ these requests in production.
 
 ## Sending and receiving JSON
 
-Sending JSON is relatively simple if we're happy with exposing the public fields and getters.
+Sending JSON is relatively simple if we're happy with exposing the public fields
+and getters.
 
 ::: code-group
 

@@ -1,19 +1,19 @@
 # User input
 
-<Vimeo id="936455345" />
+<Vimeo id="1015732200" />
 
 ## Creating a form
 
 We create a view which displays a form to the user.
 
-```js
+```html
+<!-- bleets/new.html -->
 <form action="/bleets" method="POST">
-
   <label for="userId">User ID</label>
-  <input type="text" id="userId" name="userId">
+  <input type="number" name="userId" id="userId" />
 
   <label for="content">Content</label>
-  <textarea name="content" id="content" cols="30" rows="10"></textarea>
+  <textarea name="content" id="content"></textarea>
 
   <button type="submit">Bleet it!</button>
 </form>
@@ -22,8 +22,7 @@ We create a view which displays a form to the user.
 ::: info
 
 The `name` attribute of the inputs determines the key once the form data is
-parsed into a javascript object on the server. This form would result in an
-object with keys of `userId` and `content`.
+parsed on the server. This form would result in keys of `userId` and `content`.
 
 :::
 
@@ -31,48 +30,37 @@ object with keys of `userId` and `content`.
 
 We need to create a controller which renders the form for the user to complete.
 
-```js
-web.get('/bleets/new', (req, res) => {
-  res.render('bleets/new', { title: 'Create a bleet' })
-})
+```java
+// BleetController.java
+public static void renderForm(Context ctx) {
+  ctx.render("bleets/new.html");
+}
 ```
-
-::: warning
-
-This controller must be placed _above_ the `/bleets/:id` endpoint controller. If
-not, then `/bleets/new` will match the `bleets/:id` pattern, and the string
-`new` will be interpreted as the `id` of a bleet and passed to the wrong
-controller!
-
-:::
-
-## Parsing form data
-
-We must configure the app to properly parse form data into a javascript object
-and make it available on the `req.body`.
-
-```js [app.js]
-app.use(express.urlencoded({ extended: true }))
-```
-
-::: warning
-
-This must occur _before_ any of the web routes are attached to the `app`.
-
-:::
 
 ## Handling the post request
 
-The form submit a `POST` request to the `/bleets` endpoint. We must create a
-controller for this:
+The form submits a `POST` request to the `/bleets` endpoint. We must create a
+handler for this:
 
-```js
-app.post('/bleets', async (req, res) => {
-  const { content, userId } = req.body
-  await Bleet.create(content, userId)
-  res.redirect('/bleets')
-})
+```java
+// BleetController.java
+public static void handleForm(Context ctx) throws Exception {
+  // get the userId
+  int userId = ctx.formParamAsClass("userId", Integer.class).get();
+
+  // get and validate the content
+  String content = ctx.formParamAsClass("content", String.class)
+      .check(data -> data.length() < 140, "Content must be less than 140 characters")
+      .get();
+
+  // create the bleet
+  BleetRepository.create(userId, content);
+
+  // redirect
+  ctx.status(201);
+  ctx.redirect("/bleets");
+}
 ```
 
-The `res.redirect('/bleets')` sends to browser to the `/bleets` page on
+The `ctx.redirect('/bleets')` sends to browser to the `/bleets` page on
 successful submission.

@@ -1,42 +1,68 @@
 # Body and headers
 
+<Vimeo id="1012076918" />
+
 ## Headers
 
-When we send a request, the headers are available in the backend as `ctx.header(String)`.
+When we send a request, the headers are available in the backend on
+`ctx.header()`. For example, to look at the `Accept-Language` property in the
+request's headers, we do
 
-## Endpoints with body
+```java
+ctx.header("Accept-Language"); // en-GB,en-US;q=0.9,en;q=0.8
+```
 
-### Accessing the body text
+## Body
 
-### Form data
+When we send a request with a JSON body, we can use
+`ctx.bodyAsClass(Some.class)` to parse the JSON into an object using a class.
 
-### JSON
+::: info
 
-When we send a request with a JSON body, we can use `ctx.bodyAsClass(Some.class)` to parse the JSON into an object using a class.
+The `.bodyAsClass` method uses Jackson under the hood, so everything we learned
+in [working with json](/java/working-with-json) can be applied.
+
+:::
+
+## Converting from JSON
+
+In order to represent the JSON from the body in Java, we could use a class, such
+as
+
+```java
+class UserRequest {
+  public String username;
+  public boolean verified;
+
+  public UserRequest(String username, boolean verified) {
+    this.username = username;
+    this.verified = verified;
+  }
+}
+```
+
+However, we can make this shorter by using a `record`
+
+```java
+record UserRequest(String username, Boolean verified) {}
+```
+
+This makes an immutable class with getters and setters defined for us
+automatically.
+
+## Creating the endpoint
+
+We listen for `post` requests like this:
 
 ::: code-group
 
 ```java{8-10,13-18} [server]
-public class App {
-  private Javalin app;
-
-  public App() {
-    app.post(
-        "/users",
-        ctx -> {
-          var body = ctx.bodyAsClass(UserRequestBody.class);
-          var newUser = UserRepository.create(body.username, body.verified);
-          res.status(HttpStatus.CREATED).json(newUser);
-        });
-  }
-
-  class UserRequestBody {
-    public String username;
-    public boolean verified;
-
-    public UserRequestBody() {}
-  }
-}
+app.post("/users", (ctx) -> {
+  UserRequest body = ctx.bodyAsClass(UserRequest.class);
+  User user = UserRepository.create(body.username(), body.verified());
+  ctx.status(201); // created
+  ctx.json(user);
+});
 ```
 
 ```bash{3} [client]
@@ -65,8 +91,6 @@ curl -v -X POST http://localhost:8080/users \
 ```
 
 :::
-
-Since the `ctx.bodyAsClass()` method uses the Jackson ObjectMapper under the hood, it needs a default constructor. It will then fill in the public fields that match betwwen the class and the JSON body.
 
 ::: tip
 

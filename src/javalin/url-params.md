@@ -1,38 +1,46 @@
 # URL params
 
+<Vimeo id="1012076977" />
+
 ## URL structure
 
 To make parts of the url dynamic in Javalin, we can use curly braces like so:
 
 ```java {1}
 app.get("/users/{x}/{y}/{z}", ctx -> {
-  var x = ctx.pathParam("x"); 
-  var y = ctx.pathParam("y"); 
-  var z = ctx.pathParam("z"); 
+  var x = ctx.pathParam("x");
+  var y = ctx.pathParam("y");
+  var z = ctx.pathParam("z");
 
-  var hashMap = new HashMap<String, String>();
-
-  hashMap.put("x", x);
-  hashMap.put("y", y);
-  hashMap.put("z", z);
-
-  ctx.json(hashMap);
-})
+  System.out.println(x);
+  System.out.println(y);
+  System.out.println(z);
+});
 ```
 
-Now, a `GET` request to `/users/3/awesome/true` would respond with:
+Now, a `GET` request to `/users/3/awesome/true` would make the server log:
 
 ```
-{
-  "x": "3",
-  "y": "awesome",
-  "z": "true"
-}
+3
+awesome
+true
 ```
+
+::: warning
+
+Note that these are all strings. We need to parse them to use them as their
+intended data type, e.g.
+
+```java
+var z = Boolean.parseBoolean(ctx.pathParam("z"));
+```
+
+:::
 
 ## Using URL params
 
-A practical application of URL params is to create dynamic endpoints, where users of the API can request particular rows from a table.
+A practical application of URL params is to create dynamic endpoints, where
+users of the API can request particular rows from a table.
 
 ::: code-group
 
@@ -63,3 +71,12 @@ app.get("/users/{userId}", ctx -> {
 ```
 
 :::
+
+Note that we could respond with a `404 Not Found` in case there is no such user:
+
+```java
+if (user == null) {
+  ctx.status(404);
+  return;
+}
+```

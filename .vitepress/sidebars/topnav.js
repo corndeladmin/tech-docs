@@ -83,6 +83,15 @@ export const topnav = [
             link: '/javalin/'
           }
         ]
+      },
+      {
+        text: 'Python',
+        items: [
+          {
+            text: 'Flask',
+            link: '/flask/'
+          }
+        ]
       }
     ]
   },

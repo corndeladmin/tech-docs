@@ -1,11 +1,15 @@
 # Installation
 
+<Vimeo id="1007370301" />
+
 ## Installing Java
+
+### Windows (WSL) and Linux
 
 1. Update your package index
 
 ```bash
-sudo apt update
+sudo apt update && sudo apt upgrade -y
 ```
 
 2. Install Java 21
@@ -14,24 +18,61 @@ sudo apt update
 sudo apt install openjdk-21-jdk
 ```
 
-3. Verify the installation
+3. Verify Java (you might need to restart your terminal first)
 
 ```bash
 java -version
 ```
 
-## Configuring VS Code
+4. Install Maven
 
-Install the
-[Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).
+```bash
+sudo apt install maven
+```
+
+5. Verify Maven (you might need to restart your terminal first)
+
+```
+mvn -v
+```
+
+### Mac
+
+1. Install Java
+
+```bash
+brew install openjdk@21
+```
+
+2. Verify Java
+
+```bash
+java -version
+```
+
+3. Install Maven
+
+```bash
+brew install maven
+```
+
+4. Verify Maven
+
+```bash
+mvn -v
+```
+
+## Configuring VS Code
 
 1. Open VS Code
 
 2. Hit `Ctrl + Shift + X` to open the Extensions panel
 
-3. Search for "Java Extension Pack" and install it
+3. Search for "Extension Pack for Java" and install it
 
 ## Running your first Java code
+
+<Vimeo id="1007370285" />
 
 1. Create a folder to put your code into:
 

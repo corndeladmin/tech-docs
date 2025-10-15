@@ -64,7 +64,7 @@ this:
 
 ```js
 function getDiscountedPrices(bookPrices, discount) {
-  return bookPrices(price => price * discount)
+  return bookPrices.map(price => price * discount)
 }
 ```
 

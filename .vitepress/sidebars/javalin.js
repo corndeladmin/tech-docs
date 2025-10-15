@@ -12,8 +12,16 @@ export const javalin = [
         link: '/javalin/connecting-to-a-database'
       },
       {
-        text: 'Adding a model layer',
-        link: '/javalin/adding-a-model-layer'
+        text: 'Models and repositories',
+        collapsed: true,
+        items: [
+          { text: 'Querying for data', link: '/javalin/adding-a-model-layer' },
+          {
+            text: 'Querying with substitutions',
+            link: '/javalin/adding-a-model-layer-2'
+          },
+          { text: 'Inserting data', link: '/javalin/adding-a-model-layer-3' }
+        ]
       }
     ]
   },
@@ -21,7 +29,6 @@ export const javalin = [
     text: 'Creating an API',
     items: [
       { text: 'Creating a server', link: '/javalin/creating-a-server' },
-      { text: 'Routing and Controllers', link: '/javalin/routing' },
       {
         text: 'Request and response',
         link: '/javalin/request-response',
@@ -32,7 +39,9 @@ export const javalin = [
           { text: 'Body and headers', link: '/javalin/body-and-headers' }
         ]
       },
+      { text: 'Routing and Controllers', link: '/javalin/routing' },
       { text: 'Sending errors', link: '/javalin/sending-errors' },
+      { text: 'Schema validation', link: '/javalin/schema-validation' }
     ]
   },
   {
@@ -44,6 +53,23 @@ export const javalin = [
       { text: 'Template partials', link: '/javalin/template-partials' },
       { text: 'CSS and assets', link: '/javalin/css-and-assets' },
       { text: 'User input', link: '/javalin/user-input' }
+    ]
+  },
+  {
+    text: 'Web sockets',
+    items: [
+      {
+        text: 'Creating a web socket server',
+        link: '/javalin/web-socket-server'
+      },
+      {
+        text: 'Syncing clients',
+        link: '/javalin/syncing-clients'
+      },
+      {
+        text: 'Creating a web socket client',
+        link: '/javalin/web-socket-client'
+      }
     ]
   }
 ]

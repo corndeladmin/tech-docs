@@ -33,6 +33,17 @@ wsl --install
 This may take some time, but you should see a success message after a few
 minutes.
 
+::: info
+
+If the above command doesn't work, you might need to specify the WSL
+distribution as `Ubuntu`:
+
+```bash
+wsl --install -d Ubuntu
+```
+
+:::
+
 ### Launching WSL
 
 You will need to restart your computer. When it restarts, search for "Ubuntu" in

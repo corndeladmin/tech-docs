@@ -1,5 +1,7 @@
 # Data types
 
+<Vimeo id="1005489891" />
+
 ## Types in Java
 
 Java has several primitive data types, which are the basic types of data that
